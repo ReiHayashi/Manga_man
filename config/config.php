@@ -1,4 +1,5 @@
 <?php
+
 $db_server="localhost";
 $db_database="mangaman";
 $db_user="root";

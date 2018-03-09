@@ -1,4 +1,5 @@
-<?php include('header.php'); ?>
+<?php include("config/config.php"); ?>
+<?php include('includes/header.php'); ?>
 <!-- INDEX -->
 
 <section id="header">
@@ -165,4 +166,4 @@
 </div>
 </section>
 
-<?php include('footer.php'); ?>
+<?php include('includes/footer.php'); ?>
