@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Zud Juice";
+  src: url("css/fonts/ZUDJUICE.TTF"); }
+
+body {
+  font-family: 'Zud Juice', Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #2d9bad;
+  background-color: #000000; }
+
+.fa {
+  font-size: 30px;
+  color: #2d9bad; }
+
+.nav-link {
+  color: #2d9bad;
+  font-size: 24px; }
+
+#header {
+  background-color: #000000; }
+
+#header img {
+  width: 100%;
+  height: 50%;
+  background: cover; }
+
+#shop card{
+  background color: black;
+}
+
+#shop button{
+  color:black;
+}
