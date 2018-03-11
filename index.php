@@ -1,4 +1,3 @@
-<?php include("config/config.php"); ?>
 <?php include('includes/header.php'); ?>
 <!-- INDEX -->
 

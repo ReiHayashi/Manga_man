@@ -1,3 +1,4 @@
+<?php include("config/config.php"); ?>
 <!-- NAVBAR -->
 <html lang="en">
 <head>
@@ -27,6 +28,13 @@
               <li class="nav-item ml-3">
                   <a class="nav-link" href="#">Support</a>
               </li>
+              <?php
+              session_start();
+              if($_SESSION['aaa'] === 'admin') {?>
+              <li class="nav-item ml-3">
+                <a class="nav-link" href="admin.php">temp admin button</a>
+              </li>
+            <?php } else {} ?>
           </ul>
           <ul class="navbar-nav float-right">
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>

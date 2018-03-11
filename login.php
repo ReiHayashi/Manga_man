@@ -6,6 +6,14 @@
     <title>login</title>
   </head>
   <body>
+    <?php
+    session_start();
+    if($_SESSION['aaa'] === 'admin') {
+        header('Location: admin.php');
+    } elseif($_SESSION['aaa'] === 'user') {
+      header('Location: index.php');
+    }
+    ?>
     <form class="login" action="" method="POST">
       <input type="text" name="username" placeholder="Username"> <br>
       <input type="password" name="password" placeholder="Password"><br>
@@ -19,12 +27,14 @@
 
       if(password_verify($_POST['password']).$row['password']) {
         if($_POST['username'] == $row['username'] && $row['usertype']==1) {
+          session_start();
           $_SESSION['aaa']='admin';
           $_SESSION['name']=$row['username'];
           header('Location: admin.php');
           exit();
         }
         elseif($_POST['username'] == $row['username'] && $row['usertype']==0){
+          session_start();
           $_SESSION['aaa']='user';
           $_SESSION['name']=$row['username'];
           header('Location: index.php');

@@ -7,17 +7,17 @@
   </head>
   <body>
     <?php
-    require_once("login.php");
-    if($_SESSION['aaa'].equals('admin') === true) {
+    session_start();
+      if($_SESSION['aaa'] === 'admin') {
     ?>
-    <form action="addmange.php" method="POST">
-      <input type="text" name="Title" placeholder="Title" required>
-      <input type="text" name="Genre" placeholder="Genre" required>
-      <input type="text" name="Author" placeholder="Author" required>
-      <input type="number" name="Year" value="2000" min="1900" max="2099" required>
-      <input type="text" name="Price" placeholder="Price" required>
-      <input type="textarea" name="Description" placeholder="description here max 1000 characters" required>
-      <input type="submit" name="submit" value="Add manga to store" required>
+    <form action="addmanga.php" method="POST">
+      <input type="text" name="Title" placeholder="Title" required> <br>
+      <input type="text" name="Genre" placeholder="Genre" required> <br>
+      <input type="text" name="Author" placeholder="Author" required> <br>
+      <input type="number" name="Year" value="2000" min="1900" max="2099" required> <br>
+      <input type="text" name="Price" placeholder="Price" required> <br>
+      <input type="textarea" name="Description" placeholder="description here max 1000 characters" required> <br>
+      <input type="submit" name="submit" value="Add manga to store" required> <br>
     </form>
     <?php
     		if(isset($_POST['Title']) && isset($_POST['Genre']) && isset($_POST['Author']) && isset($_POST['Year']) &&
@@ -28,7 +28,14 @@
             $year = $_POST['Year'];
             $price = $_POST['Price'];
             $description = $_POST['Description'];
-
+            $query="INSERT INTO manga (manga_name, manga_genre, manga_creator, manga_year, manga_description, manga_price)
+            VALUES ('$title', '$genre', '$author', '$year', '$description', '$price')";
+            $result = mysqli_query($connection, $query);
+            if($result) {
+              echo "user created successfully.";
+            } else {
+              echo "user registration failed";
+            }
     		}
     } else {
       header('Location: index.php');
