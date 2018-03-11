@@ -32,9 +32,9 @@
             VALUES ('$title', '$genre', '$author', '$year', '$description', '$price')";
             $result = mysqli_query($connection, $query);
             if($result) {
-              echo "user created successfully.";
+              echo "manga has been added.";
             } else {
-              echo "user registration failed";
+              echo "manga has been failed to added.";
             }
     		}
     } else {
