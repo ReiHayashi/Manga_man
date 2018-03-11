@@ -6,7 +6,7 @@
 		<title>Register</title>
 	</head>
 	<body>
-		<form action="register" method="POST">
+		<form action="login.php" method="POST">
 			<input  type="text" name="username" placeholder="username">
 			<input type="email" name="email" placeholder="e-mail">
 			<input type="password" name="password" placeholder="password">

@@ -6,7 +6,7 @@
     <title>login</title>
   </head>
   <body>
-    <form class="login" action="login.php" method="POST">
+    <form class="login" action="" method="POST">
       <input type="text" name="username" placeholder="Username"> <br>
       <input type="password" name="password" placeholder="Password"><br>
       <input type="submit" name="submit" value="Login">
