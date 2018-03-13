@@ -1,11 +1,5 @@
 <?php include("config/config.php"); ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>login</title>
-  </head>
-  <body>
+<?php include("includes/header.php");?>
     <?php
     session_start();
     if($_SESSION['aaa'] === 'admin') {
@@ -14,11 +8,29 @@
       header('Location: index.php');
     }
     ?>
-    <form class="login" action="" method="POST">
-      <input type="text" name="username" placeholder="Username"> <br>
-      <input type="password" name="password" placeholder="Password"><br>
-      <input type="submit" name="submit" value="Login">
-    </form>
+
+    <!-- LOGIN -->
+    <section id="login">
+    <div class="container">
+      <div class="row justify-content-center ">
+        <div class="col-sm-4  style="margin-top: 170px;"">
+          <h1 class="display-5 text-center">Sign in</h1>
+          <div class="form-group">
+              <input type="text" id="username" placeholder="Enter username:" class="form-control">
+          </div>
+          <div class="form-group">
+              <input type="text" id="password" placeholder="Enter password:" class="form-control">
+            <div class="wrapper py-2">
+              <a href="#" class="btn btn-primary">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center"><a href="#login">Forgot password?</a></p>
+      <p class="text-center"><a href="#select">Need an account?</a></p>
+    </div>
+</section>
+
     <?php
     if(isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['password'])) {
       $query = "SELECT * FROM users WHERE username='".$_POST['username']."'";
@@ -47,5 +59,4 @@
       }
     }
     ?>
-  </body>
-</html>
+<?php include('includes/footer.php'); ?>

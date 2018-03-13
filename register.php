@@ -1,18 +1,31 @@
 <?php include("config/config.php"); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Register</title>
-	</head>
-	<body>
-		<form action="login.php" method="POST">
-			<input  type="text" name="username" placeholder="username">
-			<input type="email" name="email" placeholder="e-mail">
-			<input type="password" name="password" placeholder="password">
-			<input type="password" name="password2" placeholder="confirm password">
-			<input type="submit" name="submit" value="REGISTER">
-		</form>
+<?php include("includes/header.php");?>
+
+<!-- LOGIN -->
+<section id="login">
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-sm-4" style="margin-top: 100px;">
+			<h1 class="display-5 text-center">Register</h1>
+			<div class="form-group">
+					<input type="text" id="username" placeholder="Enter username:" class="form-control">
+			</div>
+			<div class="form-group">
+					<input type="text" id="username" placeholder="Enter email:" class="form-control">
+			</div>
+			<div class="form-group">
+					<input type="text" id="password" placeholder="Enter password:" class="form-control">
+			</div>
+			<div class="form-group">
+					<input type="text" id="password" placeholder="Enter password:" class="form-control">
+			</div>
+			<div class="wrapper py-2">
+				<a href="#" class="btn btn-primary">Register</a>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
 
 		<?php
 
@@ -22,7 +35,7 @@
 			$email = $_POST['email'];
 			$password = $_POST['password'];
 			$usertype = 0;
-			$uname_check = "SELECT * FROM users WHERE username='".$username"'";
+			$uname_check = "SELECT * FROM users WHERE username=$username";
 			$result1 = mysqli_query($connection, $uname_check);
 			if(!$result1 and mysqli_num_rows($result1)>0){
 				echo "User already exists";
@@ -39,6 +52,4 @@
 		}
 
 		?>
-
-	</body>
-</html>
+<?php include('includes/footer.php'); ?>

@@ -39,7 +39,7 @@
           <ul class="navbar-nav float-right">
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-shopping-cart mx-3"></i></li></a>
-            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user"></i></li></a>
+            <li class="nav-item"><a class="nav-link" href="login.php"><i class="fa fa-user"></i></li></a>
           </ul>
       </div>
 </nav>
