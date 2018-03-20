@@ -5,7 +5,7 @@ if ($_SESSION['aaa'] === 'admin') {
   header('Location: admin.php');
 } elseif($_SESSION['aaa'] === 'user') {
   header('Location: index.php');
-}?>
+} else {?>
 
 
     <!-- LOGIN -->
@@ -43,14 +43,12 @@ if ($_SESSION['aaa'] === 'admin') {
         if($_POST['username'] == $row['username'] && $row['usertype']==1) {
           session_start();
           $_SESSION['aaa']='admin';
-          $_SESSION['name']=$row['username'];
           header('Location: admin.php');
           exit();
         }
         elseif($_POST['username'] == $row['username'] && $row['usertype']==0){
           session_start();
           $_SESSION['aaa']='user';
-          $_SESSION['name']=$row['username'];
           header('Location: index.php');
           exit();
         }
@@ -60,5 +58,5 @@ if ($_SESSION['aaa'] === 'admin') {
         echo "please fill in necessary info";
       }
     }
-    ?>
+  }?>
 <?php include('includes/footer.php'); ?>
