@@ -1,32 +1,29 @@
 <?php include("config/config.php"); ?>
 <?php include("includes/header.php");?>
-    <?php
-    session_start();
-    if($_SESSION['aaa'] === 'admin') {
-        header('Location: admin.php');
-    } elseif($_SESSION['aaa'] === 'user') {
-      header('Location: index.php');
-    }
-    ?>
+<?php
+if ($_SESSION['aaa'] === 'admin') {
+  header('Location: admin.php');
+} elseif($_SESSION['aaa'] === 'user') {
+  header('Location: index.php');
+}?>
+
 
     <!-- LOGIN -->
-    <form class="" action="index.php" method="post">
 
     <section id="login">
     <div class="container">
       <div class="row justify-content-center ">
         <div class="col-sm-4  style="margin-top: 170px;"">
           <h1 class="display-5">Sign in</h1>
-          <div class="form-group">
+          <form class="form-group" action="" method="POST">
               <label for="username">Username</label>
               <input type="text" name="username" class="form-control">
-          </div>
-          <div class="form-group">
               <label for="password">Password</label>
               <input type="password" name="password"  class="form-control">
             <div class="wrapper py-2">
-              <input type="submit" class="btn btn-primary">
+              <input type="submit" name="submit" class="btn btn-primary">
             </div>
+          </form>
           </div>
         </div>
       </div>
@@ -34,7 +31,6 @@
       <p class="text-center"><a href="register.php">Need an account?</a></p>
     </div>
 </section>
-    </form>
 
 
     <?php
