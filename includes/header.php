@@ -14,7 +14,7 @@
 <body>
 <nav class="navbar navbar-expand-sm py-0  bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="img/logo.svg"width="300" height="70" alt=""></a>
+      <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="300" height="70" alt=""></a>
           <ul class="navbar-nav">
               <li class="nav-item ml-5">
                   <a class="nav-link" href="#">Shop</a>
@@ -23,7 +23,7 @@
                   <a class="nav-link" href="#">Sale</a>
               </li>
               <li class="nav-item ml-3">
-                  <a class="nav-link" href="#">About</a>
+                  <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item ml-3">
                   <a class="nav-link" href="#">Support</a>

@@ -12,7 +12,7 @@ if ($_SESSION['aaa'] === 'admin') {
 
     <section id="login">
     <div class="container">
-      <div class="row justify-content-center ">
+      <div class="row justify-content-center">
         <div class="col-sm-4  style="margin-top: 170px;"">
           <h1 class="display-5">Sign in</h1>
           <form class="form-group" action="" method="POST">
