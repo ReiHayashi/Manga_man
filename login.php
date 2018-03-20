@@ -10,26 +10,32 @@
     ?>
 
     <!-- LOGIN -->
+    <form class="" action="index.php" method="post">
+
     <section id="login">
     <div class="container">
       <div class="row justify-content-center ">
         <div class="col-sm-4  style="margin-top: 170px;"">
-          <h1 class="display-5 text-center">Sign in</h1>
+          <h1 class="display-5">Sign in</h1>
           <div class="form-group">
-              <input type="text" id="username" placeholder="Enter username:" class="form-control">
+              <label for="username">Username</label>
+              <input type="text" name="username" class="form-control">
           </div>
           <div class="form-group">
-              <input type="text" id="password" placeholder="Enter password:" class="form-control">
+              <label for="password">Password</label>
+              <input type="password" name="password"  class="form-control">
             <div class="wrapper py-2">
-              <a href="#" class="btn btn-primary">Login</a>
+              <input type="submit" class="btn btn-primary">
             </div>
           </div>
         </div>
       </div>
       <p class="text-center"><a href="#login">Forgot password?</a></p>
-      <p class="text-center"><a href="#select">Need an account?</a></p>
+      <p class="text-center"><a href="register.php">Need an account?</a></p>
     </div>
 </section>
+    </form>
+
 
     <?php
     if(isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['password'])) {
