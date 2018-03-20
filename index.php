@@ -30,11 +30,10 @@
     </div>
     <div class="row">
       <div class="card-deck">
-
         <div class="card" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
+            <a href="" ><h4>Berserak</h4></a>
             <a href="" class="text-info"><p>Kentaro Miura</p></a>
             <p>9.99$</p>
             <button class="btn btn-info">ADD TO CART</button>
