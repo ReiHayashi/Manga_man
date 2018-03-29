@@ -22,8 +22,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         <h4 class="my-5">• WORLDWIDE SHIPPING</h4>
         <h4 class="my-5">• MULTIPLE LANGAUGES</h4>
       </div>
-      <div class="col-md-6">
-        <img src="img/manga1.png" alt="" class="img-fluid">
+      <div class="col-lg-6">
+        <img src="img/manga1.png" alt="" class="img-fluid d-none d-lg-block">
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
 <!-- SHOP -->
 
-<section id="shop">
+<section id="shop_index">
   <div class="container">
     <div class="row text-center">
       <div class="col">
@@ -41,7 +41,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     </div>
     <div class="row">
       <div class="card-deck">
-        <div class="card" style="background-color:black">
+        <div class="card mb-4" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
             <a href="" ><h4>Berserak</h4></a>
@@ -51,7 +51,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card mb-4" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
             <a href="" class="text-info"><h4>Berserk</h4></a>
@@ -61,7 +61,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card mb-4" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
             <a href="" class="text-info"><h4>Berserk</h4></a>
@@ -71,7 +71,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+
+        <div class="card mb-4" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
             <a href="" class="text-info"><h4>Berserk</h4></a>
@@ -81,7 +83,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card mb-4" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
             <a href="" class="text-info"><h4>Berserk</h4></a>
@@ -91,7 +93,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card mb-4" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
             <a href="" class="text-info"><h4>Berserk</h4></a>
@@ -100,6 +102,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
+
+        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+
       </div>
     </div>
 
@@ -141,15 +146,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
-          <div class="card-body text-center">
-            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
-            <p>9.99$</p>
-            <button class="btn btn-info">ADD TO CART</button>
-          </div>
-        </div>
+        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
 
         <div class="card" style="background-color:black">
           <div class="card-body text-center">
@@ -170,6 +167,20 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
+
+        <div class="card" style="background-color:black">
+          <div class="card-body text-center">
+            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
+            <a href="" class="text-info"><h4>Berserk</h4></a>
+            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <p>9.99$</p>
+            <button class="btn btn-info">ADD TO CART</button>
+          </div>
+        </div>
+
+                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+
+
       </div>
     </div>
     <div class="row text-center my-4">
@@ -209,15 +220,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
-          <div class="card-body text-center">
-            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
-            <p>9.99$</p>
-            <button class="btn btn-info">ADD TO CART</button>
-          </div>
-        </div>
+                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
 
         <div class="card" style="background-color:black">
           <div class="card-body text-center">
@@ -238,6 +241,19 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
+
+        <div class="card" style="background-color:black">
+          <div class="card-body text-center">
+            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
+            <a href="" class="text-info"><h4>Berserk</h4></a>
+            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <p>9.99$</p>
+            <button class="btn btn-info">ADD TO CART</button>
+          </div>
+        </div>
+
+                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                
       </div>
     </div>
   </div>

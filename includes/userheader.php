@@ -12,23 +12,29 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <section class="content">
 <nav class="navbar navbar-expand-sm py-0  bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="300" height="70" alt=""></a>
+      <button class="navbar-toggler" type="button" name="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="250" height="60" alt=""></a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav">
-              <li class="nav-item ml-5">
-                  <a class="nav-link" href="#">Shop</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="shop.php">Shop</a>
               </li>
-              <li class="nav-item ml-3">
+              <li class="nav-item">
                   <a class="nav-link" href="#">Sale</a>
               </li>
-              <li class="nav-item ml-3">
+              <li class="nav-item">
                   <a class="nav-link" href="about.php">About</a>
               </li>
-              <li class="nav-item ml-3">
+              <li class="nav-item">
                   <a class="nav-link" href="support.php">Support</a>
               </li>
           </ul>
+        </div>
           <ul class="navbar-nav float-right">
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-shopping-cart mx-3"></i></li></a>

@@ -2502,13 +2502,13 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: black;
+  color: #fff;
   background-color: #2d9bad;
   border-color: #2d9bad;
 }
 
 .btn-primary:hover {
-  color: black;
+  color: #fff;
   background-color: #343a40;
   border-color: #343a40;
 }
@@ -4362,7 +4362,7 @@ tbody.collapse.show {
 }
 
 .navbar-light .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(45, 155, 173, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .navbar-light .navbar-text {
@@ -4410,7 +4410,7 @@ tbody.collapse.show {
 }
 
 .navbar-dark .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(45, 155, 173, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .navbar-dark .navbar-text {
@@ -4734,16 +4734,16 @@ tbody.collapse.show {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #000000;
-  background-color: #2d9bad;
-  border: 1px solid #000000;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
 }
 
 .page-link:hover {
-  color: #2d9bad;
+  color: #0056b3;
   text-decoration: none;
-  background-color: #000000;
-  border-color: #000000;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
 }
 
 .page-link:focus {
@@ -4769,17 +4769,17 @@ tbody.collapse.show {
 
 .page-item.active .page-link {
   z-index: 1;
-  color: #000000;
-  background-color: #343a40;
-  border-color: #000000;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
 .page-item.disabled .page-link {
-  color: #000000;
+  color: #6c757d;
   pointer-events: none;
   cursor: auto;
-  background-color: #343a40;
-  border-color: #000000;
+  background-color: #fff;
+  border-color: #dee2e6;
 }
 
 .pagination-lg .page-link {

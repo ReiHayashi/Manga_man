@@ -17,7 +17,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <form action="" method="post">
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-sm-4" style="margin-top: 100px;">
+		<div class="col-sm-8" style="margin-top: 100px;">
 			<h1 class="display-5">Support ticket</h1>
 			<div class="form-group">
 					<label for="username">First Name</label>
@@ -33,10 +33,10 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 			</div>
 			<div class="form-group">
 					<label for="textarea">Problem description</label>
-					<textarea name="problem"  class="form-control"> </textarea>
+					<textarea name="problem"  class="form-control" style="min-height: 20%"> </textarea>
 			</div>
 			<div class="wrapper py-2">
-				<input href="#" class="btn btn-primary" type="submit">
+				<input href="#" class="btn btn-primary" type="submit" style="color:black">
 			</div>
 		</div>
 	</div>

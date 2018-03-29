@@ -17,7 +17,7 @@
       <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="300" height="70" alt=""></a>
           <ul class="navbar-nav">
               <li class="nav-item ml-5">
-                  <a class="nav-link" href="#">Shop</a>
+                  <a class="nav-link" href="shop.php">Shop</a>
               </li>
               <li class="nav-item ml-3">
                   <a class="nav-link" href="#">Sale</a>

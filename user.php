@@ -14,10 +14,20 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   <?php
   if($_SESSION['aaa'] === 'user') {
   ?>
-  <h3>User page</h3>
-  <a href="logout.php"> logout button incase everything is fucked</a> <br>
-  <a href="passwordchange.php"> change password</a> <br>
-  <a href="changeemail.php"> change E-mail</a> <br>
+  <div class="container">
+    <div class="row rounded">
+      <div class="col text-center mt-5">
+        <h3 class="text-center">User page</h3>
+        <div class="col-lg-6 offset-lg-3 bg-dark my-5 rounded">
+        <a class="btn btn-primary btn-lg btn-block" href="logout.php" role="button">Logout</a> <br>
+        <a class="btn btn-primary btn-lg btn-block" href="#" role="button">Change username</a> <br>
+        <a class="btn btn-primary btn-lg btn-block" href="passwordchange.php" role="button">Change password</a> <br>
+        <a class="btn btn-primary btn-lg btn-block" href="changeemail.php" role="button">Change E-mail</a> <br>
+        <a class="btn btn-primary btn-lg btn-block" href="#" role="button">Purchase history</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <?php
   } else {
     header('Location: index.php');

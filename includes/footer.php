@@ -1,4 +1,6 @@
 <!-- MAIN FOOTER -->
+</section>
+<footer>
 <section id="main-footer" class="bg-dark">
   <div class="container">
     <div class="row">
@@ -11,6 +13,7 @@
     </div>
   </div>
 </section>
+</footer>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
