@@ -13,7 +13,6 @@
   <a href="addmanga.php"> add manga </a> <br>
   <a href="users.php"> manage users </a> <br>
   <a href="supportview.php"> support tickets</a> <br>
-  <a href="admin.php"> admin page</a> <br>
   <a href="logout.php"> emergency logout</a> <br>
   <h3>Manage Manga</h3>
   <table id="admintable">

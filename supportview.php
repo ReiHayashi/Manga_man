@@ -34,9 +34,21 @@
           echo '<td>';
           echo substr($row['problem'], 0, 100);
           echo '</td>';
-          echo '<td><a href="deleteticket.php?id='.$row['support_id'].'">Delete</a></td>';
+          echo '<td><a href="'.$_SERVER['PHP_SELF'].'?id='.$row['support_id'].'">Delete</a></td>';
           echo '</tr>';
         }
+        if(!empty($_GET['id'])){
+          $id = $_GET['id'];
+          $delete = "DELETE FROM support WHERE support_id='$id'";
+          $delete_result = mysqli_query($connection, $delete);
+          if($delete_result){
+            echo "support ticket deleted";
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
+          } else {
+            echo "something went wrong";
+          }
+        }
+        mysqli_close($connection);
       ?>
     </table>
     <?php

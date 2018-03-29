@@ -54,7 +54,7 @@ else {
 				VALUES ('$firstname', '$lastname', '$email', '$problem')";
 				$result = mysqli_query($connection, $query);
 				if($result) {
-					echo "sent a support ticket successfully.";
+					echo "sent a support ticket successfully. Wait for an E-mail from our support team. Process can take up to 24 hours";
 				} else {
 					echo "something went wrong, try again later.";
 				}
