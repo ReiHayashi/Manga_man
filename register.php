@@ -56,10 +56,11 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 			$email = $_POST['email'];
 			$password = $_POST['password'];
 			$usertype = 0;
-			$uname_check = "SELECT * FROM users WHERE username=$username";
-			$result1 = mysqli_query($connection, $uname_check);
-			if(!$result1 and mysqli_num_rows($result1)>0){
-				echo "User already exists";
+			$uname_check = "SELECT * FROM users WHERE username='$username' OR email='$email'";
+      $rs = mysqli_query($connection,$uname_check);
+      $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+			if($data[0] > 1){
+				echo "User or email already registered";
 			} else {
 				$query="INSERT INTO users (username, email, password, usertype)
 				VALUES ('$username', '$email', '$password', '$usertype')";
