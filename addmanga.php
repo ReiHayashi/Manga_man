@@ -15,7 +15,7 @@
       <input type="text" name="Genre" placeholder="Genre" required> <br>
       <input type="text" name="Author" placeholder="Author" required> <br>
       <input type="number" name="Year" value="2000" min="1900" max="2099" required> <br>
-      <input type="text" name="Price" placeholder="Price" required> <br>
+      <input type="text" name="Price" value="$" required> <br>
       <select name="Language"><br>
       <option value="English">English(default)</option>
       <option value="Russian">Russian</option>
