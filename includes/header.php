@@ -26,7 +26,7 @@
                   <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item ml-3">
-                  <a class="nav-link" href="#">Support</a>
+                  <a class="nav-link" href="support.php">Support</a>
               </li>
               <?php
               session_start();
@@ -34,7 +34,7 @@
               <li class="nav-item ml-3">
                 <a class="nav-link" href="admin.php">temp admin button</a>
               </li>
-            <?php } else {} ?>
+            <?php } else { echo " ";} ?>
           </ul>
           <ul class="navbar-nav float-right">
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
