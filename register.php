@@ -15,7 +15,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
   header('Location: admin.php');
 } elseif(isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'user') {
-  header('Location: index.php');
+  header('Location: user.php');
 } else {?>
 <!-- LOGIN -->
 <section id="login">
@@ -69,6 +69,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 				$result = mysqli_query($connection, $query);
 				if($result) {
 					echo "user created successfully.";
+          header('Location: index.php');
 				} else {
 					echo "user registration failed";
 				}
