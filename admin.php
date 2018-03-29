@@ -51,8 +51,8 @@
       if(!empty($_GET['id'])){
         $id = $_GET['id'];
         $delete = "DELETE FROM manga WHERE manga_id='$id'";
-        $kustuta_valjund = mysqli_query($connection, $delete);
-        if($kustuta_valjund){
+        $delete_result = mysqli_query($connection, $delete);
+        if($delete_result){
           echo "manga deleted";
           echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
         } else {

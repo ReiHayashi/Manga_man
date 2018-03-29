@@ -29,10 +29,22 @@
           echo '<td>'.$row['username'].'</td>';
           echo '<td>'.$row['email'].'</td>';
           echo '<td>'.$row['usertype'].'</td>';
-          echo '<td><a href="deleteuser.php?id='.$row['id'].'">Delete</a></td>';
+          echo '<td><a href="'.$_SERVER['PHP_SELF'].'?id='.$row['id'].'">Delete</a></td>';
           echo '<td><a href="edituser.php?id='.$row['id'].'">Edit</a></td>';
           echo '</tr>';
         }
+        if(!empty($_GET['id'])){
+          $id = $_GET['id'];
+          $delete = "DELETE FROM users WHERE id='$id'";
+          $delete_result = mysqli_query($connection, $delete);
+          if($delete_result){
+            echo "user deleted";
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
+          } else {
+            echo "something went wrong";
+          }
+        }
+        mysqli_close($connection);
       ?>
     </table>
     <?php
