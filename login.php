@@ -10,9 +10,9 @@ else {
 
 ?>
 <?php
-if ($_SESSION['aaa'] === 'admin') {
+if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
   header('Location: admin.php');
-} elseif($_SESSION['aaa'] === 'user') {
+} elseif(isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'user') {
   header('Location: index.php');
 } else {?>
 

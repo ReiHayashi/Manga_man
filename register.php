@@ -9,7 +9,12 @@ else {
 }
 
 ?>
-
+<?php
+if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
+  header('Location: admin.php');
+} elseif(isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'user') {
+  header('Location: index.php');
+} else {?>
 <!-- LOGIN -->
 <section id="login">
 <form action="" method="post">
@@ -67,5 +72,5 @@ else {
 			}
 		}
 
-		?>
+  }?>
 <?php include('includes/footer.php'); ?>
