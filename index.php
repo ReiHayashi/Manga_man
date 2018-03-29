@@ -3,7 +3,9 @@ session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
    include('includes/adminheader.php');
 }
-else {
+elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
+  include('includes/userheader.php');
+} else {
   include('includes/header.php');
 }
 
