@@ -28,6 +28,12 @@
               <li class="nav-item ml-3">
                   <a class="nav-link" href="support.php">Support</a>
               </li>
+              <?php
+              if($_SESSION['aaa'] === 'admin') {?>
+              <li class="nav-item ml-3">
+                <a class="nav-link" href="admin.php">temp admin button</a>
+              </li>
+            <?php } else { echo " ";} ?>
           </ul>
           <ul class="navbar-nav float-right">
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>

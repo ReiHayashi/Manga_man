@@ -1,5 +1,14 @@
 <?php include("config/config.php"); ?>
-<?php include("includes/header.php");?>
+<?php
+session_start();
+if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
+   include('includes/adminheader.php');
+}
+else {
+  include('includes/header.php');
+}
+
+?>
 
 <!-- LOGIN -->
 <section id="login">

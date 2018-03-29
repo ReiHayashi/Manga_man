@@ -1,5 +1,14 @@
 <?php include("config/config.php"); ?>
-<?php include("includes/header.php");?>
+<?php
+session_start();
+if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
+   include('includes/adminheader.php');
+}
+else {
+  include('includes/header.php');
+}
+
+?>
 <!-- ABOUT -->
 <section id="about" class="py-4 text-center">
   <div class="container">
