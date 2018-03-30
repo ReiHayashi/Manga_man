@@ -24,23 +24,22 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
     <section id="login">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-sm-4  style="margin-top: 170px;"">
-          <h1 class="display-5">Sign in</h1>
+        <div class="col-sm-4 bg-dark rounded" style="margin-top: 200px;">
+          <h1 class="display-5 text-center">Sign in</h1>
           <form class="form-group" action="" method="POST">
-              <label for="username">Username</label>
+              <label for="username">Username:</label>
               <input type="text" name="username" class="form-control">
-              <label for="password">Password</label>
+              <label class="mt-3" for="password">Password:</label>
               <input type="password" name="password"  class="form-control">
             <div class="wrapper py-2">
               <input type="submit" name="submit" class="btn btn-primary">
             </div>
           </form>
+          <p class="text-center"><a href="#login">Forgot password?</a></p>
+          <p class="text-center"><a href="register.php">Need an account?</a></p>
           </div>
         </div>
       </div>
-      <p class="text-center"><a href="#login">Forgot password?</a></p>
-      <p class="text-center"><a href="register.php">Need an account?</a></p>
-    </div>
 </section>
 
 

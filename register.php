@@ -17,7 +17,9 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 } elseif(isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'user') {
   header('Location: user.php');
 } else {?>
-<!-- LOGIN -->
+
+<!-- REGISTER -->
+
 <section id="login">
 <form action="" method="post">
 <div class="container">

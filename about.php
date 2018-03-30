@@ -11,7 +11,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 ?>
+
 <!-- ABOUT -->
+
 <section id="about" class="py-4 text-center">
   <div class="container">
     <div class="row">
@@ -28,7 +30,6 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     </div>
     <div class="row justify-content-center">
       <div class="card-deck">
-
         <div class="card bg-dark">
           <div class="card-body">
             <h3>24/7 CUSTOMER SUPPORT</h3>
@@ -43,6 +44,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <p>Buying manga here will get you a physical copy and a digital copy.</p>
           </div>
         </div>
+
+        <div class="w-100 d-none d-md-block d-lg-none my-3"><!-- wrap every 2 on md--></div>
 
         <div class="card text-center bg-dark">
           <div class="card-body">
@@ -61,7 +64,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     </div>
   </div>
 </section>
+
 <!-- DEVELOPERS -->
+
 <section id="developers" class="my-2 text-center">
   <div class="container">
     <div class="row">

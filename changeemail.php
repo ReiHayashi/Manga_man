@@ -12,8 +12,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
 ?>
 
+    <!-- CHANGE EMAIL -->
 
-    <!-- LOGIN -->
     <section id="login">
     <div class="container">
       <div class="row justify-content-center">

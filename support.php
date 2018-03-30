@@ -12,13 +12,13 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
 ?>
 
-<!-- LOGIN -->
-<section id="login">
+<!-- SUPPORT -->
+<section id="support">
 <form action="" method="post">
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-sm-8" style="margin-top: 100px;">
-			<h1 class="display-5">Support ticket</h1>
+			<h1 class="display-5 text-center">Support ticket</h1>
 			<div class="form-group">
 					<label for="username">First Name</label>
 					<input type="text" name="firstname" class="form-control">

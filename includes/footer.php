@@ -1,4 +1,4 @@
-<!-- MAIN FOOTER -->
+<!-- FOOTER -->
 </section>
 <footer>
 <section id="main-footer" class="bg-dark">

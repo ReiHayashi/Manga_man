@@ -11,11 +11,14 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 ?>
+
+<!-- SHOP -->
+
 <section id="shop">
-  <form action="" method="post">
     <div class="container">
       <div class="row">
-        <div class="col-3 bg-dark my-3 rounded">
+        <button class="d-none d-md-block d-lg-none btn btn-primary" data-toggle="collapse" data-target="#Search" type="button" aria-expanded="false" aria-controls="Search">SEARCH</button>
+        <div class="col-3 bg-dark my-3 rounded d-none d-lg-block collapse" id="Search">
 
           <label for="username">Keyword</label>
           <input type="text" name="text" class="form-control">
@@ -63,7 +66,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <option value="3">Sci-Fi</option>
           </select>
           <div class="wrapper py-2">
-            <input href="#" class="btn btn-primary" id="shop_button" placeholder="Refine results" type="submit" style="color:#343a40">
+            <input href="#" class="btn btn-primary" id="shop_button" placeholder="Refine results" type="submit">
           </div>
         </div>
 
@@ -121,7 +124,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
 
-        <div class="col-lg-9  offset-lg-3 py-3">
+        <div class="col-lg-9 offset-lg-3 my-3">
           <div class="card-deck">
             <div class="card text-center" style="background-color:black">
               <div class="card-body text-center">
@@ -171,10 +174,11 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <button class="btn btn-info">ADD TO CART</button>
               </div>
             </div>
+
           </div>
         </div>
 
-        <div class="col-9 offset-lg-3 my-3">
+        <div class="col-lg-9 offset-lg-3 my-3">
           <div class="card-deck">
             <div class="card text-center" style="background-color:black">
               <div class="card-body text-center">
@@ -224,10 +228,11 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <button class="btn btn-info">ADD TO CART</button>
               </div>
             </div>
+
           </div>
         </div>
 
-        <div class="col-9 offset-lg-3 my-3">
+        <div class="col-lg-9 offset-lg-3 my-3">
           <div class="card-deck">
             <div class="card text-center" style="background-color:black">
               <div class="card-body text-center">
@@ -277,10 +282,11 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <button class="btn btn-info">ADD TO CART</button>
               </div>
             </div>
+
           </div>
         </div>
 
-        <div class="col-9 offset-lg-3 my-3">
+        <div class="col-lg-9 offset-lg-3 my-3">
           <div class="card-deck">
             <div class="card text-center" style="background-color:black">
               <div class="card-body text-center">
@@ -330,6 +336,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <button class="btn btn-info">ADD TO CART</button>
               </div>
             </div>
+
           </div>
         </div>
       </div>

@@ -12,8 +12,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
 ?>
 
+    <!-- PASSWORD CHANGE -->
 
-    <!-- LOGIN -->
     <section id="login">
     <div class="container">
       <div class="row justify-content-center">

@@ -41,64 +41,76 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     </div>
     <div class="row">
       <div class="card-deck">
-        <div class="card mb-4" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
             <a href="" ><h4>Berserak</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" class="text-info"><p>Kentafaasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card mb-4" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card mb-4" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
         <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
 
-        <div class="card mb-4" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card mb-4" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card mb-4" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
@@ -116,70 +128,81 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
     <div class="row">
       <div class="card-deck">
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafaasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
         <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-
+        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
 
       </div>
     </div>
@@ -189,71 +212,83 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       </div>
     </div>
     <div class="row">
-      <div class="card-deck">
-        <div class="card" style="background-color:black">
+      <div class="card-deck mb-4">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafaasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-        <div class="card" style="background-color:black">
+        <div class="card text-center" style="background-color:black">
           <div class="card-body text-center">
             <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" class="text-info"><h4>Berserk</h4></a>
-            <a href="" class="text-info"><p>Kentaro Miura</p></a>
+            <a href="" ><h4>Berserak</h4></a>
+            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
             <p>9.99$</p>
+          </div>
+          <div class="card-footer">
             <button class="btn btn-info">ADD TO CART</button>
           </div>
         </div>
 
-                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-                
+        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+
       </div>
     </div>
   </div>

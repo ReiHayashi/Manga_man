@@ -1,5 +1,5 @@
 <?php include("config/config.php"); ?>
-<!-- NAVBAR -->
+<!-- HEADER -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,32 +13,32 @@
 </head>
 <body>
   <section class="content">
-<nav class="navbar navbar-expand-sm py-0  bg-dark">
-    <div class="container">
-      <button class="navbar-toggler" type="button" name="button" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="250" height="60" alt=""></a>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+    <nav class="navbar navbar-expand-sm py-0  bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="250" height="60" alt=""></a>
+        <button class="navbar-toggler d-md-block d-lg-none" type="button" name="button" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav">
-              <li class="nav-item">
-                  <a class="nav-link" href="shop.php">Shop</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Sale</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="about.php">About</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="support.php">Support</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shop.php">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sale.php">Sale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.php">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="support.php">Support</a>
+            </li>
           </ul>
         </div>
-          <ul class="navbar-nav float-right">
-            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
-            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-shopping-cart mx-3"></i></li></a>
-            <li class="nav-item"><a class="nav-link" href="user.php"><i class="fa fa-user"></i></li></a>
-          </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
+          <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i></li></a>
+          <li class="nav-item"><a class="nav-link" href="user.php"><i class="fa fa-user"></i></li></a>
+        </ul>
       </div>
-</nav>
+    </nav>
