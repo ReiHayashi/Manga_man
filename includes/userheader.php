@@ -15,7 +15,7 @@
   <section class="content">
     <nav class="navbar navbar-expand-sm py-0  bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="250" height="60" alt=""></a>
+        <a class="navbar-brand" href="index.php"><img src="img/logo.svg" alt=""></a>
         <button class="navbar-toggler d-md-block d-lg-none" type="button" name="button" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,7 +35,7 @@
             </li>
           </ul>
         </div>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav float-left">
           <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
           <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i></li></a>
           <li class="nav-item"><a class="nav-link" href="user.php"><i class="fa fa-user"></i></li></a>

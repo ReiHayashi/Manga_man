@@ -14,24 +14,25 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
     <!-- CHANGE EMAIL -->
 
-    <section id="login">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-sm-4  style="margin-top: 170px;"">
-          <form class="form-group" action="" method="POST">
-              <label for="username">your username</label>
+    <section id="changeemail">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-4 bg-dark rounded" style="margin-top: 200px;">
+            <h3 class="display-5 text-center my-3">Change E-mail</h1>
+            <form class="form-group" action="" method="POST">
+              <label for="username">Your username:</label>
               <input type="text" name="username" class="form-control">
-              <label for="email">Current E-mail</label>
+              <label class="mt-3" for="password">Current E-mail:</label>
               <input type="email" name="email" class="form-control">
-              <label for="email">New E-mail</label>
+              <label class="mt-3" for="password">New E-mail:</label>
               <input type="email" name="newemail"  class="form-control">
-            <div class="wrapper py-2">
-              <input type="submit" name="submit" class="btn btn-primary">
+              <div class="wrapper my-3">
+                <input type="submit" name="submit" class="btn btn-primary">
+              </div>
+            </form>
             </div>
-          </form>
           </div>
         </div>
-      </div>
     </div>
 </section>
 

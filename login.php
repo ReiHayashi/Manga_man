@@ -31,7 +31,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
               <input type="text" name="username" class="form-control">
               <label class="mt-3" for="password">Password:</label>
               <input type="password" name="password"  class="form-control">
-            <div class="wrapper py-2">
+            <div class="wrapper my-3">
               <input type="submit" name="submit" class="btn btn-primary">
             </div>
           </form>

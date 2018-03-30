@@ -11,6 +11,12 @@ body {
   display: flex;
   flex-direction:column;
 }
+
+.navbar-brand img {
+    position: relative;
+    width: 170px;
+    background-size: contain;
+}
 .content{
   flex:1 0 auto;
   flex-grow: 1;
@@ -18,8 +24,10 @@ body {
   flex-basis: auto;
 }
 .fa {
+  position: relative;
   font-size: 30px;
   color: #2d9bad;
+  background-size: contain;
 }
 
 .nav-link {
@@ -45,6 +53,26 @@ body {
 }
 
 #user .btn-primary:hover{
+  background-color: #000000;
+  color: #2d9bad;
+}
+
+#cart .btn-primary:hover{
+  background-color: #000000;
+  color: #2d9bad;
+}
+
+#passwordchange .btn-primary:hover{
+  background-color: #000000;
+  color: #2d9bad;
+}
+
+#changeemail .btn-primary:hover{
+  background-color: #000000;
+  color: #2d9bad;
+}
+
+#support .btn-primary:hover{
   background-color: #000000;
   color: #2d9bad;
 }

@@ -17,26 +17,26 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <form action="" method="post">
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-sm-8" style="margin-top: 100px;">
+		<div class="col-sm-8 bg-dark rounded" style="margin-top: 100px;">
 			<h1 class="display-5 text-center">Support ticket</h1>
 			<div class="form-group">
-					<label for="username">First Name</label>
+					<label for="username">First Name:</label>
 					<input type="text" name="firstname" class="form-control">
 			</div>
 			<div class="form-group">
-					<label for="username">Last Name</label>
+					<label for="username">Last Name:</label>
 					<input type="text" name="lastname" class="form-control">
 			</div>
 			<div class="form-group">
-					<label for="username">E-mail</label>
+					<label for="username">E-mail:</label>
 					<input type="email" name="email" class="form-control">
 			</div>
 			<div class="form-group">
-					<label for="textarea">Problem description</label>
+					<label for="textarea">Problem description:</label>
 					<textarea name="problem"  class="form-control" style="min-height: 20%"> </textarea>
 			</div>
-			<div class="wrapper py-2">
-				<input href="#" class="btn btn-primary" type="submit" style="color:black">
+			<div class="wrapper my-3">
+				<input href="#" class="btn btn-primary" type="submit">
 			</div>
 		</div>
 	</div>
