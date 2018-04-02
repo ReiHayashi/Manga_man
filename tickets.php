@@ -55,6 +55,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <th>#</th>
                 <th>Title</th>
                 <th>Name</th>
+                <th>E-mail</th>
                 <th>Date added</th>
                 <th></th>
               </tr>
@@ -64,6 +65,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <td scope="row">1</td>
                 <td>refund lmao</td>
                 <td>solid pear</td>
+                <td>solidpear@gmail.com</td>
                 <td>April 02, 2018</td>
                 <td><a href="ticket_details.php" class="btn btn-primary">
                   <i class="fa fa-angle-double-right"></i> View
@@ -73,6 +75,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <td scope="row">1</td>
                 <td>refund lmao</td>
                 <td>solid pear</td>
+                <td>solidpear@gmail.com</td>
                 <td>April 02, 2018</td>
                 <td><a href="ticket_details.php" class="btn btn-primary">
                   <i class="fa fa-angle-double-right"></i> View
@@ -82,6 +85,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <td scope="row">1</td>
                 <td>refund lmao</td>
                 <td>solid pear</td>
+                <td>solidpear@gmail.com</td>
                 <td>April 02, 2018</td>
                 <td><a href="ticket_details.php" class="btn btn-primary">
                   <i class="fa fa-angle-double-right"></i> View
@@ -91,6 +95,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                 <td scope="row">1</td>
                 <td>refund lmao</td>
                 <td>solid pear</td>
+                <td>solidpear@gmail.com</td>
                 <td>April 02, 2018</td>
                 <td><a href="ticket_details.php" class="btn btn-primary">
                   <i class="fa fa-angle-double-right"></i> View

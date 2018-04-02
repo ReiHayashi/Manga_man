@@ -37,7 +37,7 @@
           <?php
           if($_SESSION['aaa'] === 'admin') {?>
             <li class="nav-item">
-              <a class="nav-link" href="admin.php">temp admin button</a>
+              <a class="nav-link" href="admin_panel.php">Dashboard</a>
             </li>
           <?php } else { echo " ";} ?>
         </ul>

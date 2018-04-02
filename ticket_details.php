@@ -19,6 +19,11 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           <i class="fa fa-arrow-left"></i> Back To Tickets
         </a>
       </div>
+      <div class="col-md-3">
+        <a href="#" class="btn btn-success btn-block">
+          <i class="fa fa-check"></i> Mark as Resolved
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -36,6 +41,10 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
               <div class="form-group">
                 <label class="font-weight-bold" for="title">Title:</label>
                 <p>Refund lmao</p>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-bold" for="E-mail">E-mail:</label>
+                <p>solidpear@gmail.com</p>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold" for="name">Name:</label>
