@@ -23,11 +23,36 @@ body {
   flex-shrink: 0;
   flex-basis: auto;
 }
+
 .fa {
   position: relative;
   font-size: 30px;
   color: #2d9bad;
   background-size: contain;
+}
+
+#post .fa{
+  color: #343a40;
+}
+#posts .fa{
+  color: #343a40;
+}
+#details_header .fa{
+  color: #343a40;
+}
+#details_header .btn-primary:hover{
+  background-color: #000000;
+  color: #2d9bad;
+}
+#post .btn-primary:hover{
+  background-color: #000000;
+  color: #2d9bad;
+}
+
+#posts .btn-primary:hover{
+  background-color: #000000;
+  border-color: #000000;
+  color: #2d9bad;
 }
 
 .nav-link {

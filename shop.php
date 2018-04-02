@@ -340,7 +340,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           </div>
         </div>
       </div>
-      <nav aria-label="Page navigation example">
+      <nav>
 
         <ul class="pagination justify-content-center">
           <li class="page-item disabled">
