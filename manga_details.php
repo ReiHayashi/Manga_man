@@ -47,6 +47,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <h4>Edit Manga</h4>
           </div>
           <div class="card-body">
+            <?php echo '<img src="uploads/'.$row['image'].'" height="150px" width="100px">' ?>
             <form method="POST">
               <div class="form-group">
                 <label class="font-weight-bold" for="title">Title:</label>

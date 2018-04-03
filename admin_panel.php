@@ -122,7 +122,7 @@ if($_SESSION['aaa'] === 'admin') {
         <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
       </div>
       <div class="modal-body bg-dark">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="title">Title</label>
             <input type="text" name="Title" class="form-control">
@@ -165,10 +165,9 @@ if($_SESSION['aaa'] === 'admin') {
           </div>
           <div class="form-group">
             <label for="file">Image Upload</label>
-            <input type="file" class="form-control-file">
-            <small class="form-text text-muted">Max size 3MB</small>
+            <input type="file" name="fileToUpload"><br>
           </div>
-          <input type="submit" name="submit" value="Add manga to shop" required> <br>
+          <input type="submit" name="submit" value="Add manga to shop"> <br>
         </form>
       </div>
       <div class="modal-footer bg-dark">
@@ -181,20 +180,61 @@ if($_SESSION['aaa'] === 'admin') {
 <?php
   if(isset($_POST['Title']) && isset($_POST['Author']) && isset($_POST['Price'])
   && isset($_POST['Date']) && isset($_POST['Description'])) {
+    if(!empty($_FILES['fileToUpload'])) {
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES['fileToUpload']["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        if($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+    }
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+        echo "Sorry, only JPG, JPEG & PNG files are allowed.";
+        $uploadOk = 0;
+    }
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+    } else {
+      echo "you're a faggot";
+    }
 
   $title = $_POST['Title'];
   $author = $_POST['Author'];
   $price = $_POST['Price'];
   $date = $_POST['Date'];
   $description = $_POST['Description'];
+  $image = $_FILES["fileToUpload"]["name"];
 
   $query11 = "SELECT * FROM manga ORDER BY manga_id DESC";
   $rs = mysqli_query($connection, $query11);
   $row11 = mysqli_fetch_array($rs);
   $mangaid = $row11['manga_id'] + 1;
 
-  $manga = "INSERT INTO manga (manga_id, manga_name, manga_creator, manga_date, manga_description, manga_price)
-  VALUES ('$mangaid','$title', '$author', '$date', '$description', '$price')";
+  $manga = "INSERT INTO manga (manga_id, manga_name, manga_creator, manga_date, manga_description, manga_price, image)
+  VALUES ('$mangaid','$title', '$author', '$date', '$description', '$price', '$image')";
   $result_manga = mysqli_query($connection, $manga);
 
   foreach($_POST['genre'] as $g) {
@@ -208,7 +248,7 @@ if($_SESSION['aaa'] === 'admin') {
 
   if($result_manga && $result_genre && $language_result) {
     echo "manga has been added.";
-    echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
+    // echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
 
   } else {
     echo "you fucked up.";
