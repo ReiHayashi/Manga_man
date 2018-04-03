@@ -82,6 +82,15 @@ body {
   color: #2d9bad;
 }
 
+#view_manga .btn-primary:hover{
+  background-color: #000000;
+  color: #2d9bad;
+}
+
+#view_manga .fa{
+  color: #343a40;
+}
+
 #cart .btn-primary:hover{
   background-color: #000000;
   color: #2d9bad;
