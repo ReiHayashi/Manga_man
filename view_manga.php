@@ -62,7 +62,6 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       </dl>
       <div class="row">
         <div class="col my-2 rounded text-center">
-
           <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addPostModal">
             <i class="fa fa-pencil"></i> Post review
           </a>
@@ -95,5 +94,28 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="addPostModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title">Post Review</h5>
+        <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+      </div>
+      <div class="modal-body bg-dark">
+        <form>
+          <div class="form-group">
+            <label for="body">Synopsis</label>
+            <textarea name="editor1" class="form-control" style="min-height: 20%"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer bg-dark">
+        <button class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php include('includes/footer.php'); ?>
