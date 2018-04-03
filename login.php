@@ -13,7 +13,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 ?>
 <?php
 if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
-  header('Location: admin.php');
+  header('Location: admin_panel.php');
 } elseif(isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'user') {
   header('Location: index.php');
 } else {?>
@@ -53,7 +53,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
         if($_POST['username'] == $row['username'] && $row['usertype']==1) {
           session_start();
           $_SESSION['aaa']='admin';
-          header('Location: admin.php');
+          header('Location: admin_panel.php');
           exit();
         }
         elseif($_POST['username'] == $row['username'] && $row['usertype']==0){
