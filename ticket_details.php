@@ -11,6 +11,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 ?>
+<?php
+$id = $_GET['id']; ?>
 <section id="details_header" class="py-4 mb-4 bg-dark">
   <div class="container">
     <div class="row">
@@ -20,14 +22,18 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         </a>
       </div>
       <div class="col-md-3">
-        <a href="#" class="btn btn-success btn-block">
+        <?php echo '<a href="deleteticket.php?id='.$id.'" class="btn btn-success btn-block">' ?>
           <i class="fa fa-check"></i> Mark as Resolved
         </a>
       </div>
     </div>
   </div>
 </section>
-
+<?php
+$support ='SELECT * FROM support WHERE support_id='.$id.'';
+$query = mysqli_query($connection,$support);
+$row = mysqli_fetch_array($query)
+ ?>
 <section id="posts">
   <div class="container">
     <div class="row">
@@ -40,23 +46,23 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <form>
               <div class="form-group">
                 <label class="font-weight-bold" for="title">Title:</label>
-                <p>Refund lmao</p>
+                <p><?php echo $row['problem_title']; ?></p>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold" for="E-mail">E-mail:</label>
-                <p>solidpear@gmail.com</p>
+                <p><?php echo $row['email']; ?></p>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold" for="name">Name:</label>
-                <p>Solid Pear</p>
+                <p><?php echo $row['firstname']."  ".$row['lastname']; ?>r</p>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold" for="name">Date:</label>
-                <p>April 02, 2018</p>
+                <p><?php echo "placeholder";  ?></p>
               </div>
               <div class="form-group">
                 <label class="font-weight-bold" for="message">Message:</label>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio pariatur possimus impedit accusamus debitis temporibus, unde asperiores cumque sint ducimus sequi praesentium error optio id.</p>
+                <p><?php echo $row['problem']; ?></p>
               </div>
             </form>
           </div>

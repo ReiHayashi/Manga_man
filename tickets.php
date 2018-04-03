@@ -11,6 +11,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 ?>
+<?php
+if($_SESSION['aaa'] === 'admin') {
+?>
 <section class="bg-dark">
 <div class="container py-2">
   <div class="row">
@@ -61,46 +64,21 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td scope="row">1</td>
-                <td>refund lmao</td>
-                <td>solid pear</td>
-                <td>solidpear@gmail.com</td>
-                <td>April 02, 2018</td>
-                <td><a href="ticket_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> View
-                </a></td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>refund lmao</td>
-                <td>solid pear</td>
-                <td>solidpear@gmail.com</td>
-                <td>April 02, 2018</td>
-                <td><a href="ticket_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> View
-                </a></td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>refund lmao</td>
-                <td>solid pear</td>
-                <td>solidpear@gmail.com</td>
-                <td>April 02, 2018</td>
-                <td><a href="ticket_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> View
-                </a></td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>refund lmao</td>
-                <td>solid pear</td>
-                <td>solidpear@gmail.com</td>
-                <td>April 02, 2018</td>
-                <td><a href="ticket_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> View
-                </a></td>
-              </tr>
+              <?php
+              $user='SELECT * FROM support ORDER BY support_id DESC';
+              $query = mysqli_query($connection,$user);
+              while ($row = mysqli_fetch_array($query)) {
+                echo '<tr>';
+                echo '<td scope="row">'.$row['support_id'].'</td>';
+                echo '<td>'.$row['problem_title'].'</td>';
+                echo '<td>'.$row['firstname'].' '.$row['lastname'].'</td>';
+                echo '<td>'.$row['email'].'</td>';
+                echo '<td>Placeholder</td>';
+                echo '<td><a href="ticket_details.php?id='.$row['support_id'].'" class="btn btn-primary">
+                      <i class="fa fa-angle-double-right"></i> View</a></td>';
+                echo '</tr>';
+              }
+              ?>
             </tbody>
           </table>
           <nav>
@@ -122,5 +100,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     </div>
   </div>
 </section>
-
+<?php
+} else {
+  header('Location: index.php');
+}
+?>
 <?php include('includes/footer.php'); ?>

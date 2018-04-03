@@ -14,7 +14,8 @@
       <input type="text" name="Title" placeholder="Title" required> <br>
       <input type="text" name="Genre" placeholder="Genre" required> <br>
       <input type="text" name="Author" placeholder="Author" required> <br>
-      <input type="number" name="Year" value="2000" min="1900" max="2099" required> <br>
+      <input type="date" name="Year" max="3000-12-31"
+      min="1000-01-01" class="form-control"> <br>
       <input type="text" name="Price" value="$" required> <br>
       <select name="Language"><br>
       <option value="English">English(default)</option>

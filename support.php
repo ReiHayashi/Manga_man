@@ -19,6 +19,10 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 	<div class="row justify-content-center">
 		<div class="col-sm-8 bg-dark rounded" style="margin-top: 100px;">
 			<h1 class="display-5 text-center">Support ticket</h1>
+      <div class="form-group">
+          <label for="username">Problem Title</label>
+          <input type="text" name="problemtitle" class="form-control">
+      </div>
 			<div class="form-group">
 					<label for="username">First Name:</label>
 					<input type="text" name="firstname" class="form-control">
@@ -46,14 +50,15 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
 		<?php
 
-		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['email']) && isset($_POST['problem'])) {
-
+		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['email'])
+     && isset($_POST['problem']) && isset($_POST['problemtitle'])) {
+      $problemtitle = $_POST['problemtitle'];
 			$firstname = $_POST['firstname'];
 			$lastname = $_POST['lastname'];
 			$email = $_POST['email'];
 			$problem = $_POST['problem'];
-				$query="INSERT INTO support (firstname, lastname, email, problem)
-				VALUES ('$firstname', '$lastname', '$email', '$problem')";
+				$query="INSERT INTO support (firstname, lastname, email, problem_title, problem)
+				VALUES ('$firstname', '$lastname', '$email', '$problemtitle', '$problem')";
 				$result = mysqli_query($connection, $query);
 				if($result) {
 					echo "sent a support ticket successfully. Wait for an E-mail from our support team. Process can take up to 24 hours";

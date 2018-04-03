@@ -60,60 +60,24 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td scope="row">1</td>
-                <td>Berserk</td>
-                <td>Action, Adventure, Drama, Fantasy</td>
-                <td>April 02, 2018</td>
-                <td><a href="manga_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> Details
-                </a></td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>Berserk</td>
-                <td>Action, Adventure, Drama, Fantasy</td>
-                <td>April 02, 2018</td>
-                <td><a href="manga_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> Details
-                </a></td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>Berserk</td>
-                <td>Action, Adventure, Drama, Fantasy</td>
-                <td>April 02, 2018</td>
-                <td><a href="manga_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> Details
-                </a></td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>Berserk</td>
-                <td>Action, Adventure, Drama, Fantasy</td>
-                <td>April 02, 2018</td>
-                <td><a href="manga_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> Details
-                </a></td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>Berserk</td>
-                <td>Action, Adventure, Drama, Fantasy</td>
-                <td>April 02, 2018</td>
-                <td><a href="manga_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> Details
-                </a></td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>Berserk</td>
-                <td>Action, Adventure, Drama, Fantasy</td>
-                <td>April 02, 2018</td>
-                <td><a href="manga_details.php" class="btn btn-primary">
-                  <i class="fa fa-angle-double-right"></i> Details
-                </a></td>
-              </tr>
+              <?php
+              $manga='SELECT * FROM manga ORDER BY manga_id DESC';
+              $query = mysqli_query($connection,$manga);
+              $num_rows = mysqli_num_rows($query);
+              $tickets = 'SELECT * FROM support';
+              $query1 = mysqli_query($connection,$tickets);
+              $num_rows1 = mysqli_num_rows($query1);
+              while ($row = mysqli_fetch_array($query)) {
+              echo '<tr>';
+              echo '<td scope="row">'.$row['manga_id'].'</td>';
+              echo '<td>'.$row['manga_name'].'</td>';
+              echo '<td>placeholder for now</td>';
+              echo '<td>'.$row['manga_creator'].'</td>';
+              echo '<td><a href="manga_details.php?id='.$row['manga_id'].'" class="btn btn-primary">
+                <i class="fa fa-angle-double-right"></i>Details</a></td>';
+              echo '</tr>';
+              }
+              ?>
             </tbody>
           </table>
           <nav>
