@@ -12,6 +12,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
 ?>
   <?php
+  if(!empty($_GET['id'])){
+  $id = $_GET['id'];
   $manga='SELECT * FROM manga ORDER BY manga_id DESC';
   $query = mysqli_query($connection,$manga);
   $row = mysqli_fetch_array($query);
@@ -28,7 +30,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         </a>
       </div>
       <div class="col-md-3">
-          <?php echo '<a href="deletemanga.php?id='.$row['manga_id'].'" class="btn btn-danger btn-block">'; ?>
+          <?php echo '<a href="deletemanga.php?id='.$id.'" class="btn btn-danger btn-block">'; ?>
           <i class="fa fa-remove"></i> Delete
         </a>
       </div>
@@ -65,7 +67,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
               </div>
               <div class="form-group">
                 <label class="font-weight-bold" for="Synopsis">Synopsis:</label>
-                <textarea name="editor1" class="form-control" name="Description" ><?php echo $row['manga_description']; ?></textarea>
+                <textarea class="form-control" name="Description" ><?php echo $row['manga_description']; ?></textarea>
               </div>
               <div class="wrapper my-3">
                   <input class="btn btn-success btn-block" type="submit" name="submit" value="Save Changes" required>
@@ -78,7 +80,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   </div>
 </section>
 <?php
-  if(isset($_POST['Title']) && isset($_POST['Author']) && isset($_POST['Price'])
+  if(isset($_POST['submit']) && isset($_POST['Title']) && isset($_POST['Author']) && isset($_POST['Price'])
   && isset($_POST['Date']) && isset($_POST['Description'])) {
 
   $title = $_POST['Title'];
@@ -87,14 +89,13 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   $date = $_POST['Date'];
   $description = $_POST['Description'];
 
-  $manga = "UPDATE manga (manga_name, manga_creator, manga_date, manga_description, manga_price)
-  VALUES ('$title', '$author', '$date', '$description', '$price')";
+  $manga = "UPDATE manga SET manga_name='$title',manga_creator='$author',manga_date='$date',manga_description='$description',manga_price='$price' WHERE manga_id='$id'";
   $result_manga = mysqli_query($connection, $manga);
 
 
   if($result_manga) {
     echo "manga has been updated.";
-    echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
+    echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
 
   } else {
     echo "you fucked up.";
@@ -103,5 +104,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   } else {
     header('Location: index.php');
   }
+} else {
+  echo "you forgo something important cunt";
+}
 ?>
 <?php include('includes/footer.php'); ?>
