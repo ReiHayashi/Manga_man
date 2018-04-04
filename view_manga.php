@@ -10,56 +10,73 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 ?>
+<?php
+//id check
+if(!empty($_GET['id'])){
+$id = $_GET['id'];
+//manga query
+$manga='SELECT * FROM manga ORDER BY manga_id DESC';
+$query = mysqli_query($connection,$manga);
+$row = mysqli_fetch_array($query);
+
+//genre query
+$queryy = 'SELECT manga.*,
+group_concat(genres.name) as genres
+FROM manga
+INNER JOIN genres_in_mangas ON genres_in_mangas.manga_id = manga.manga_id
+INNER JOIN genres ON genres_in_mangas.genre_id = genres.id';
+$resultt = mysqli_query($connection, $queryy);
+
+//language query
+$query2 = 'SELECT manga.*,
+group_concat(languages.name) as languages
+FROM manga
+INNER JOIN languages_in_mangas ON languages_in_mangas.manga_id = manga.manga_id
+INNER JOIN languages ON languages_in_mangas.language_id = languages.id';
+$result2 = mysqli_query($connection, $query2);
+?>
 <section id="view_manga">
   <div class="container">
     <div class="row">
       <div class="col-md-3 bg-dark my-4 rounded-left">
-        <a href=""><img src="img/berserk.jpg" class="img-fluid py-2"></a>
+        <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
       </div>
       <div class="col-md-7 bg-dark my-4">
-        <h4>Berserk Volume 1: The Black Swordsman</h4>
+        <?php echo '<h4>'.$row['manga_name'].'</h4>'; ?>
         <ul class="list-inline">
           <li class="list-inline-item">By:</li>
-          <li class="list-inline-item">Kentaro Miura</li>
+          <?php  echo '<li class="list-inline-item">'.$row['manga_creator'].'</li>'; ?>
         </ul>
         <ul class="list-inline">
-          <li class="list-inline-item">Language:</li>
-          <li class="list-inline-item">English</li>
+          <li class="list-inline-item">Release date:</li>
+          <?php  echo '<li class="list-inline-item">'.$row['manga_date'].'</li>'; ?>
         </ul>
-        <p style="font-size:14px;">Guts, a former mercenary now known as the "Black Swordsman," is out for revenge. After a tumultuous childhood, he finally finds someone he respects and believes he can trust, only to have everything fall apart when this person takes away everything important to Guts for the purpose of fulfilling his own desires. Now marked for death, Guts becomes condemned to a fate in which he is relentlessly pursued by demonic beings.
-          <br>
-          Setting out on a dreadful quest riddled with misfortune, Guts, armed with a massive sword and monstrous strength, will let nothing stop him, not even death itself, until he is finally able to take the head of the one who stripped him—and his loved one—of their humanity. </p>
+        <ul class="list-inline">
+          <li class="list-inline-item">Languages:</li>
+          <?php
+          while ($row_language = mysqli_fetch_array($result2)) {
+              echo '<li class="list-inline-item">'.$row_language['languages'].'</li>';
+          }
+          ?>
+        </ul>
+        <ul class="list-inline">
+          <li class="list-inline-item">Genres:</li>
+          <?php
+          while ($row_genre = mysqli_fetch_array($resultt)) {
+              echo '<li class="list-inline-item">'.$row_genre['genres'].'</li>';
+          }
+          ?>
+        </ul>
+        <h5>Description</h5>
+        <?php echo '<p style="font-size:14px;">'.$row['manga_description'].'</p>'; ?>
         </div>
         <div class="col-md-2 bg-dark my-4 text-center rounded-right">
-          <h2 style="margin-top:60px;" >9.99$</h2>
+          <?php echo '<h2 style="margin-top:60px;" >$'.$row['manga_price'].'</h2>'; ?>
           <p class="my-2">Free shipping Worldwide</p>
-          <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="logout.php" role="button">Add to cart</a> <br>
-          <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="logout.php" role="button">Wishlist</a> <br>
+          <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="#" role="button">Add to cart</a> <br>
+          <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="#" role="button">Wishlist</a> <br>
         </div>
       </div>
-      <dl class="row my bg-dark rounded">
-        <dt class="col-sm-3 my-2">Title:</dt>
-        <dd class="col-sm-8 my-2">Berserk</dd>
-
-        <dt class="col-sm-3 my-2">Langauge:</dt>
-        <dd class="col-sm-8 my-2">English</dd>
-
-        <dt class="col-sm-3 my-2">Author:</dt>
-        <dd class="col-sm-8 my-2">Kentaro Miura</dd>
-
-        <dt class="col-sm-3 my-2">Publication date:</dt>
-        <dd class="col-sm-8 my-2">Aug 25, 1989 to ?</dd>
-
-        <dt class="col-sm-3 my-2">Genres:</dt>
-        <dd class="col-sm-8 my-2">
-          <ul class="list-inline">
-            <li class="list-inline-item">Fantasy</li>
-            <li class="list-inline-item">Horror</li>
-            <li class="list-inline-item">Action</li>
-            <li class="list-inline-item">Adventure</li>
-          </ul>
-        </dd>
-      </dl>
       <div class="row">
         <div class="col my-2 rounded text-center">
           <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addPostModal">
@@ -117,5 +134,10 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     </div>
   </div>
 </div>
+<?php
+} else {
+  echo "you forgo something important cunt";
+}
+?>
 
 <?php include('includes/footer.php'); ?>
