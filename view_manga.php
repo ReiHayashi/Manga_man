@@ -28,12 +28,12 @@ INNER JOIN genres ON genres_in_mangas.genre_id = genres.id';
 $resultt = mysqli_query($connection, $queryy);
 
 //language query
-$query2 = 'SELECT manga.*,
-group_concat(languages.name) as languages
+$query22 = 'SELECT manga.*,
+group_concat(languages.language) as languages
 FROM manga
 INNER JOIN languages_in_mangas ON languages_in_mangas.manga_id = manga.manga_id
 INNER JOIN languages ON languages_in_mangas.language_id = languages.id';
-$result2 = mysqli_query($connection, $query2);
+$result22 = mysqli_query($connection, $query22);
 ?>
 <section id="view_manga">
   <div class="container">
@@ -54,7 +54,7 @@ $result2 = mysqli_query($connection, $query2);
         <ul class="list-inline">
           <li class="list-inline-item">Languages:</li>
           <?php
-          while ($row_language = mysqli_fetch_array($result2)) {
+          while ($row_language = mysqli_fetch_array($result22)) {
               echo '<li class="list-inline-item">'.$row_language['languages'].'</li>';
           }
           ?>
