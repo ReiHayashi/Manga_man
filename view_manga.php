@@ -15,7 +15,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 if(!empty($_GET['id'])){
 $id = $_GET['id'];
 //manga query
-$manga='SELECT * FROM manga ORDER BY manga_id DESC';
+$manga='SELECT * FROM manga WHERE manga_id='.$id.'';
 $query = mysqli_query($connection,$manga);
 $row = mysqli_fetch_array($query);
 
@@ -24,7 +24,8 @@ $queryy = 'SELECT manga.*,
 group_concat(genres.name) as genres
 FROM manga
 INNER JOIN genres_in_mangas ON genres_in_mangas.manga_id = manga.manga_id
-INNER JOIN genres ON genres_in_mangas.genre_id = genres.id';
+INNER JOIN genres ON genres_in_mangas.genre_id = genres.id
+WHERE manga.manga_id = '.$id.'';
 $resultt = mysqli_query($connection, $queryy);
 
 //language query
@@ -32,7 +33,8 @@ $query22 = 'SELECT manga.*,
 group_concat(languages.language) as languages
 FROM manga
 INNER JOIN languages_in_mangas ON languages_in_mangas.manga_id = manga.manga_id
-INNER JOIN languages ON languages_in_mangas.language_id = languages.id';
+INNER JOIN languages ON languages_in_mangas.language_id = languages.id
+WHERE manga.manga_id = '.$id.'';
 $result22 = mysqli_query($connection, $query22);
 ?>
 <section id="view_manga">
