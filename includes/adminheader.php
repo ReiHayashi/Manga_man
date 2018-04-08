@@ -33,14 +33,11 @@
             <li class="nav-item">
               <a class="nav-link" href="support.php">Support</a>
             </li>
-          </div>
-          <?php
-          if($_SESSION['aaa'] === 'admin') {?>
             <li class="nav-item">
               <a class="nav-link" href="admin_panel.php">Dashboard</a>
             </li>
-          <?php } else { echo " ";} ?>
         </ul>
+      </div>
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
           <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i></li></a>
