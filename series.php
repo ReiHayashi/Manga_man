@@ -15,7 +15,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <div class="container py-2">
   <div class="row">
     <div class="col-mb-6">
-      <h1>Manga</h1>
+      <h1>Series</h1>
     </div>
   </div>
 </div>
@@ -47,14 +47,13 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       <div class="col md-9">
         <div class="card bg-dark">
           <div class="card-header">
-            <h4>All manga</h4>
+            <h4>All Series</h4>
           </div>
           <table class="table table-striped table-dark text-primary">
             <thead class="thead-inverse">
               <tr>
                 <th>#</th>
-                <th>Manga</th>
-                <th>Genre</th>
+                <th>Name</th>
                 <th>Date added</th>
                 <th></th>
               </tr>
