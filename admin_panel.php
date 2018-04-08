@@ -29,8 +29,13 @@ if($_SESSION['aaa'] === 'admin') {
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
-          <i class="fa fa-plus"></i> Add Manga
+        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addseries">
+          <i class="fa fa-plus"></i> Add series
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addvolume">
+          <i class="fa fa-plus"></i> Add volume
         </a>
       </div>
     </div>
@@ -43,14 +48,13 @@ if($_SESSION['aaa'] === 'admin') {
       <div class="col md-9">
         <div class="card bg-dark">
           <div class="card-header">
-            <h4>Latest Manga</h4>
+            <h4>Latest series</h4>
           </div>
           <table class="table table-striped table-dark text-primary">
             <thead class="thead-inverse">
               <tr>
                 <th>#</th>
-                <th>Manga</th>
-                <th>Genre</th>
+                <th>Name</th>
                 <th>Date added</th>
                 <th></th>
               </tr>
@@ -92,11 +96,20 @@ if($_SESSION['aaa'] === 'admin') {
       <div class="col-md-3">
         <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
-            <h3>Manga</h3>
+            <h3>Series</h3>
             <h1 class="display-4">
               <i class="fa fa-book"></i> <?php echo $num_rows; ?>
             </h1>
-            <a href="mangas.php" class="btn btn-dark btn-sm">View</a>
+            <a href="series.php" class="btn btn-dark btn-sm">View</a>
+          </div>
+        </div>
+        <div class="card text-center bg-primary text-dark mb-3">
+          <div class="card-body">
+            <h3>Volumes</h3>
+            <h1 class="display-4">
+              <i class="fa fa-bookmark"></i> <?php echo $num_rows; ?>
+            </h1>
+            <a href="volumes.php" class="btn btn-dark btn-sm">View</a>
           </div>
         </div>
         <div class="card text-center bg-primary text-dark mb-3">
@@ -114,11 +127,11 @@ if($_SESSION['aaa'] === 'admin') {
   </div>
 </section>
 
-<div class="modal fade" id="addPostModal">
+<div class="modal fade" id="addseries">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header bg-dark">
-        <h5 class="modal-title">Add manga</h5>
+        <h5 class="modal-title">Add series</h5>
         <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
       </div>
       <div class="modal-body bg-dark">
@@ -132,11 +145,12 @@ if($_SESSION['aaa'] === 'admin') {
             <input type="text" name="Author" class="form-control">
           </div>
           <div class="form-group">
-            <label for="authors">Price</label>
-            <input type="text" name="Price" class="form-control">
+            <label>Start date</label>
+            <input type="date" name="Date" max="3000-12-31"
+            min="1000-01-01" class="form-control">
           </div>
           <div class="form-group">
-            <label>Date</label>
+            <label>End date</label>
             <input type="date" name="Date" max="3000-12-31"
             min="1000-01-01" class="form-control">
           </div>
@@ -163,15 +177,38 @@ if($_SESSION['aaa'] === 'admin') {
             <label for="body">Synopsis</label>
             <textarea name="Description" class="form-control"></textarea>
           </div>
-          <div class="form-group">
-            <label for="file">Image Upload</label>
-            <input type="file" name="fileToUpload"><br>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal">Close</button>
+            <input class="btn btn-primary" type="submit" name="submit" value="Add series to database">
           </div>
-          <input type="submit" name="submit" value="Add manga to shop"> <br>
         </form>
       </div>
-      <div class="modal-footer bg-dark">
-        <button class="btn btn-primary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addvolume">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title">Add volume</h5>
+        <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+      </div>
+      <div class="modal-body bg-dark">
+        <form action="" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" name="Price" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="file">Manga Cover</label>
+            <input type="file" name="fileToUpload"><br>
+          </div>
+          <div class="modal-footer bg-dark">
+            <button class="btn btn-primary" data-dismiss="modal">Close</button>
+            <input class="btn btn-primary" type="submit" name="submit" value="Add volume to the shop">
+          </div>
+        </form>
       </div>
     </div>
   </div>
