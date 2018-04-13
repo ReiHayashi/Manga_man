@@ -127,11 +127,10 @@ $result22 = mysqli_query($connection, $query22);
             <label for="body">Synopsis</label>
             <textarea name="editor1" class="form-control" style="min-height: 20%"></textarea>
           </div>
+          <div class="modal-footer bg-dark">
+          <input class="btn btn-primary" type="submit" name="submit" value="Post review"> <br>
         </form>
-      </div>
-      <div class="modal-footer bg-dark">
         <button class="btn btn-primary" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary" data-dismiss="modal">Save Changes</button>
       </div>
     </div>
   </div>
