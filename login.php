@@ -21,7 +21,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 
     <!-- LOGIN -->
 
-    <section id="login">
+<section id="login">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm-4 bg-dark rounded" style="margin-top: 200px;">
@@ -49,7 +49,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
       $result = mysqli_query($connection, $query);
       $row = mysqli_fetch_array($result);
 
-      if(password_verify($_POST['password']).$row['password']) {
+      if($_POST['password'] === $row['password']) {
         if($_POST['username'] == $row['username'] && $row['usertype']==1) {
           session_start();
           $_SESSION['aaa']='admin';
