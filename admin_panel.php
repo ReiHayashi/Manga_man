@@ -53,20 +53,15 @@ if($_SESSION['aaa'] === 'admin') {
             <thead class="thead-inverse">
               <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Date added</th>
-                <th></th>
+                <th>Username</th>
+                <th>E-mail</th>
+                <th>User Type</th>
               </tr>
             </thead>
             <tbody>
               <?php
-                $queryy = 'SELECT series.*,
-                group_concat(genres.name) as genres
-                FROM series
-                INNER JOIN genres_in_series ON genres_in_series.series_id = series.series_id
-                INNER JOIN genres ON genres_in_series.series_id = genres.id';
-                $resultt = mysqli_query($connection, $queryy);
-                $row_genre = mysqli_fetch_array($resultt);
+              $user = 'SELECT * FROM users ORDER BY id DESC';
+              $userquery = mysqli_query($connection, $user);
               $manga='SELECT * FROM series ORDER BY series_id DESC';
               $query = mysqli_query($connection,$manga);
               $num_rows = mysqli_num_rows($query);
@@ -76,14 +71,17 @@ if($_SESSION['aaa'] === 'admin') {
               $tickets = 'SELECT * FROM support';
               $query1 = mysqli_query($connection,$tickets);
               $num_rows1 = mysqli_num_rows($query1);
-              while ($row = mysqli_fetch_array($query)) {
+              while ($row = mysqli_fetch_array($userquery)) {
               echo '<tr>';
-              echo '<td scope="row">'.$row['series_id'].'</td>';
-              echo '<td>'.$row['primaryname'].'</td>';
-              echo '<td>';
-              echo substr($row_genre['genres'], 0, 25);
-              echo '</td>';
-              echo '<td><a href="manga_details.php?id='.$row['series_id'].'" class="btn btn-primary">
+              echo '<td scope="row">'.$row['id'].'</td>';
+              echo '<td>'.$row['username'].'</td>';
+              echo '<td>'.$row['email'].'</td>';
+              if($row['usertype'] == 1) {
+                echo '<td>Admin</td>';
+              } else {
+                echo '<td>User</td>';
+              }
+              echo '<td><a href="user_details.php?id='.$row['id'].'" class="btn btn-primary">
                 <i class="fa fa-angle-double-right"></i>Details</a></td>';
               echo '</tr>';
               }

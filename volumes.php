@@ -1,4 +1,4 @@
-<?php include("config/config.php"); ?>
+
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
@@ -53,26 +53,30 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <thead class="thead-inverse">
               <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Date added</th>
-                <th></th>
+                <th>Title</th>
+                <th>Series title</th>
+                <th>Price</th>
               </tr>
             </thead>
             <tbody>
               <?php
-              $manga='SELECT * FROM manga ORDER BY manga_id DESC';
-              $query = mysqli_query($connection,$manga);
+              $seriesinvolumes = 'SELECT volumes.*,
+              series.primaryname as series
+              FROM volumes
+              INNER JOIN volumes_in_series ON volumes_in_series.volume_id = volumes.id
+              INNER JOIN series ON volumes_in_series.series_id = series.series_id';
+              $resultt = mysqli_query($connection, $seriesinvolumes);
+              $row_series = mysqli_fetch_array($resultt);
+              $volume='SELECT * FROM volumes ORDER BY id DESC';
+              $query = mysqli_query($connection,$volume);
               $num_rows = mysqli_num_rows($query);
-              $tickets = 'SELECT * FROM support';
-              $query1 = mysqli_query($connection,$tickets);
-              $num_rows1 = mysqli_num_rows($query1);
               while ($row = mysqli_fetch_array($query)) {
               echo '<tr>';
-              echo '<td scope="row">'.$row['manga_id'].'</td>';
-              echo '<td>'.$row['manga_name'].'</td>';
-              echo '<td>placeholder for now</td>';
-              echo '<td>'.$row['manga_creator'].'</td>';
-              echo '<td><a href="manga_details.php?id='.$row['manga_id'].'" class="btn btn-primary">
+              echo '<td scope="row">'.$row['id'].'</td>';
+              echo '<td>'.$row['title'].'</td>';
+              echo '<td>'.$row_series['series'].'</td>';
+              echo '<td>$'.$row['price'].'</td>';
+              echo '<td><a href="volume_details.php?id='.$row['id'].'" class="btn btn-primary">
                 <i class="fa fa-angle-double-right"></i>Details</a></td>';
               echo '</tr>';
               }

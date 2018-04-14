@@ -1,4 +1,4 @@
-<?php include("config/config.php"); ?>
+
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
@@ -60,19 +60,16 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             </thead>
             <tbody>
               <?php
-              $manga='SELECT * FROM manga ORDER BY manga_id DESC';
-              $query = mysqli_query($connection,$manga);
+              $series='SELECT * FROM series ORDER BY series_id ASC';
+              $query = mysqli_query($connection,$series);
               $num_rows = mysqli_num_rows($query);
-              $tickets = 'SELECT * FROM support';
-              $query1 = mysqli_query($connection,$tickets);
-              $num_rows1 = mysqli_num_rows($query1);
               while ($row = mysqli_fetch_array($query)) {
               echo '<tr>';
-              echo '<td scope="row">'.$row['manga_id'].'</td>';
-              echo '<td>'.$row['manga_name'].'</td>';
+              echo '<td scope="row">'.$row['series_id'].'</td>';
+              echo '<td>'.$row['primaryname'].'</td>';
               echo '<td>placeholder for now</td>';
-              echo '<td>'.$row['manga_creator'].'</td>';
-              echo '<td><a href="manga_details.php?id='.$row['manga_id'].'" class="btn btn-primary">
+              echo '<td>'.$row['author'].'</td>';
+              echo '<td><a href="series_details.php?id='.$row['series_id'].'" class="btn btn-primary">
                 <i class="fa fa-angle-double-right"></i>Details</a></td>';
               echo '</tr>';
               }
