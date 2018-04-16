@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2018 at 11:34 PM
+-- Generation Time: Apr 16, 2018 at 06:39 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -68,12 +68,15 @@ CREATE TABLE `genres_in_series` (
 --
 
 INSERT INTO `genres_in_series` (`genre_id`, `series_id`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
 (1, 2),
 (2, 2),
-(3, 2);
+(3, 2),
+(1, 3),
+(2, 3),
+(3, 3),
+(1, 4),
+(2, 4),
+(3, 4);
 
 -- --------------------------------------------------------
 
@@ -114,11 +117,15 @@ CREATE TABLE `languages_in_series` (
 --
 
 INSERT INTO `languages_in_series` (`language_id`, `series_id`) VALUES
-(1, 1),
-(2, 1),
 (3, 2),
 (4, 2),
-(5, 2);
+(5, 2),
+(2, 3),
+(3, 3),
+(4, 3),
+(3, 4),
+(4, 4),
+(5, 4);
 
 -- --------------------------------------------------------
 
@@ -140,8 +147,9 @@ CREATE TABLE `series` (
 --
 
 INSERT INTO `series` (`series_id`, `primaryname`, `author`, `synopsis`, `start_date`, `end_date`) VALUES
-(1, 'asdgf', 'asdf', 'asdg', '0000-00-00', '0000-00-00'),
-(2, 's', 'asdfgf', '', '2018-04-14', '2018-04-21');
+(2, 'Berserk', 'That guy', 'berserk kill everything 0 brain ', '1998-04-13', '2222-12-31'),
+(3, 'mogger', 'nierge', 'asdgfg', '2018-04-11', '2018-04-12'),
+(4, 'asd', 'asdgf', 'asd', '2018-04-11', '2018-04-27');
 
 -- --------------------------------------------------------
 
@@ -185,9 +193,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `usertype`) VALUES
 (1, 'Admin', 'admin@admin.admin', 'admin', 1),
-(9, 'asd', 'asd@asd.asd', 'asd', 0),
 (10, 'regular', 'regular@example.nigger', '321', 0),
-(11, 'nigger', 'nigger@hater.nigger', 'nigger', 0);
+(11, 'niggers', 'nigger@hater.nigger', '', 0);
 
 -- --------------------------------------------------------
 
@@ -211,7 +218,9 @@ INSERT INTO `volumes` (`id`, `title`, `price`, `image`) VALUES
 (2, 'asd', 33, 'help.png'),
 (3, 'asdf', 0, '1506937883905.jpg'),
 (4, 'asdf', 23, '1501865455585.png'),
-(5, 'asdf', 33, 'DOnzzVIXkAAkhKe.png');
+(5, 'asdf', 33, 'DOnzzVIXkAAkhKe.png'),
+(6, 'berserk goes ham lmao', 34214, 'drummerdidthisinpaint.png'),
+(7, 'asd', 0, 'HELPPPP.jpg');
 
 -- --------------------------------------------------------
 
@@ -229,8 +238,8 @@ CREATE TABLE `volumes_in_series` (
 --
 
 INSERT INTO `volumes_in_series` (`series_id`, `volume_id`) VALUES
-(1, 4),
-(1, 5);
+(3, 6),
+(4, 7);
 
 --
 -- Indexes for dumped tables
@@ -313,7 +322,7 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `series`
 --
 ALTER TABLE `series`
-  MODIFY `series_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `series_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `support`
@@ -331,7 +340,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `volumes`
 --
 ALTER TABLE `volumes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
