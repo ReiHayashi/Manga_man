@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2018 at 06:39 PM
+-- Generation Time: Apr 16, 2018 at 08:29 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -68,15 +68,12 @@ CREATE TABLE `genres_in_series` (
 --
 
 INSERT INTO `genres_in_series` (`genre_id`, `series_id`) VALUES
-(1, 2),
-(2, 2),
-(3, 2),
-(1, 3),
-(2, 3),
-(3, 3),
-(1, 4),
-(2, 4),
-(3, 4);
+(1, 5),
+(4, 5),
+(8, 5),
+(9, 5),
+(10, 5),
+(11, 5);
 
 -- --------------------------------------------------------
 
@@ -117,15 +114,9 @@ CREATE TABLE `languages_in_series` (
 --
 
 INSERT INTO `languages_in_series` (`language_id`, `series_id`) VALUES
-(3, 2),
-(4, 2),
-(5, 2),
-(2, 3),
-(3, 3),
-(4, 3),
-(3, 4),
-(4, 4),
-(5, 4);
+(1, 5),
+(2, 5),
+(3, 5);
 
 -- --------------------------------------------------------
 
@@ -147,9 +138,7 @@ CREATE TABLE `series` (
 --
 
 INSERT INTO `series` (`series_id`, `primaryname`, `author`, `synopsis`, `start_date`, `end_date`) VALUES
-(2, 'Berserk', 'That guy', 'berserk kill everything 0 brain ', '1998-04-13', '2222-12-31'),
-(3, 'mogger', 'nierge', 'asdgfg', '2018-04-11', '2018-04-12'),
-(4, 'asd', 'asdgf', 'asd', '2018-04-11', '2018-04-27');
+(5, 'Tokyo Ghoul', 'Ishida Sui', 'Lurking within the shadows of Tokyo are frightening beings known as \"ghouls,\" who satisfy their hunger by feeding on humans once night falls. An organization known as the Commission of Counter Ghoul (CCG) has been established in response to the constant attacks on citizens and as a means of purging these creatures. However, the problem lies in identifying ghouls as they disguise themselves as humans, living amongst the masses so that hunting prey will be easier. Ken Kaneki, an unsuspecting university freshman, finds himself caught in a world between humans and ghouls when his date turns out to be a ghoul after his flesh.\r\n\r\nBarely surviving this encounter after being taken to a hospital, he discovers that he has turned into a half-ghoul as a result of the surgery he received. Unable to satisfy his intense craving for human meat through conventional means, Kaneki is taken in by friendly ghouls who run a coffee shop in order to help him with his transition. As he begins what he thinks wi', '2011-09-08', '2014-09-18');
 
 -- --------------------------------------------------------
 
@@ -214,13 +203,23 @@ CREATE TABLE `volumes` (
 --
 
 INSERT INTO `volumes` (`id`, `title`, `price`, `image`) VALUES
-(1, 'aaa', 55, 'aaaaaaaaaa.jpg'),
-(2, 'asd', 33, 'help.png'),
-(3, 'asdf', 0, '1506937883905.jpg'),
-(4, 'asdf', 23, '1501865455585.png'),
-(5, 'asdf', 33, 'DOnzzVIXkAAkhKe.png'),
 (6, 'berserk goes ham lmao', 34214, 'drummerdidthisinpaint.png'),
-(7, 'asd', 0, 'HELPPPP.jpg');
+(7, 'asd', 0, 'HELPPPP.jpg'),
+(8, 'Vol 1', 10, 'Tokyo_Ghoul_Volume_01.jpg'),
+(9, 'Vol 2', 10, 'Tokyo_Ghoul_Volume_02.jpg'),
+(10, 'Vol 3', 10, 'Tokyo_Ghoul_Volume_03.jpg'),
+(11, 'Vol 4', 10, 'Tokyo_Ghoul_Volume_04.jpg'),
+(12, 'Vol 5', 10, 'Tokyo_Ghoul_Volume_05.jpg'),
+(13, 'Vol 6', 10, 'Tokyo_Ghoul_Volume_06.jpg'),
+(14, 'Vol 7', 10, 'Tokyo_Ghoul_Volume_07.jpg'),
+(15, 'Vol 8', 10, 'Tokyo_Ghoul_Volume_08.jpg'),
+(16, 'Vol 9', 10, 'Tokyo_Ghoul_Volume_09.jpg'),
+(17, 'Vol 9', 10, 'Tokyo_Ghoul_Volume_09.jpg'),
+(18, 'Vol 10', 10, 'Tokyo_Ghoul_Volume_10.jpg'),
+(19, 'Vol 11', 10, 'Tokyo_Ghoul_Volume_11.jpg'),
+(20, 'Vol 12', 10, 'Tokyo_Ghoul_Volume_12.jpg'),
+(21, 'Vol 13', 10, 'Tokyo_Ghoul_Volume_13.jpg'),
+(22, 'Vol 14', 10, 'Tokyo_Ghoul_Volume_14.jpg');
 
 -- --------------------------------------------------------
 
@@ -238,8 +237,21 @@ CREATE TABLE `volumes_in_series` (
 --
 
 INSERT INTO `volumes_in_series` (`series_id`, `volume_id`) VALUES
-(3, 6),
-(4, 7);
+(5, 8),
+(5, 9),
+(5, 10),
+(5, 11),
+(5, 12),
+(5, 13),
+(5, 14),
+(5, 15),
+(5, 16),
+(5, 17),
+(5, 18),
+(5, 19),
+(5, 20),
+(5, 21),
+(5, 22);
 
 --
 -- Indexes for dumped tables
@@ -340,7 +352,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `volumes`
 --
 ALTER TABLE `volumes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
