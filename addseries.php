@@ -12,9 +12,15 @@
   $row11 = mysqli_fetch_array($rs);
   $seriesid = $row11['series_id'] + 1;
 
-  $manga = "INSERT INTO series (series_id, primaryname, author, synopsis, start_date, end_date)
-  VALUES ('$seriesid','$title', '$author', '$description', '$startdate', '$enddate')";
-  $result_manga = mysqli_query($connection, $manga);
+  if(isset($_POST['end_date'])) {
+    $manga = "INSERT INTO series (series_id, primaryname, author, synopsis, start_date, end_date)
+    VALUES ('$seriesid','$title', '$author', '$description', '$startdate', '$enddate')";
+    $result_manga = mysqli_query($connection, $manga);
+  } else {
+    $manga = "INSERT INTO series (series_id, primaryname, author, synopsis, start_date)
+    VALUES ('$seriesid','$title', '$author', '$description', '$startdate')";
+    $result_manga = mysqli_query($connection, $manga);
+  }
 
   foreach($_POST['genre'] as $g) {
     $genre = "INSERT INTO genres_in_series (genre_id, series_id) VALUES ('$g', '$seriesid')";
