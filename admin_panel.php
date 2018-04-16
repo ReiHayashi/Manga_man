@@ -47,7 +47,7 @@ if($_SESSION['aaa'] === 'admin') {
       <div class="col md-9">
         <div class="card bg-dark">
           <div class="card-header">
-            <h4>Latest series</h4>
+            <h4>Latest users</h4>
           </div>
           <table class="table table-striped table-dark text-primary">
             <thead class="thead-inverse">
@@ -208,7 +208,7 @@ if($_SESSION['aaa'] === 'admin') {
             <input type="file" name="fileToUpload"><br>
           </div>
           <div class="form-group">
-            <label for="series">aaaa</label>
+            <label for="series">Series:</label>
             <select name = "series">
               <?php
               $series = 'SELECT * FROM series ORDER BY series_id ASC';
