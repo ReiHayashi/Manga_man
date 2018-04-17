@@ -10,6 +10,12 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   include('includes/header.php');
 }
 
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 1;
+}
+
 ?>
 <section class="bg-dark">
 <div class="container py-2">
@@ -60,15 +66,23 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             </thead>
             <tbody>
               <?php
+              $no_of_records_per_page = 10;
+              $offset = ($page-1) * $no_of_records_per_page;
               $volume='SELECT * FROM volumes ORDER BY id DESC';
               $query = mysqli_query($connection,$volume);
-              $seriesinvolumes = 'SELECT V.*,
+              $seriesinvolumes = "SELECT V.*,
               series.primaryname as S
               FROM volumes AS V
               INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
               INNER JOIN series ON VIS.series_id = series.series_id
-              ORDER BY V.id DESC';
+              ORDER BY V.id DESC
+              LIMIT $offset, $no_of_records_per_page";
               $resultt = mysqli_query($connection, $seriesinvolumes);
+              //pagination
+              $yesyesyes = "SELECT COUNT('id') FROM volumes";
+              $yesyesyes_result = mysqli_query($connection, $yesyesyes);
+              $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
+              $total_pages = ceil($total_rows / $no_of_records_per_page);
 
               while ($row = mysqli_fetch_array($resultt)) {
               echo '<tr>';
@@ -83,20 +97,36 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
               ?>
             </tbody>
           </table>
-          <nav>
+          <!-- PAGINATION SHIT THAT WORKS AAAAAAAAAAAAAAA -->
+            <nav>
+              <ul class="pagination justify-content-center">
+                  <?php if($page == 1) {} else {?>
+                  <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
+                <?php } ?>
+                  <li class="<?php if($page == 1){ echo 'disabled'; } ?> page-item">
+                      <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?> " tabindex="-1">Previous</a>
+                  </li>
+                </li>
 
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-              </li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
+                <?php
+                if ($total_pages >= 1) {
+          	       for ($i=1; $i<=$total_pages ; $i++) {
+          		         if ($i==$page) {
+          			            echo "<li class=\"page-item\"><b><a class=\"page-link\" href=\"?page=$i\">$i</a></b></li> ";
+          		              } else {
+          			                 echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?page=$i\">$i</a></li> ";
+          		                   }
+
+          	                    }
+                              }?>
+                <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
+                    <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
+                </li>
+                <?php if($page == $total_pages) { } else {?>
+              <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
+              <?php } ?>
+              </ul>
+            </nav>
         </div>
       </div>
     </div>

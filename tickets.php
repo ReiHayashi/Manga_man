@@ -10,6 +10,11 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   include('includes/header.php');
 }
 
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 1;
+}
 ?>
 <?php
 if($_SESSION['aaa'] === 'admin') {
@@ -65,8 +70,15 @@ if($_SESSION['aaa'] === 'admin') {
             </thead>
             <tbody>
               <?php
-              $user='SELECT * FROM support ORDER BY support_id DESC';
+              $no_of_records_per_page = 10;
+              $offset = ($page-1) * $no_of_records_per_page;
+              $user="SELECT * FROM support ORDER BY support_id DESC LIMIT $offset, $no_of_records_per_page";
               $query = mysqli_query($connection,$user);
+              //pagination
+              $yesyesyes = "SELECT COUNT('support_id') FROM support";
+              $yesyesyes_result = mysqli_query($connection, $yesyesyes);
+              $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
+              $total_pages = ceil($total_rows / $no_of_records_per_page);
               while ($row = mysqli_fetch_array($query)) {
                 echo '<tr>';
                 echo '<td scope="row">'.$row['support_id'].'</td>';
@@ -81,20 +93,36 @@ if($_SESSION['aaa'] === 'admin') {
               ?>
             </tbody>
           </table>
-          <nav>
+          <!-- PAGINATION SHIT THAT WORKS AAAAAAAAAAAAAAA -->
+            <nav>
+              <ul class="pagination justify-content-center">
+                  <?php if($page == 1) {} else {?>
+                  <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
+                <?php } ?>
+                  <li class="<?php if($page == 1){ echo 'disabled'; } ?> page-item">
+                      <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?> " tabindex="-1">Previous</a>
+                  </li>
+                </li>
 
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-              </li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
+                <?php
+                if ($total_pages >= 1) {
+          	       for ($i=1; $i<=$total_pages ; $i++) {
+          		         if ($i==$page) {
+          			            echo "<li class=\"page-item\"><b><a class=\"page-link\" href=\"?page=$i\">$i</a></b></li> ";
+          		              } else {
+          			                 echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?page=$i\">$i</a></li> ";
+          		                   }
+
+          	                    }
+                              }?>
+                <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
+                    <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
+                </li>
+                <?php if($page == $total_pages) { } else {?>
+              <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
+              <?php } ?>
+              </ul>
+            </nav>
         </div>
       </div>
     </div>
