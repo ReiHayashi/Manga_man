@@ -15,21 +15,20 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 if(!empty($_GET['id'])){
 $id = $_GET['id'];
 $seriesinvolumes = 'SELECT V.*,
-series.primaryname as S, series.author as A, series.start_date as SD, series.end_date as ED, series.synopsis as Synopsis
+series.primaryname as S, series.author as A, series.start_date as SD, series.end_date as ED, series.synopsis as Synopsis, series.series_id as sid
 FROM volumes AS V
 INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
 INNER JOIN series ON VIS.series_id = series.series_id
 WHERE V.id='.$id;
 $resulttt = mysqli_query($connection, $seriesinvolumes);
 $row = mysqli_fetch_array($resulttt);
-
 //genre query
 $queryy = 'SELECT series.*,
 group_concat(genres.name) as genres
 FROM series
 INNER JOIN genres_in_series ON genres_in_series.series_id = series.series_id
 INNER JOIN genres ON genres_in_series.genre_id = genres.id
-WHERE series.series_id = '.$id;
+WHERE series.series_id = '.$row['sid'];
 $resultt = mysqli_query($connection, $queryy);
 
 //language query
@@ -38,7 +37,7 @@ group_concat(languages.language) as languages
 FROM series
 INNER JOIN languages_in_series ON languages_in_series.series_id = series.series_id
 INNER JOIN languages ON languages_in_series.language_id = languages.id
-WHERE series.series_id = '.$id;
+WHERE series.series_id = '.$row['sid'];
 $result22 = mysqli_query($connection, $query22);
 ?>
 <section id="view_manga">
@@ -65,13 +64,13 @@ $result22 = mysqli_query($connection, $query22);
         </ul>
         <ul class="list-inline">
           <li class="list-inline-item">Languages:</li>
-        </ul>
           <?php
 
           while ($row_language = mysqli_fetch_array($result22)) {
-              echo '<p style="font-size:14px;">'.$row_language['languages'].'</p>';
+                echo '<li class="list-inline-item">'.$row_language['languages'].'</li>';
           }
           ?>
+        </ul>
         <ul class="list-inline">
           <li class="list-inline-item">Genres:</li>
           <?php

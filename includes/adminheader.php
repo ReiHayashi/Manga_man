@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="tinymce/js/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
 </head>
 <body>
   <section class="content">
