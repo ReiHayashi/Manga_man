@@ -28,7 +28,7 @@ if (isset($_GET['page'])) {
   </div>
   <div class="row">
     <?php
-    $no_of_records_per_page = 10;
+    $no_of_records_per_page = 15;
     $offset = ($page-1) * $no_of_records_per_page;
     //manga query
     $seriesinvolumes = "SELECT V.*,

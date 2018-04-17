@@ -24,7 +24,7 @@ if (isset($_GET['page'])) {
 
         <button class="d-none d-md-block d-lg-none btn btn-primary" data-toggle="collapse" data-target="#Search" type="button" aria-expanded="false" aria-controls="Search">SEARCH</button>
 
-        <div class="d-inline-block col-lg-3 bg-dark my-3 rounded d-none collapse" id="Search">
+        <nav class="d-inline-block col-lg-3 bg-dark my-3 rounded d-none collapse">
 
           <label for="username">Keyword</label>
           <input type="text" name="text" class="form-control">
@@ -74,11 +74,11 @@ if (isset($_GET['page'])) {
           <div class="wrapper py-2">
             <input href="#" class="btn btn-primary" id="shop_button" type="submit" value="Search">
           </div>
-        </div>
+        </nav>
 
-        <div class="col-lg-9 my-3 d-inline-block">
+        <div class="col-lg-9 my-3 float-right">
             <?php
-            $no_of_records_per_page = 8;
+            $no_of_records_per_page = 20;
             $offset = ($page-1) * $no_of_records_per_page;
             //manga query
             $seriesinvolumes = "SELECT V.*,
@@ -117,9 +117,8 @@ if (isset($_GET['page'])) {
             ?>
 
         </div>
-      </div>
       <!-- PAGINATION SHIT THAT WORKS AAAAAAAAAAAAAAA -->
-        <nav>
+        <div class="col d-inline-block">
           <ul class="pagination justify-content-center">
               <?php if($page == 1) {} else {?>
               <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
@@ -147,8 +146,7 @@ if (isset($_GET['page'])) {
           <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
           <?php } ?>
           </ul>
-        </nav>
-    </div>
-  </div>
+        </div>
+        </div>
 </section>
 <?php include('includes/footer.php'); ?>

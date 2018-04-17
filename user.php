@@ -23,8 +23,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         <div class="col-lg-6 offset-lg-3 bg-dark rounded">
           <h3 class="text-center my-2">User page</h3>
         <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="logout.php" role="button">Logout</a> <br>
-        <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="#" role="button">Change username</a> <br>
-        <a class="btn btn-primary btn-lg btn-block d-inline-block" href="passwordchange.php" role="button">Change password</a> <br>
+        <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="passwordchange.php" role="button">Change password</a> <br>
         <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="changeemail.php" role="button">Change E-mail</a> <br>
         <a class="btn btn-primary btn-lg btn-block d-inline-block mb-3" href="#" role="button">Purchase history</a>
         </div>

@@ -24,22 +24,22 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 <form action="" method="post">
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-sm-4" style="margin-top: 100px;">
-			<h1 class="display-5">Register</h1>
+		<div class="col-sm-4 bg-dark rounded" style="margin-top: 100px;">
+			<h1 class="display-5 text-center">Register</h1>
 			<div class="form-group">
-					<label for="username">Username</label>
+					<label for="username">Username:</label>
 					<input type="text" name="username" class="form-control">
 			</div>
 			<div class="form-group">
-					<label for="username">E-mail</label>
+					<label for="username">E-mail:</label>
 					<input type="email" name="email" class="form-control">
 			</div>
 			<div class="form-group">
-					<label for="password">Password</label>
+					<label for="password">Password:</label>
 					<input type="password" name="password"  class="form-control">
 			</div>
 			<div class="form-group">
-					<label for="password">Confrim password</label>
+					<label for="password">Confrim password:</label>
 					<input type="password" name="password"class="form-control">
 			</div>
 			<div class="wrapper py-2">
@@ -71,7 +71,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 				$result = mysqli_query($connection, $query);
 				if($result) {
 					echo "user created successfully.";
-          header('Location: index.php');
+          header('Location: login.php');
 				} else {
 					echo "user registration failed";
 				}
