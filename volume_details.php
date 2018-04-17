@@ -79,6 +79,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
                   <?php
                   $series = 'SELECT * FROM series ORDER BY series_id ASC';
                   $query4 = mysqli_query($connection, $series);
+                  echo '<option selected>'.$rowww['series'].'</option>';
                   while ($row3 = mysqli_fetch_array($query4)) {
                     echo '<option value = "'.$row3['series_id'].'">'.$row3['primaryname'].'</option>';
                   } ?>
