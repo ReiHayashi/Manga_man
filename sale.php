@@ -36,10 +36,15 @@ if (isset($_GET['pageno'])) {
     FROM volumes AS V
     INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
     INNER JOIN series ON VIS.series_id = series.series_id
+<<<<<<< HEAD
     WHERE V.price<9.98
     ORDER BY V.id ASC
     LIMIT $offset, $no_of_records_per_page";
 
+=======
+    WHERE V.price<10
+    ORDER BY V.id ASC';
+>>>>>>> parent of 70e388d... sale
     $resultt = mysqli_query($connection, $seriesinvolumes);
     $total_rows = mysqli_fetch_array($resultt)[0];
     $total_pages = ceil($total_rows / $no_of_records_per_page);

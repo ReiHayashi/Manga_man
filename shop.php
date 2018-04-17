@@ -18,8 +18,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     <div class="container">
       <div class="row">
         <button class="d-none d-md-block d-lg-none btn btn-primary" data-toggle="collapse" data-target="#Search" type="button" aria-expanded="false" aria-controls="Search">SEARCH</button>
-
-        <div class="form-inline col-3 bg-dark my-3 rounded d-none d-lg-block collapse" id="Search">
+        <div class="col-3 bg-dark my-3 rounded d-none d-lg-block collapse" id="Search">
 
           <label for="username">Keyword</label>
           <input type="text" name="text" class="form-control">
@@ -41,38 +40,31 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
           <label class="my-2">Langauge</label>
           <select class="custom-select my-1 mr-sm-2">
-            <option selected>English</option>
-            <option value="1">Japanese</option>
-            <option value="2">French</option>
-            <option value="3">Italian</option>
-            <option value="3">German</option>
-            <option value="3">Spanish</option>
+            <?php
+            $languages = 'SELECT * FROM languages ORDER BY id ASC';
+            $query3 = mysqli_query($connection, $languages);
+            while ($row2 = mysqli_fetch_array($query3)) {
+              echo '<option name = "language[]" value = "'.$row2['id'].'">'.$row2['language'].'</option>';
+            } ?>
           </select>
 
           <label class="my-2">Genre</label>
           <select class="custom-select my-1 mr-sm-2">
-            <option selected>Choose</option>
-            <option value="1">Action</option>
-            <option value="2">Adventure</option>
-            <option value="3">Comdey</option>
-            <option value="3">Drama</option>
-            <option value="3">Slice of Life</option>
-            <option value="3">Fantasy</option>
-            <option value="3">Magic</option>
-            <option value="3">Supernatural</option>
-            <option value="3">Horror</option>
-            <option value="3">Mystery</option>
-            <option value="3">Psychological</option>
-            <option value="3">Romance</option>
-            <option value="3">Sci-Fi</option>
+            <?php
+            $genres = 'SELECT * FROM genres ORDER BY id ASC';
+            $query2 = mysqli_query($connection, $genres);
+            while ($row1 = mysqli_fetch_array($query2)) {
+              echo '<option name = "genre[]" value = "'.$row1['id'].'">'.$row1['name'].'</option>';
+            }
+            ?>
           </select>
           <div class="wrapper py-2">
-            <input href="#" class="btn btn-primary" id="shop_button" type="submit" value="Search">
+            <input href="#" class="btn btn-primary" id="shop_button" placeholder="Refine results" type="submit">
           </div>
         </div>
 
         <div class="col-lg-9 my-3">
-        <div class="row">
+
             <?php
             //manga query
             $seriesinvolumes = 'SELECT V.*,
@@ -80,7 +72,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             FROM volumes AS V
             INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
             INNER JOIN series ON VIS.series_id = series.series_id
-            ORDER BY rand()';
+            ORDER BY V.id ASC';
             $resultt = mysqli_query($connection, $seriesinvolumes);
             $row_count = 0;
             while ($row = mysqli_fetch_array($resultt)) {
@@ -103,7 +95,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
               }
             }
             ?>
-          </div>
+
         </div>
       </div>
       <nav>
@@ -122,5 +114,6 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       </nav>
     </div>
   </div>
+</form>
 </section>
 <?php include('includes/footer.php'); ?>
