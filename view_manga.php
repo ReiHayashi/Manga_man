@@ -14,27 +14,31 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 //id check
 if(!empty($_GET['id'])){
 $id = $_GET['id'];
-//manga query
-$manga='SELECT * FROM manga WHERE manga_id='.$id.'';
-$query = mysqli_query($connection,$manga);
-$row = mysqli_fetch_array($query);
+$seriesinvolumes = 'SELECT V.*,
+series.primaryname as S, series.author as A, series.start_date as SD, series.end_date as ED, series.synopsis as Synopsis
+FROM volumes AS V
+INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
+INNER JOIN series ON VIS.series_id = series.series_id
+WHERE V.id='.$id;
+$resulttt = mysqli_query($connection, $seriesinvolumes);
+$row = mysqli_fetch_array($resulttt);
 
 //genre query
-$queryy = 'SELECT manga.*,
+$queryy = 'SELECT series.*,
 group_concat(genres.name) as genres
-FROM manga
-INNER JOIN genres_in_mangas ON genres_in_mangas.manga_id = manga.manga_id
-INNER JOIN genres ON genres_in_mangas.genre_id = genres.id
-WHERE manga.manga_id = '.$id.'';
+FROM series
+INNER JOIN genres_in_series ON genres_in_series.series_id = series.series_id
+INNER JOIN genres ON genres_in_series.genre_id = genres.id
+WHERE series.series_id = '.$id;
 $resultt = mysqli_query($connection, $queryy);
 
 //language query
-$query22 = 'SELECT manga.*,
+$query22 = 'SELECT series.*,
 group_concat(languages.language) as languages
-FROM manga
-INNER JOIN languages_in_mangas ON languages_in_mangas.manga_id = manga.manga_id
-INNER JOIN languages ON languages_in_mangas.language_id = languages.id
-WHERE manga.manga_id = '.$id.'';
+FROM series
+INNER JOIN languages_in_series ON languages_in_series.series_id = series.series_id
+INNER JOIN languages ON languages_in_series.language_id = languages.id
+WHERE series.series_id = '.$id;
 $result22 = mysqli_query($connection, $query22);
 ?>
 <section id="view_manga">
@@ -44,23 +48,30 @@ $result22 = mysqli_query($connection, $query22);
         <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
       </div>
       <div class="col-md-7 bg-dark my-4">
-        <?php echo '<h4>'.$row['manga_name'].'</h4>'; ?>
+        <?php echo '<h4>'.$row['S'].' '.$row['title'].'</h4>'; ?>
         <ul class="list-inline">
           <li class="list-inline-item">By:</li>
-          <?php  echo '<li class="list-inline-item">'.$row['manga_creator'].'</li>'; ?>
+          <?php  echo '<li class="list-inline-item">'.$row['A'].'</li>'; ?>
         </ul>
         <ul class="list-inline">
-          <li class="list-inline-item">Release date:</li>
-          <?php  echo '<li class="list-inline-item">'.$row['manga_date'].'</li>'; ?>
-        </ul>
-        <ul class="list-inline">
-          <li class="list-inline-item">Languages:</li>
+          <li class="list-inline-item">Published:</li>
           <?php
-          while ($row_language = mysqli_fetch_array($result22)) {
-              echo '<li class="list-inline-item">'.$row_language['languages'].'</li>';
+          if($row['ED'] == 00-00-0000){
+            echo '<li class="list-inline-item">'.$row['SD'].' - ?</li>';
+          } else {
+            echo '<li class="list-inline-item">'.$row['SD'].' - '.$row['ED'].'</li>';
           }
           ?>
         </ul>
+        <ul class="list-inline">
+          <li class="list-inline-item">Languages:</li>
+        </ul>
+          <?php
+
+          while ($row_language = mysqli_fetch_array($result22)) {
+              echo '<p style="font-size:14px;">'.$row_language['languages'].'</p>';
+          }
+          ?>
         <ul class="list-inline">
           <li class="list-inline-item">Genres:</li>
           <?php
@@ -70,10 +81,10 @@ $result22 = mysqli_query($connection, $query22);
           ?>
         </ul>
         <h5>Description</h5>
-        <?php echo '<p style="font-size:14px;">'.$row['manga_description'].'</p>'; ?>
+        <?php echo '<p style="font-size:14px;">'.$row['Synopsis'].'</p>'; ?>
         </div>
         <div class="col-md-2 bg-dark my-4 text-center rounded-right">
-          <?php echo '<h2 style="margin-top:60px;" >$'.$row['manga_price'].'</h2>'; ?>
+          <?php echo '<h2 style="margin-top:60px;" >$'.$row['price'].'</h2>'; ?>
           <p class="my-2">Free shipping Worldwide</p>
           <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="#" role="button">Add to cart</a> <br>
           <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="#" role="button">Wishlist</a> <br>

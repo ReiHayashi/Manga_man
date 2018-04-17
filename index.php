@@ -34,91 +34,6 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
 <section id="shop_index">
   <div class="container">
-    <div class="row text-center">
-      <div class="col">
-        <h1 class="pb-3">BEST SELLERS</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="card-deck">
-        <div class="card text-center" style="background-color:black">
-          <div class="card-body text-center">
-            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" ><h4>Berserak</h4></a>
-            <a href="" class="text-info"><p>Kentafaasfasfasgro Miura</p></a>
-            <p>9.99$</p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-info">ADD TO CART</button>
-          </div>
-        </div>
-
-        <div class="card text-center" style="background-color:black">
-          <div class="card-body text-center">
-            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" ><h4>Berserak</h4></a>
-            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
-            <p>9.99$</p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-info">ADD TO CART</button>
-          </div>
-        </div>
-
-        <div class="card text-center" style="background-color:black">
-          <div class="card-body text-center">
-            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" ><h4>Berserak</h4></a>
-            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
-            <p>9.99$</p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-info">ADD TO CART</button>
-          </div>
-        </div>
-
-        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-
-        <div class="card text-center" style="background-color:black">
-          <div class="card-body text-center">
-            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" ><h4>Berserak</h4></a>
-            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
-            <p>9.99$</p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-info">ADD TO CART</button>
-          </div>
-        </div>
-
-        <div class="card text-center" style="background-color:black">
-          <div class="card-body text-center">
-            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" ><h4>Berserak</h4></a>
-            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
-            <p>9.99$</p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-info">ADD TO CART</button>
-          </div>
-        </div>
-
-        <div class="card text-center" style="background-color:black">
-          <div class="card-body text-center">
-            <a href=""><img src="img/berserk.jpg" alt="" class="img-fluid mb-3"></a>
-            <a href="" ><h4>Berserak</h4></a>
-            <a href="" class="text-info"><p>Kentafasfasfasgro Miura</p></a>
-            <p>9.99$</p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-info">ADD TO CART</button>
-          </div>
-        </div>
-
-        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-
-      </div>
-    </div>
 
     <div class="row text-center my-4">
       <div class="col">
@@ -135,7 +50,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         FROM volumes AS V
         INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
         INNER JOIN series ON VIS.series_id = series.series_id
-        ORDER BY V.id DESC';
+        ORDER BY V.id DESC LIMIT 6';
         $resultt = mysqli_query($connection, $seriesinvolumes);
         while ($row = mysqli_fetch_array($resultt)) {
           echo '<div class="card text-center" style="background-color:black">';
