@@ -71,7 +71,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         </div>
 
         <div class="col-lg-9 my-3">
-          <div class="card-deck">
+
             <?php
             //manga query
             $seriesinvolumes = 'SELECT V.*,
@@ -79,9 +79,12 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             FROM volumes AS V
             INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
             INNER JOIN series ON VIS.series_id = series.series_id
-            ORDER BY V.id ASC LIMIT 4';
+            ORDER BY V.id ASC';
             $resultt = mysqli_query($connection, $seriesinvolumes);
+            $row_count = 0;
             while ($row = mysqli_fetch_array($resultt)) {
+              $row_count++;
+              if($row_count==1) echo '<div class="card-deck">';
               echo '<div class="card text-center" style="background-color:black">';
               echo '<div class="card-body text-center">';
               echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
@@ -93,10 +96,13 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
               echo '<button class="btn btn-info">ADD TO CART</button>';
               echo '</div>';
               echo '</div>';
-
+              if($row_count==4) {
+                echo "</div>";
+                $row_count=0;
+              }
             }
             ?>
-          </div>
+
         </div>
       </div>
       <nav>

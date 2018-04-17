@@ -53,6 +53,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         ORDER BY V.id DESC LIMIT 6';
         $resultt = mysqli_query($connection, $seriesinvolumes);
         while ($row = mysqli_fetch_array($resultt)) {
+          
           echo '<div class="card text-center" style="background-color:black">';
           echo '<div class="card-body text-center">';
           echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
