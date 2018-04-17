@@ -28,7 +28,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     FROM volumes AS V
     INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
     INNER JOIN series ON VIS.series_id = series.series_id
-    WHERE V.price<10
+    WHERE V.price<9.98
     ORDER BY V.id ASC';
     $resultt = mysqli_query($connection, $seriesinvolumes);
     $row_count = 0;
