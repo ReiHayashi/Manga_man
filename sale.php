@@ -28,7 +28,7 @@ if (isset($_GET['page'])) {
   </div>
   <div class="row">
     <?php
-    $no_of_records_per_page = 11;
+    $no_of_records_per_page = 10;
     $offset = ($page-1) * $no_of_records_per_page;
     //manga query
     $seriesinvolumes = "SELECT V.*,
@@ -40,8 +40,12 @@ if (isset($_GET['page'])) {
     ORDER BY V.id ASC
     LIMIT $offset, $no_of_records_per_page";
     $resultt = mysqli_query($connection, $seriesinvolumes);
-    $total_rows = mysqli_fetch_array($resultt)[0];
-    $total_pages = intval($total_rows / $no_of_records_per_page)+2;
+    //pagination
+    $yesyesyes = "SELECT COUNT('id') FROM volumes WHERE price<9.98";
+    $yesyesyes_result = mysqli_query($connection, $yesyesyes);
+    $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+    //while loop for content
     $row_count = 0;
     while ($row = mysqli_fetch_array($resultt)) {
       $row_count++;
@@ -79,9 +83,16 @@ if (isset($_GET['page'])) {
       </li>
 
       <?php
-      for($i=1; $i<$total_pages; $i++) {
-        echo '<li class="page-item"><a class="page-link" href="?page='.$i.'">'.$i.'</a></li>';
-      } ?>
+      if ($total_pages >= 1) {
+	       for ($i=1; $i<=$total_pages ; $i++) {
+		         if ($i==$page) {
+			            echo "<li class=\"page-item\"><b><a class=\"page-link\" href=\"?page=$i\">$i</a></b></li> ";
+		              } else {
+			                 echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?page=$i\">$i</a></li> ";
+		                   }
+
+	                    }
+                    }?>
       <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
           <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
       </li>
