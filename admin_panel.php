@@ -172,9 +172,9 @@ if($_SESSION['aaa'] === 'admin') {
                 echo '<input type = "checkbox" name = "language[]" value = "'.$row2['id'].'">'.$row2['language'].'<br>';
               } ?>
           </div>
-          <div class="form-group">
+          <div>
             <label for="body">Synopsis</label>
-            <textarea name="Synopsis" class="form-control"></textarea>
+            <textarea name="Synopsis"></textarea>
           </div>
           <div class="modal-footer">
             <button class="btn btn-primary" data-dismiss="modal">Close</button>
