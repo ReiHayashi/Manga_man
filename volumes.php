@@ -60,21 +60,21 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             </thead>
             <tbody>
               <?php
-              $seriesinvolumes = 'SELECT volumes.*,
-              series.primaryname as series
-              FROM volumes
-              INNER JOIN volumes_in_series ON volumes_in_series.volume_id = volumes.id
-              INNER JOIN series ON volumes_in_series.series_id = series.series_id';
-              $resultt = mysqli_query($connection, $seriesinvolumes);
-              $row_series = mysqli_fetch_array($resultt);
               $volume='SELECT * FROM volumes ORDER BY id DESC';
               $query = mysqli_query($connection,$volume);
-              $num_rows = mysqli_num_rows($query);
-              while ($row = mysqli_fetch_array($query)) {
+              $seriesinvolumes = 'SELECT V.*,
+              series.primaryname as S
+              FROM volumes AS V
+              INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
+              INNER JOIN series ON VIS.series_id = series.series_id
+              ORDER BY V.id DESC';
+              $resultt = mysqli_query($connection, $seriesinvolumes);
+
+              while ($row = mysqli_fetch_array($resultt)) {
               echo '<tr>';
               echo '<td scope="row">'.$row['id'].'</td>';
               echo '<td>'.$row['title'].'</td>';
-              echo '<td>'.$row_series['series'].'</td>';
+                echo '<td>'.$row['S'].'</td>';
               echo '<td>$'.$row['price'].'</td>';
               echo '<td><a href="volume_details.php?id='.$row['id'].'" class="btn btn-primary">
                 <i class="fa fa-angle-double-right"></i>Details</a></td>';

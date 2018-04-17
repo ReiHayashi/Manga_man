@@ -57,8 +57,10 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
               </div>
               <div class="form-group">
                 <?php
-                $selectid = "SELECT series_id FROM volumes_in_series WHERE volume_id='$id'";
+                $selectid = "SELECT * FROM volumes_in_series WHERE volume_id='$id'";
                 $result_selectid = mysqli_query($connection, $selectid);
+                $rowid = mysqli_fetch_array($result_selectid);
+                $selectseriesid = $rowid['series_id'];
 
                 $seriesinvolumes = 'SELECT volumes.*,
                 series.primaryname as series
@@ -95,21 +97,20 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <?php
   if(isset($_POST['submit'])) {
 
-  $title = $_POST['title'];
+  $title = mysqli_real_escape_string($connection, $_POST['title']);
   $price = $_POST['price'];
   $series = $_POST['series'];
 
-  $volumeupdate = "UPDATE volume SET title='$title',price='$price' WHERE id='$id'";
+  $volumeupdate = "UPDATE volumes SET title='$title',price='$price' WHERE id='$id'";
   $result_volumeupdate = mysqli_query($connection, $volumeupdate);
 
 
-  $seriesquery = "UPDATE volumes_in_series SET series_id=replace(series_id, '$selectid', '$series') WHERE volume_id='$id'";
+  $seriesquery = "UPDATE volumes_in_series SET series_id=replace(series_id, '$selectseriesid', '$series') WHERE volume_id=".$id;
   $result_volume2 = mysqli_query($connection, $seriesquery);
 
-  if($result_volumeupdate || $result_volume2) {
+  if($result_volumeupdate) {
     echo "volume has been updated.";
     echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
-
   } else {
     echo "you fucked up.";
   }

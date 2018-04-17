@@ -1,11 +1,11 @@
 <?php
   include("config/config.php");
 
-  $title = $_POST['Primaryname'];
-  $description = $_POST['Synopsis'];
-  $author = $_POST['Author'];
+  $title = mysqli_real_escape_string($connection, $_POST['Primaryname']);
+  $author = mysqli_real_escape_string($connection, $_POST['Author']);
   $startdate = $_POST['start_date'];
   $enddate = $_POST['end_date'];
+  $description = mysqli_real_escape_string($connection, $_POST['Synopsis']);
 
   $query11 = "SELECT * FROM series ORDER BY series_id DESC";
   $rs = mysqli_query($connection, $query11);
@@ -14,11 +14,11 @@
 
     if(isset($_POST['end_date'])) {
       $manga = "INSERT INTO series (series_id, primaryname, author, synopsis, start_date, end_date)
-      VALUES ('$seriesid','$title', '$author', '$description', '$startdate', '$enddate')";
-      $result_manga = mysqli_query($connection, $manga);
+      VALUES ('$seriesid','".$title."', '".$author."', '".$description."', '$startdate', '$enddate')";
+            $result_manga = mysqli_query($connection, $manga);
     } else {
       $manga = "INSERT INTO series (series_id, primaryname, author, synopsis, start_date)
-      VALUES ('$seriesid','$title', '$author', '$description', '$startdate')";
+      VALUES ('$seriesid','".$title."', '".$author."', '".$description."', '$startdate')";
       $result_manga = mysqli_query($connection, $manga);
     }
 
