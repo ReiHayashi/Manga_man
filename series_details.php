@@ -82,11 +82,11 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <?php
   if(isset($_POST['submit'])) {
 
-  $title = mysqli_real_escape_string($_POST['primaryname']);
-  $author = mysqli_real_escape_string($_POST['Author']);
+  $title = $_POST['primaryname'];
+  $author = $_POST['Author'];
   $startdate = $_POST['startdate'];
   $enddate = $_POST['enddate'];
-  $synopsis = mysqli_real_escape_string($_POST['Synopsis']);
+  $synopsis = $_POST['Synopsis'];
 
   $seriesupdate = "UPDATE series SET primaryname='$title',author='$author',start_date='$startdate',end_date='$enddate',synopsis='$synopsis' WHERE series_id='$id'";
   $result_seriesupdate = mysqli_query($connection, $seriesupdate);
