@@ -23,7 +23,7 @@ if (isset($_GET['page'])) {
 <div class="container">
   <div class="row text-center">
     <div class="col">
-      <h1 class="my-3">THINGS ON SALE</h1>
+      <h1 class="my-3">Manga under 10$</h1>
     </div>
   </div>
   <div class="row">

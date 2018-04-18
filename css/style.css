@@ -1,7 +1,4 @@
-html{
-  height: 100px;
-}
-
+/* Font, font color, background color and sticky footer */
 body {
   font-family: 'Arvo', serif;
   font-weight: normal;
@@ -13,11 +10,7 @@ body {
   flex-direction:column;
 }
 
-.navbar-brand img {
-    position: relative;
-    width: 170px;
-    background-size: contain;
-}
+/* Sticky footer */
 
 .content{
   flex:1 0 auto;
@@ -26,29 +19,21 @@ body {
   flex-basis: auto;
 }
 
-.fa {
-  position: relative;
-  font-size: 25px;
-  background-size: contain;
+/* Navbar logo */
+
+.navbar-brand img {
+    position: relative;
+    width: 170px;
+    background-size: contain;
 }
+
+/* Navbar font size*/
 
 .nav-link {
   font-size: 24px;
 }
 
-#header img {
-  width: 100%;
-  height: 50%;
-  background: cover;
-}
-
-.form-control {
-  border-radius: 10px;
-}
-
-.wrapper {
-  text-align: center;
-}
+/* Navbar link colors and hover */
 
 #navbar a {
   color: #2d9bad;
@@ -58,6 +43,8 @@ body {
   color: #000000;
 }
 
+/* All other link hovers */
+
 a {
   color: #2d9bad;
 }
@@ -66,13 +53,23 @@ a:hover {
   color: #2d9bad;
 }
 
-#about .card:hover {
-  color: #000000;
+/* Font-awesome icon size */
+
+.fa {
+  position: relative;
+  font-size: 25px;
+  background-size: contain;
 }
 
-#developers .card:hover {
-  color: #000000;
+/* Index image */
+
+#header img {
+  width: 100%;
+  height: 50%;
+  background: cover;
 }
+
+/* Centering div inside a div */
 
 .parent {
   position: relative;
@@ -81,4 +78,26 @@ a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* Border radius on inputs */
+
+.form-control {
+  border-radius: 10px;
+}
+
+/* Centering buttons*/
+
+.wrapper {
+  text-align: center;
+}
+
+/* About page font hover */
+
+#about .card:hover {
+  color: #000000;
+}
+
+#developers .card:hover {
+  color: #000000;
 }
