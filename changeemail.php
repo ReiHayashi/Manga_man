@@ -20,8 +20,6 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           <div class="col-sm-4 bg-dark rounded" style="margin-top: 200px;">
             <h3 class="display-5 text-center my-3">Change E-mail</h1>
             <form class="form-group" action="" method="POST">
-              <label for="username">Your username:</label>
-              <input type="text" name="username" class="form-control">
               <label class="mt-3" for="password">Current E-mail:</label>
               <input type="email" name="email" class="form-control">
               <label class="mt-3" for="password">New E-mail:</label>
@@ -38,11 +36,11 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
 
     <?php
-    if(isset($_POST['submit']) && !empty($_POST['newemail']) && !empty($_POST['email']) && !empty($_POST['username'])) {
+    if(isset($_POST['submit']) && !empty($_POST['newemail']) && !empty($_POST['email']) && isset($_SESSION['username'])) {
       $email = $_POST['email'];
       $newemail = $_POST['newemail'];
-      $username = $_POST['username'];
-      $query = "SELECT * FROM users WHERE username='".$_POST['username']."'";
+      $username = $_SESSION['username'];
+      $query = "SELECT * FROM users WHERE username='".$_SESSION['username']."'";
       $result = mysqli_query($connection, $query);
       $row = mysqli_fetch_array($result);
 
