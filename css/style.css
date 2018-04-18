@@ -18,6 +18,7 @@ body {
     width: 170px;
     background-size: contain;
 }
+
 .content{
   flex:1 0 auto;
   flex-grow: 1;

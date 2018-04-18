@@ -49,7 +49,7 @@ if (isset($_GET['page'])) {
 <section id="posts">
   <div class="container">
     <div class="row">
-      <div class="col md-9">
+      <div class="col md-9 mb-4">
         <div class="card bg-dark">
           <div class="card-header">
             <h4>All Series</h4>
