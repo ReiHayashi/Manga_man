@@ -11,20 +11,20 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 if (isset($_GET['page'])) {
-    $page = $_GET['page'];
+  $page = $_GET['page'];
 } else {
-    $page = 1;
+  $page = 1;
 }
 
 ?>
 <section class="bg-dark">
-<div class="container py-2">
-  <div class="row">
-    <div class="col-mb-6">
-      <h1>Volumes</h1>
+  <div class="container py-2">
+    <div class="row">
+      <div class="col-mb-6">
+        <h1>Volumes</h1>
+      </div>
     </div>
   </div>
-</div>
 </section>
 
 <section id="post" class="py-4 mb-4">
@@ -85,52 +85,52 @@ if (isset($_GET['page'])) {
               $total_pages = ceil($total_rows / $no_of_records_per_page);
 
               while ($row = mysqli_fetch_array($resultt)) {
-              echo '<tr>';
-              echo '<td scope="row">'.$row['id'].'</td>';
-              echo '<td>'.$row['title'].'</td>';
+                echo '<tr>';
+                echo '<td scope="row">'.$row['id'].'</td>';
+                echo '<td>'.$row['title'].'</td>';
                 echo '<td>'.$row['S'].'</td>';
-              echo '<td>$'.$row['price'].'</td>';
-              echo '<td><a href="volume_details.php?id='.$row['id'].'" class="btn btn-primary">
+                echo '<td>$'.$row['price'].'</td>';
+                echo '<td><a href="volume_details.php?id='.$row['id'].'" class="btn btn-primary">
                 <i class="fa fa-angle-double-right"></i>Details</a></td>';
-              echo '</tr>';
+                echo '</tr>';
               }
               ?>
             </tbody>
           </table>
           <!-- PAGINATION SHIT THAT WORKS AAAAAAAAAAAAAAA -->
-            <nav>
-              <ul class="pagination justify-content-center">
-                  <?php if($page == 1) {} else {?>
-                  <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
-                <?php } ?>
-                  <li class="<?php if($page == 1){ echo 'disabled'; } ?> page-item">
-                      <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?> " tabindex="-1">Previous</a>
-                  </li>
-                </li>
-
-                <?php
-                if ($total_pages >= 1) {
-          	       for ($i=1; $i<=$total_pages ; $i++) {
-          		         if ($i==$page) {
-          			            echo "<li class=\"page-item\"><b><a class=\"page-link\" href=\"?page=$i\">$i</a></b></li> ";
-          		              } else {
-          			                 echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?page=$i\">$i</a></li> ";
-          		                   }
-
-          	                    }
-                              }?>
-                <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
-                    <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
-                </li>
-                <?php if($page == $total_pages) { } else {?>
-              <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
+          <nav>
+            <ul class="pagination justify-content-center">
+              <?php if($page == 1) {} else {?>
+                <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
               <?php } ?>
-              </ul>
-            </nav>
-        </div>
+              <li class="<?php if($page == 1){ echo 'disabled'; } ?> page-item">
+                <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?> " tabindex="-1">Previous</a>
+              </li>
+            </li>
+
+            <?php
+            if ($total_pages >= 1) {
+              for ($i=1; $i<=$total_pages ; $i++) {
+                if ($i==$page) {
+                  echo "<li class=\"page-item\"><b><a class=\"page-link\" href=\"?page=$i\">$i</a></b></li> ";
+                } else {
+                  echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?page=$i\">$i</a></li> ";
+                }
+
+              }
+            }?>
+            <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
+              <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
+            </li>
+            <?php if($page == $total_pages) { } else {?>
+              <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
+            <?php } ?>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <?php include('includes/footer.php'); ?>

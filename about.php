@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
-   include('includes/adminheader.php');
+  include('includes/adminheader.php');
 }
 elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   include('includes/userheader.php');
@@ -101,9 +101,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <p>The person who did most of the database and PHP.</p>
           </div>
         </div>
+      </div>
     </div>
-  </div>
 
-</section>
+  </section>
 
-<?php include('includes/footer.php'); ?>
+  <?php include('includes/footer.php'); ?>

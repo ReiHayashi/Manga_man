@@ -33,7 +33,7 @@ $id = $_GET['id']; ?>
 $support ='SELECT * FROM support WHERE support_id='.$id.'';
 $query = mysqli_query($connection,$support);
 $row = mysqli_fetch_array($query)
- ?>
+?>
 <section id="posts">
   <div class="container">
     <div class="row">

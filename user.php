@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
-   include('includes/adminheader.php');
+  include('includes/adminheader.php');
 }
 elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   include('includes/userheader.php');
@@ -11,30 +11,30 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 ?>
-  <?php
-  if($_SESSION['aaa'] === 'user') {
+<?php
+if($_SESSION['aaa'] === 'user') {
   ?>
 
   <!-- USER -->
-<section id="user">
-  <div class="container">
-    <div class="row rounded">
-      <div class="col text-center" style="margin-top: 175;">
-        <div class="col-lg-6 offset-lg-3 bg-dark rounded">
-          <h3 class="text-center my-2">User page</h3>
-        <a class="btn btn-primary btn-lg btn-block d-inline-block" href="logout.php" role="button">Logout</a> <br>
-        <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="passwordchange.php" role="button">Change password</a> <br>
-        <a class="btn btn-primary btn-lg btn-block d-inline-block" href="changeemail.php" role="button">Change E-mail</a> <br>
-        <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="reviews.php" role="button">Reviews</a> <br>
-        <a class="btn btn-primary btn-lg btn-block d-inline-block mb-3" href="#" role="button">Purchase history</a>
+  <section id="user">
+    <div class="container">
+      <div class="row rounded">
+        <div class="col text-center" style="margin-top: 175;">
+          <div class="col-lg-6 offset-lg-3 bg-dark rounded">
+            <h3 class="text-center my-2">User page</h3>
+            <a class="btn btn-primary btn-lg btn-block d-inline-block" href="logout.php" role="button">Logout</a> <br>
+            <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="passwordchange.php" role="button">Change password</a> <br>
+            <a class="btn btn-primary btn-lg btn-block d-inline-block" href="changeemail.php" role="button">Change E-mail</a> <br>
+            <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="reviews.php" role="button">Reviews</a> <br>
+            <a class="btn btn-primary btn-lg btn-block d-inline-block mb-3" href="#" role="button">Purchase history</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <?php
-  } else {
-    header('Location: index.php');
-  }
-  ?>
+} else {
+  header('Location: index.php');
+}
+?>
 <?php include('includes/footer.php'); ?>

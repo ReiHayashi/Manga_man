@@ -14,45 +14,45 @@
 </head>
 <body>
   <section class="content">
-      <section id=navbar>
-    <nav class="navbar navbar-expand-sm py-0  bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="250" height="60" alt=""></a>
-        <button class="navbar-toggler" type="button" name="button" data-toggle="collapse" data-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+    <section id=navbar>
+      <nav class="navbar navbar-expand-sm py-0  bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="250" height="60" alt=""></a>
+          <button class="navbar-toggler" type="button" name="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="shop.php">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-3" href="sale.php">Sale</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.php">About</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <input type="text" name="text" class="form-control">
+          </div>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="shop.php">Shop</a>
-            </li>
+              <a class="nav-link" href="#">
+                <i class=" btn btn-primary fa fa-search"></i>
+              </li>
+            </a>
             <li class="nav-item">
-              <a class="nav-link mx-3" href="sale.php">Sale</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.php">About</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <input type="text" name="text" class="form-control">
-        </div>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class=" btn btn-primary fa fa-search"></i>
+              <a class="nav-link" href="cart.php">
+                <i class=" btn btn-primary fa fa-shopping-cart"></i>
+              </li>
+            </a>
+            <li class="nav-item"><a class="nav-link" href="login.php">
+              <i class=" btn btn-primary fa fa-user"></i>
             </li>
           </a>
-          <li class="nav-item">
-            <a class="nav-link" href="cart.php">
-              <i class=" btn btn-primary fa fa-shopping-cart"></i>
-            </li>
-          </a>
-          <li class="nav-item"><a class="nav-link" href="login.php">
-            <i class=" btn btn-primary fa fa-user"></i>
-          </li>
-        </a>
-      </ul>
-    </div>
-  </nav>
-</section>
+        </ul>
+      </div>
+    </nav>
+  </section>
