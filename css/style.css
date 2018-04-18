@@ -2,7 +2,7 @@ html{
   height: 100px;
 }
 body {
-  font-family: 'Zud Juice', Arial, sans-serif;
+  font-family: 'Arvo', serif;
   font-weight: normal;
   font-style: normal;
   color: #2d9bad;
@@ -138,4 +138,13 @@ a:hover {
 
 #developers .card:hover {
   color: #000000;
+}
+
+.parent {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }

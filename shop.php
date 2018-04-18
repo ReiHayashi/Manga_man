@@ -29,14 +29,6 @@ if (isset($_GET['page'])) {
           <label for="username">Keyword</label>
           <input type="text" name="text" class="form-control">
 
-          <label class="my-2">Price range</label>
-          <select class="custom-select my-1 mr-sm-2">
-            <option selected>All</option>
-            <option value="1">Under €15</option>
-            <option value="2">€15 to 30€</option>
-            <option value="3">€30 +</option>
-          </select>
-
           <label class="my-2">Series</label>
           <select class="custom-select my-1 mr-sm-2">
               <?php
@@ -54,7 +46,7 @@ if (isset($_GET['page'])) {
               $query3 = mysqli_query($connection, $languages);
               while ($row2 = mysqli_fetch_array($query3)) {
                 echo '<option name = "language" value = "'.$row2['id'].'">'.$row2['language'].'</option>';
-              } 
+              }
               ?>
           </select>
 

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
   <script src="tinymce/js/tinymce/tinymce.min.js"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
 </head>
@@ -41,6 +42,7 @@
         </ul>
       </div>
         <ul class="navbar-nav">
+          <input type="text" name="text" class="form-control">
           <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
           <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i></li></a>
           <li class="nav-item"><a class="nav-link" href="login.php"><i class="fa fa-user"></i></li></a>

@@ -43,8 +43,29 @@ $result22 = mysqli_query($connection, $query22);
 <section id="view_manga">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 bg-dark my-4 rounded-left">
-        <?php echo '<a href="uploads/'.$row['image'].'"><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
+      <div class="col-md-3 bg-dark my-4 rounded-left d-inline-block parent">
+        <div class="child">
+        <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
+        <div class="rating-block">
+					<h4>Average user rating</h4>
+					<h2 class="bold padding-bottom-7">4 <small>/ 5</small></h2>
+					<button type="button" class="btn btn-primary btn-sm" aria-label="Left Align">
+					  <span class="fa fa-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-primary btn-sm" aria-label="Left Align">
+					  <span class="fa fa-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-primary btn-sm" aria-label="Left Align">
+					  <span class="fa fa-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-primary btn-grey btn-sm" aria-label="Left Align">
+					  <span class="fa fa-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-primary btn-grey btn-sm" aria-label="Left Align">
+					  <span class="fa fa-star" aria-hidden="true"></span>
+					</button>
+				</div>
+      </div>
       </div>
       <div class="col-md-7 bg-dark my-4">
         <?php echo '<h4>'.$row['S'].' '.$row['title'].'</h4>'; ?>
@@ -82,11 +103,12 @@ $result22 = mysqli_query($connection, $query22);
         <h5>Description</h5>
         <?php echo '<p style="font-size:14px;">'.$row['Synopsis'].'</p>'; ?>
         </div>
-        <div class="col-md-2 bg-dark my-4 text-center rounded-right">
-          <?php echo '<h2 style="margin-top:60px;" >$'.$row['price'].'</h2>'; ?>
+        <div class="col-md-2 bg-dark my-4 text-center d-inline-block rounded-right justify-content-center parent">
+          <div class="child">
+          <?php echo '<h2 >$'.$row['price'].'</h2>'; ?>
           <p class="my-2">Free shipping Worldwide</p>
-          <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="#" role="button">Add to cart</a> <br>
-          <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="#" role="button">Wishlist</a> <br>
+          <a class="btn btn-primary btn-lg d-inline-block mt-3" href="#" role="button">Add to cart</a> <br>
+          </div>
         </div>
       </div>
       <div class="row">
