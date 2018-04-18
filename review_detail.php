@@ -13,7 +13,14 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   <?php
   if(!empty($_GET['id'])){
   $id = $_GET['id'];
-  $user = 'SELECT * FROM users WHERE id='.$id;
+  $user = 'SELECT V.*,
+          review.username as U, review.datesubmitted as DS, series.primaryname as PN, review.id as reviewid, review.content as C
+          FROM volumes AS V
+          INNER JOIN reviews_in_volumes AS RIS ON RIS.volume_id = V.id
+          INNER JOIN review ON RIS.review_id = review.id
+          INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
+          INNER JOIN series ON VIS.series_id = series.series_id
+          WHERE review.id='.$id;
   $userquery = mysqli_query($connection, $user);
   $row = mysqli_fetch_array($userquery);
   ?>
@@ -29,7 +36,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         </a>
       </div>
       <div class="col-md-3">
-          <?php echo '<a href="deleteuser.php?id='.$id.'" class="btn btn-danger btn-block">'; ?>
+          <?php echo '<a href="deletereview.php?id='.$id.'" class="btn btn-danger btn-block">'; ?>
           <i class="fa fa-remove"></i> Delete
         </a>
       </div>
@@ -43,21 +50,13 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       <div class="col my-2">
         <div class="card bg-dark">
           <div class="card-header">
-            <h4>Edit user: <?php echo $row['username']; ?></h4>
+            <h4>Edit review for: <?php echo $row['PN'].' '.$row['title'].'<br> Review by: '.$row['U']; ?></h4>
           </div>
           <div class="card-body">
             <form method="POST">
               <div class="form-group">
-                <label class="font-weight-bold" for="username">Username:</label>
-                <input type="text" class="form-control" name="username" <?php echo 'value="'.$row['username'].'"'; ?>>
-              </div>
-              <div class="form-group">
-                <label class="font-weight-bold" for="email">email:</label>
-                <input type="email" class="form-control" name="email" <?php echo 'value="'.$row['email'].'"'; ?>>
-              </div>
-              <div class="form-group">
-                <label class="font-weight-bold" for="password">password:</label>
-                <input type="password" class="form-control" name="password">
+                <label class="font-weight-bold" for="Synopsis">Content:</label>
+                <textarea class="form-control" name="content" ><?php echo $row['C']; ?></textarea>
               </div>
               <div class="wrapper my-3">
                   <input class="btn btn-success btn-block" type="submit" name="submit" value="Save Changes" required>
@@ -72,16 +71,14 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <?php
   if(isset($_POST['submit'])) {
 
-  $username = $_POST['username'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+  $content = $_POST['content'];
 
-  $userupdate = "UPDATE users SET username='$username',email='$email',password='$password' WHERE id='$id'";
+  $userupdate = "UPDATE review SET content='$content' WHERE id='$id'";
   $result_userupdate = mysqli_query($connection, $userupdate);
 
 
   if($result_userupdate) {
-    echo "user has been updated.";
+    echo "review has been updated.";
     echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
 
   } else {

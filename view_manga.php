@@ -44,7 +44,7 @@ $result22 = mysqli_query($connection, $query22);
   <div class="container">
     <div class="row">
       <div class="col-md-3 bg-dark my-4 rounded-left">
-        <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
+        <?php echo '<a href="uploads/'.$row['image'].'"><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
       </div>
       <div class="col-md-7 bg-dark my-4">
         <?php echo '<h4>'.$row['S'].' '.$row['title'].'</h4>'; ?>
@@ -97,7 +97,7 @@ $result22 = mysqli_query($connection, $query22);
         </div>
       </div>
       <div class="row">
-        <?php 
+        <?php
         //genre query
         $reviewsinvolumes = 'SELECT V.*,
         review.username as U, review.content as C, review.datesubmitted as DS
@@ -176,7 +176,7 @@ if(isset($_POST['submit'])) {
 
 
 ?>
-<?php 
+<?php
 } else {
   echo "you forgo something important cunt";
 }
