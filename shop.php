@@ -37,39 +37,36 @@ if (isset($_GET['page'])) {
             <option value="3">€30 +</option>
           </select>
 
-          <label class="my-2">Availability</label>
+          <label class="my-2">Series</label>
           <select class="custom-select my-1 mr-sm-2">
-            <option selected>All</option>
-            <option value="1">In stockr</option>
-            <option value="1">Pre-order</option>
+              <?php
+              $series = 'SELECT * FROM series ORDER BY series_id ASC';
+              $query4 = mysqli_query($connection, $series);
+              while ($row3 = mysqli_fetch_array($query4)) {
+                echo '<option value = "'.$row3['series_id'].'">'.$row3['primaryname'].'</option>';
+              } ?>
           </select>
 
           <label class="my-2">Langauge</label>
           <select class="custom-select my-1 mr-sm-2">
-            <option selected>English</option>
-            <option value="1">Japanese</option>
-            <option value="2">French</option>
-            <option value="3">Italian</option>
-            <option value="3">German</option>
-            <option value="3">Spanish</option>
+              <?php
+              $languages = 'SELECT * FROM languages ORDER BY id ASC';
+              $query3 = mysqli_query($connection, $languages);
+              while ($row2 = mysqli_fetch_array($query3)) {
+                echo '<option name = "language" value = "'.$row2['id'].'">'.$row2['language'].'</option>';
+              } 
+              ?>
           </select>
 
           <label class="my-2">Genre</label>
           <select class="custom-select my-1 mr-sm-2">
-            <option selected>Choose</option>
-            <option value="1">Action</option>
-            <option value="2">Adventure</option>
-            <option value="3">Comdey</option>
-            <option value="3">Drama</option>
-            <option value="3">Slice of Life</option>
-            <option value="3">Fantasy</option>
-            <option value="3">Magic</option>
-            <option value="3">Supernatural</option>
-            <option value="3">Horror</option>
-            <option value="3">Mystery</option>
-            <option value="3">Psychological</option>
-            <option value="3">Romance</option>
-            <option value="3">Sci-Fi</option>
+              <?php
+              $genres = 'SELECT * FROM genres ORDER BY id ASC';
+              $query2 = mysqli_query($connection, $genres);
+              while ($row1 = mysqli_fetch_array($query2)) {
+                echo '<option name = "genre" value = "'.$row1['id'].'">'.$row1['name'].'</option>';
+              }
+              ?>
           </select>
           <div class="wrapper py-2">
             <input href="#" class="btn btn-primary" id="shop_button" type="submit" value="Search">
@@ -78,7 +75,7 @@ if (isset($_GET['page'])) {
 
         <div class="col-lg-9 my-3 float-right">
             <?php
-            $no_of_records_per_page = 20;
+            $no_of_records_per_page = 16;
             $offset = ($page-1) * $no_of_records_per_page;
             //manga query
             $seriesinvolumes = "SELECT V.*,

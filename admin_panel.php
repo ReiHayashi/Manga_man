@@ -47,7 +47,7 @@ if($_SESSION['aaa'] === 'admin') {
       <div class="col md-9">
         <div class="card bg-dark">
           <div class="card-header">
-            <h4>Latest users</h4>
+            <h4>Latest 15 users</h4>
           </div>
           <table class="table table-striped table-dark text-primary">
             <thead class="thead-inverse">
@@ -60,11 +60,15 @@ if($_SESSION['aaa'] === 'admin') {
             </thead>
             <tbody>
               <?php
-              $user = 'SELECT * FROM users ORDER BY id DESC';
+              $user = 'SELECT * FROM users ORDER BY id DESC LIMIT 15';
               $userquery = mysqli_query($connection, $user);
+              $numrows3 = mysqli_num_rows($userquery);
               $manga='SELECT * FROM series ORDER BY series_id DESC';
               $query = mysqli_query($connection,$manga);
               $num_rows = mysqli_num_rows($query);
+              $reviews='SELECT * FROM review ORDER BY id DESC';
+              $queryyy = mysqli_query($connection,$reviews);
+              $num_rows34 = mysqli_num_rows($queryyy);
               $volumes = 'SELECT * FROM volumes ORDER BY id DESC';
               $query2 = mysqli_query($connection, $volumes);
               $num_rows2 = mysqli_num_rows($query2);
@@ -121,6 +125,25 @@ if($_SESSION['aaa'] === 'admin') {
           </div>
         </div>
 
+                <div class="card text-center bg-primary text-dark mb-3">
+          <div class="card-body">
+            <h3>Users</h3>
+            <h1 class="display-4">
+              <i class="fa fa-user"></i> <?php echo $numrows3; ?>
+            </h1>
+            <a href="users.php" class="btn btn-dark btn-sm">View</a>
+          </div>
+        </div>
+
+                <div class="card text-center bg-primary text-dark mb-3">
+          <div class="card-body">
+            <h3>Reviews</h3>
+            <h1 class="display-4">
+              <i class="fa fa-pencil"></i> <?php echo $num_rows34; ?>
+            </h1>
+            <a href="reviews.php" class="btn btn-dark btn-sm">View</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

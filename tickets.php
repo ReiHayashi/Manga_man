@@ -65,7 +65,7 @@ if($_SESSION['aaa'] === 'admin') {
                 <th>Name</th>
                 <th>E-mail</th>
                 <th>Date added</th>
-                <th></th>
+                <th>Username</th>
               </tr>
             </thead>
             <tbody>
@@ -85,7 +85,8 @@ if($_SESSION['aaa'] === 'admin') {
                 echo '<td>'.$row['problem_title'].'</td>';
                 echo '<td>'.$row['firstname'].' '.$row['lastname'].'</td>';
                 echo '<td>'.$row['email'].'</td>';
-                echo '<td>Placeholder</td>';
+                echo '<td>'.$row['date'].'</td>';
+                echo '<td>'.$row['username'].'</td>';
                 echo '<td><a href="ticket_details.php?id='.$row['support_id'].'" class="btn btn-primary">
                       <i class="fa fa-angle-double-right"></i> View</a></td>';
                 echo '</tr>';

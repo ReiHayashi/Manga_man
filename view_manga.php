@@ -12,7 +12,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 ?>
 <?php
 //id check
-if(!empty($_GET['id'])){
+if(!empty($_GET['id'])) {
 $id = $_GET['id'];
 $seriesinvolumes = 'SELECT V.*,
 series.primaryname as S, series.author as A, series.start_date as SD, series.end_date as ED, series.synopsis as Synopsis, series.series_id as sid
@@ -97,28 +97,29 @@ $result22 = mysqli_query($connection, $query22);
         </div>
       </div>
       <div class="row">
-        <div class="col-md-10 offset-md-1 card my-4 bg-dark">
-          <div class="card-header">
-            Timoke
-          </div>
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique neque, impedit delectus iste molestias aut fuga, quas asperiores ipsa nesciunt?</p>
-              <footer class="blockquote-footer">Posted on 4/3/2018</footer>
-            </blockquote>
-          </div>
-        </div>
-        <div class="col-md-10 offset-md-1 card my-4 bg-dark">
-          <div class="card-header">
-            Timoke
-          </div>
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt libero unde enim eligendi. Consequuntur at nihil odit ducimus, quia nam.</p>
-              <footer class="blockquote-footer">Posted on 4/3/2018</footer>
-            </blockquote>
-          </div>
-        </div>
+        <?php 
+        //genre query
+        $reviewsinvolumes = 'SELECT V.*,
+        review.username as U, review.content as C, review.datesubmitted as DS
+        FROM volumes AS V
+        INNER JOIN reviews_in_volumes AS RIS ON RIS.volume_id = V.id
+        INNER JOIN review ON RIS.review_id = review.id
+        WHERE V.id='.$id;
+        $resultt22 = mysqli_query($connection, $reviewsinvolumes);
+            while ($roww22 = mysqli_fetch_array($resultt22)) {
+              echo '<div class="col-md-10 offset-md-1 card my-4 bg-dark">
+                    <div class="card-header">Posted By: ';
+                    echo $roww22['U'];
+              echo '</div>';
+              echo '<div class="card-body">
+                    <blockquote class="blockquote mb-0">';
+                    echo '<p>'.$roww22['C'].'</p>';
+              echo '<footer class="blockquote-footer">Posted on '.$roww22['DS'].'</footer>
+                    </blockquote>
+                    </div>
+                    </div>';
+            }
+        ?>
       </div>
     </div>
   </div>
@@ -132,10 +133,10 @@ $result22 = mysqli_query($connection, $query22);
         <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
       </div>
       <div class="modal-body bg-dark">
-        <form>
+        <form method="POST" >
           <div class="form-group">
-            <label for="body">Synopsis</label>
-            <textarea name="editor1" class="form-control" style="min-height: 20%"></textarea>
+            <label for="body">Review Content</label>
+            <textarea name="content" class="form-control" style="min-height: 20%"></textarea>
           </div>
           <div class="modal-footer bg-dark">
           <input class="btn btn-primary" type="submit" name="submit" value="Post review"> <br>
@@ -145,10 +146,39 @@ $result22 = mysqli_query($connection, $query22);
     </div>
   </div>
 </div>
+
 <?php
+
+if(isset($_POST['submit'])) {
+  $usernamee = $_SESSION['username'];
+  $content = $_POST['content'];
+  $reviewquery = "INSERT INTO review (username, content) VALUES ('$usernamee', '$content')";
+  $review_result = mysqli_query($connection, $reviewquery);
+  if($review_result){
+    $query11 = "SELECT * FROM review ORDER BY id DESC";
+    $rs = mysqli_query($connection, $query11);
+    $row11 = mysqli_fetch_array($rs);
+    $reviewid = $row11['id'];
+    $review_in_volumes = "INSERT INTO reviews_in_volumes (review_id, volume_id) VALUES ('$reviewid', '$id')";
+    $review_tie_result = mysqli_query($connection, $review_in_volumes);
+    if($review_tie_result) {
+      echo 'review posted successfully';
+          echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
+    } else {
+      echo 'FUCKING SHITTY QUERY I HATE THIS AAAAAAAA';
+    }
+  } else {
+    echo 'something went horribly wrong again and again';
+  }
+  } else {
+
+  }
+
+
+?>
+<?php 
 } else {
   echo "you forgo something important cunt";
 }
 ?>
-
 <?php include('includes/footer.php'); ?>

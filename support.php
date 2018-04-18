@@ -57,8 +57,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 			$lastname = $_POST['lastname'];
 			$email = $_POST['email'];
 			$problem = $_POST['problem'];
-				$query="INSERT INTO support (firstname, lastname, email, problem_title, problem)
-				VALUES ('$firstname', '$lastname', '$email', '$problemtitle', '$problem')";
+			$username = $_SESSION['username'];
+				$query="INSERT INTO support (firstname, lastname, email, problem_title, problem, username)
+				VALUES ('$firstname', '$lastname', '$email', '$problemtitle', '$problem', '$username')";
 				$result = mysqli_query($connection, $query);
 				if($result) {
 					echo "sent a support ticket successfully. Wait for an E-mail from our support team. Process can take up to 24 hours";

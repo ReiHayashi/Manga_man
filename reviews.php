@@ -1,4 +1,4 @@
-
+<?php include("config/config.php"); ?>
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
@@ -9,18 +9,21 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 } else {
   include('includes/header.php');
 }
+
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 } else {
     $page = 1;
 }
-
+?>
+<?php
+if($_SESSION['aaa'] === 'admin') {
 ?>
 <section class="bg-dark">
 <div class="container py-2">
   <div class="row">
     <div class="col-mb-6">
-      <h1>Series</h1>
+      <h1>Tickets</h1>
     </div>
   </div>
 </div>
@@ -52,37 +55,49 @@ if (isset($_GET['page'])) {
       <div class="col md-9">
         <div class="card bg-dark">
           <div class="card-header">
-            <h4>All Series</h4>
+            <h4>All tickets</h4>
           </div>
           <table class="table table-striped table-dark text-primary">
             <thead class="thead-inverse">
               <tr>
                 <th>#</th>
+                <th>Review by</th>
                 <th>Name</th>
+                <th>E-mail</th>
                 <th>Date added</th>
-                <th></th>
+                <th>Username</th>
               </tr>
             </thead>
             <tbody>
               <?php
               $no_of_records_per_page = 10;
               $offset = ($page-1) * $no_of_records_per_page;
-              $series="SELECT * FROM series ORDER BY series_id DESC LIMIT $offset, $no_of_records_per_page";
-              $query = mysqli_query($connection,$series);
-              $num_rows = mysqli_num_rows($query);
-              $yesyesyes = "SELECT COUNT('series_id') FROM series";
+              $user="SELECT * FROM review ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+              $query = mysqli_query($connection,$user);
+                      $reviewsinvolumes = 'SELECT V.*,
+                      review.username as U, review.datesubmitted as DS, series.primaryname as PN
+                      FROM volumes AS V
+                      INNER JOIN reviews_in_volumes AS RIS ON RIS.volume_id = V.id
+                      INNER JOIN review ON RIS.review_id = review.id
+                      INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
+                      INNER JOIN series ON VIS.series_id = series.series_id
+                      ORDER BY review.id DESC
+                      LIMIT $offset, $no_of_records_per_page';
+              $resultt22 = mysqli_query($connection, $query);
+              //pagination
+              $yesyesyes = "SELECT COUNT('id') FROM review";
               $yesyesyes_result = mysqli_query($connection, $yesyesyes);
               $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
               $total_pages = ceil($total_rows / $no_of_records_per_page);
-              while ($row = mysqli_fetch_array($query)) {
-              echo '<tr>';
-              echo '<td scope="row">'.$row['series_id'].'</td>';
-              echo '<td>'.$row['primaryname'].'</td>';
-              echo '<td>'.$row['dateadded'].'</td>';
-              echo '<td>'.$row['author'].'</td>';
-              echo '<td><a href="series_details.php?id='.$row['series_id'].'" class="btn btn-primary">
-                <i class="fa fa-angle-double-right"></i>Details</a></td>';
-              echo '</tr>';
+              while ($row = mysqli_fetch_array($resultt22)) {
+                echo '<tr>';
+                echo '<td scope="row">'.$row['review.id'].'</td>';
+                echo '<td>'.$row['U'].'</td>';
+                echo '<td>'.$row['PN'].' '.$row['title'].'</td>';
+                echo '<td>'.$row['DS'].'</td>';
+                echo '<td><a href="review_detail.php?id='.$row['review.id'].'" class="btn btn-primary">
+                      <i class="fa fa-angle-double-right"></i> View</a></td>';
+                echo '</tr>';
               }
               ?>
             </tbody>
@@ -122,5 +137,9 @@ if (isset($_GET['page'])) {
     </div>
   </div>
 </section>
-
+<?php
+} else {
+  header('Location: index.php');
+}
+?>
 <?php include('includes/footer.php'); ?>

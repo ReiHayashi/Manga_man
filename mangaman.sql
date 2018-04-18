@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2018 at 09:07 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Apr 18, 2018 at 10:02 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -166,6 +166,60 @@ INSERT INTO `languages_in_series` (`language_id`, `series_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `id` int(11) NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `content` varchar(2000) NOT NULL,
+  `datesubmitted` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `username`, `content`, `datesubmitted`) VALUES
+(1, 'Admin', '<p>nigger</p>', '2018-04-18 06:21:41'),
+(2, '', '<p>nigger</p>\r\n<p>&nbsp;</p>', '2018-04-18 06:23:53'),
+(3, '', '<p>nigger</p>', '2018-04-18 06:26:12'),
+(4, 'Admin', '<p>nigger</p>', '2018-04-18 06:26:49'),
+(5, 'Admin', '<p>nigger</p>', '2018-04-18 06:28:39'),
+(6, 'Admin', '<p>nigger</p>', '2018-04-18 06:30:24'),
+(7, 'Admin', '<p>nigger nigge rnigger</p>', '2018-04-18 06:43:16'),
+(8, 'Admin', '<p>NIGGERS</p>', '2018-04-18 06:44:45'),
+(9, 'Admin', '<p>NIGGER</p>', '2018-04-18 06:48:00'),
+(10, 'Admin', '<p>nigger</p>', '2018-04-18 06:50:54'),
+(11, 'Admin', '<p>nigger</p>', '2018-04-18 06:51:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews_in_volumes`
+--
+
+CREATE TABLE `reviews_in_volumes` (
+  `review_id` int(11) NOT NULL,
+  `volume_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reviews_in_volumes`
+--
+
+INSERT INTO `reviews_in_volumes` (`review_id`, `volume_id`) VALUES
+(1, 112),
+(6, 112),
+(7, 112),
+(8, 110),
+(9, 105),
+(10, 105),
+(11, 105);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `series`
 --
 
@@ -175,21 +229,22 @@ CREATE TABLE `series` (
   `author` varchar(44) CHARACTER SET utf8 NOT NULL,
   `synopsis` varchar(2000) CHARACTER SET utf8 NOT NULL,
   `start_date` date NOT NULL,
-  `end_date` date NOT NULL
+  `end_date` date NOT NULL,
+  `dateadded` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `series`
 --
 
-INSERT INTO `series` (`series_id`, `primaryname`, `author`, `synopsis`, `start_date`, `end_date`) VALUES
-(1, 'Tokyo Ghoul', 'Ishida Sui', '<p class=\"MsoNormal\">Lurking within the shadows of Tokyo are frightening beings known as \"ghouls,\" who satisfy their hunger by feeding on humans once night falls. An organization known as the Commission of Counter Ghoul (CCG) has been established in response to the constant attacks on citizens and as a means of purging these creatures. However, the problem lies in identifying ghouls as they disguise themselves as humans, living amongst the masses so that hunting prey will be easier. Ken Kaneki, an unsuspecting university freshman, finds himself caught in a world between humans and ghouls when his date turns out to be a ghoul after his flesh.</p>', '2011-09-08', '2014-09-18'),
-(2, 'Vinland Saga', 'Yukimura Makoto', '<p>Thorfinn, son of one of the Vikings greatest warriors, is among the finest fighters in the merry band of mercenaries run by the cunning Askeladd, an impressive feat for a person his age. However, Thorfinn is not part of the group for the plunder it entails&mdash;instead, for having caused his family great tragedy, the boy has vowed to kill Askeladd in a fair duel. Not yet skilled enough to defeat him, but unable to abandon his vengeance, Thorfinn spends his boyhood with the mercenary crew, honing his skills on the battlefield among the war-loving Danes, where killing is just another pleasure of life.<br /><br />One day, when Askeladd receives word that Danish prince Canute has been taken hostage, he hatches an ambitious plot&mdash;one that will decide the next King of England and drastically alter the lives of Thorfinn, Canute, and himself. Set in 11th century Europe,&nbsp;Vinland Saga&nbsp;tells a bloody epic in an era where violence, madness, and injustice are inescapable, providing a paradise for the battle-crazed and utter hell for the rest who live in it.</p>', '2005-07-15', '0000-00-00'),
-(3, 'One Punch man', 'ONE, Murata Yusuke ', 'After rigorously training for three years, the ordinary Saitama has gained immense strength which allows him to take out anyone and anything with just one punch. He decides to put his new skill to good use by becoming a hero. However, he quickly becomes bored with easily defeating monsters, and wants someone to give him a challenge to bring back the spark of being a hero.\r\n\r\nUpon bearing witness to Saitamas amazing power, Genos, a cyborg, is determined to become Saitamas apprentice. During this time, Saitama realizes he is neither getting the recognition that he deserves nor known by the people due to him not being a part of the Hero Association. Wanting to boost his reputation, Saitama decides to have Genos register with him, in exchange for taking him in as a pupil. Together, the two begin working their way up toward becoming true heroes, hoping to find strong enemies and earn respect in the process.', '2012-06-14', '0000-00-00'),
-(4, 'All You Need Is Kill', 'Obata  Takeshi, Sakurazaka Hiroshi, Takeuchi', '<p class=\"MsoNormal\">Strange creatures known as \"Mimics\" have invaded Earth, sparking a global war that has humanity fighting for survival. In response, mankind forms the United Defense Force, a joint organization whose purpose is to overcome this new threat. Dedicated to the extermination of the growing Mimic menace, soldiers are plunged into battle, wearing special exoskeleton combat suits in an attempt to gain the upper hand against their foes.<br /><br />New recruit Keiji Kiriya is immediately killed after his very first deployment, but to his shock, he wakes up exactly one day before his unit was dropped into a Mimic invasion. After experiencing the same event yet again, he realizes that he is stuck in a time loop triggered by his death. As he relives the day of the battle hundreds of times, Keiji begins to make use of what he has learned about the phenomenon, gradually building up his strength and improving his skills so that eventually, when he comes face-to-face with death once more, he will be ready to change his fate.</p>', '2014-01-09', '2014-05-28'),
-(5, 'Attack on Titan', 'Isayama Hajime', 'Hundreds of years ago, horrifying creatures which resembled humans appeared. These mindless, towering giants, called \"titans,\" proved to be an existential threat, as they preyed on whatever humans they could find in order to satisfy a seemingly unending appetite. Unable to effectively combat the titans, mankind was forced to barricade themselves within large walls surrounding what may very well be humanitys last safe haven in the world.\r\n\r\nIn the present day, life within the walls has finally found peace, since the residents have not dealt with titans for many years. Eren Yeager, Mikasa Ackerman, and Armin Arlert are three young children who dream of experiencing all that the world has to offer, having grown up hearing stories of the wonders beyond the walls. But when the state of tranquility is suddenly shattered by the attack of a massive 60-meter titan, they quickly learn just how cruel the world can be. On that day, Eren makes a promise to himself that he will do whatever it takes ', '2009-09-09', '0000-00-00'),
-(6, 'The Promised Neverland', 'Demizu Posuka, Shirai Kaiu', '<p class=\"MsoNormal\">At Grace Field House, life couldnt be better for the orphans! Though they have no parents, together with the other kids and a kind \"Mama\" who cares for them, they form one big, happy family. No child is ever overlooked, especially since they are all adopted by the age of 12. Their daily lives involve rigorous tests, but afterwards, they are allowed to play outside.&nbsp;<br /><br />There is only one rule they must obey: do not leave the orphanage. But one day, two top-scoring orphans, Emma and Norman, venture past the gate and unearth the horrifying reality behind their entire existence: they are all livestock, and their orphanage is a farm to cultivate food for a mysterious race of demons. With only a few months left to pull off an escape plan, the children must somehow change their predetermined fate.</p>', '2016-08-01', '0000-00-00'),
-(7, 'Tokyo Ghoul:re', 'Ishida Sui ', '<p style=\"text-align: justify;\">Two years have passed since the CCG\'s raid on Anteiku. Although the atmosphere in Tokyo has changed drastically due to the increased influence of the CCG, ghouls continue to pose a problem as they have begun taking caution, especially the terrorist organization Aogiri Tree, who acknowledge the CCG\'s growing threat to their existence.<br /><br />The creation of a special team, known as the Quinx Squad, may provide the CCG with the push they need to exterminate Tokyo\'s unwanted residents. As humans who have undergone surgery in order to make use of the special abilities of ghouls, they participate in operations to eradicate the dangerous creatures. The leader of this group, Haise Sasaki, is a half-ghoul, half-human who has been trained by famed special class investigator, Kishou Arima. However, there\'s more to this young man than meets the eye, as unknown memories claw at his mind, slowly reminding him of the person he used to be.</p>', '2014-10-16', '0000-00-00');
+INSERT INTO `series` (`series_id`, `primaryname`, `author`, `synopsis`, `start_date`, `end_date`, `dateadded`) VALUES
+(1, 'Tokyo Ghoul', 'Ishida Sui', '<p class=\"MsoNormal\">Lurking within the shadows of Tokyo are frightening beings known as \"ghouls,\" who satisfy their hunger by feeding on humans once night falls. An organization known as the Commission of Counter Ghoul (CCG) has been established in response to the constant attacks on citizens and as a means of purging these creatures. However, the problem lies in identifying ghouls as they disguise themselves as humans, living amongst the masses so that hunting prey will be easier. Ken Kaneki, an unsuspecting university freshman, finds himself caught in a world between humans and ghouls when his date turns out to be a ghoul after his flesh.</p>', '2011-09-08', '2014-09-18', '0000-00-00 00:00:00'),
+(2, 'Vinland Saga', 'Yukimura Makoto', '<p>Thorfinn, son of one of the Vikings greatest warriors, is among the finest fighters in the merry band of mercenaries run by the cunning Askeladd, an impressive feat for a person his age. However, Thorfinn is not part of the group for the plunder it entails&mdash;instead, for having caused his family great tragedy, the boy has vowed to kill Askeladd in a fair duel. Not yet skilled enough to defeat him, but unable to abandon his vengeance, Thorfinn spends his boyhood with the mercenary crew, honing his skills on the battlefield among the war-loving Danes, where killing is just another pleasure of life.<br /><br />One day, when Askeladd receives word that Danish prince Canute has been taken hostage, he hatches an ambitious plot&mdash;one that will decide the next King of England and drastically alter the lives of Thorfinn, Canute, and himself. Set in 11th century Europe,&nbsp;Vinland Saga&nbsp;tells a bloody epic in an era where violence, madness, and injustice are inescapable, providing a paradise for the battle-crazed and utter hell for the rest who live in it.</p>', '2005-07-15', '0000-00-00', '0000-00-00 00:00:00'),
+(3, 'One Punch man', 'ONE, Murata Yusuke ', 'After rigorously training for three years, the ordinary Saitama has gained immense strength which allows him to take out anyone and anything with just one punch. He decides to put his new skill to good use by becoming a hero. However, he quickly becomes bored with easily defeating monsters, and wants someone to give him a challenge to bring back the spark of being a hero.\r\n\r\nUpon bearing witness to Saitamas amazing power, Genos, a cyborg, is determined to become Saitamas apprentice. During this time, Saitama realizes he is neither getting the recognition that he deserves nor known by the people due to him not being a part of the Hero Association. Wanting to boost his reputation, Saitama decides to have Genos register with him, in exchange for taking him in as a pupil. Together, the two begin working their way up toward becoming true heroes, hoping to find strong enemies and earn respect in the process.', '2012-06-14', '0000-00-00', '0000-00-00 00:00:00'),
+(4, 'All You Need Is Kill', 'Obata  Takeshi, Sakurazaka Hiroshi, Takeuchi', '<p class=\"MsoNormal\">Strange creatures known as \"Mimics\" have invaded Earth, sparking a global war that has humanity fighting for survival. In response, mankind forms the United Defense Force, a joint organization whose purpose is to overcome this new threat. Dedicated to the extermination of the growing Mimic menace, soldiers are plunged into battle, wearing special exoskeleton combat suits in an attempt to gain the upper hand against their foes.<br /><br />New recruit Keiji Kiriya is immediately killed after his very first deployment, but to his shock, he wakes up exactly one day before his unit was dropped into a Mimic invasion. After experiencing the same event yet again, he realizes that he is stuck in a time loop triggered by his death. As he relives the day of the battle hundreds of times, Keiji begins to make use of what he has learned about the phenomenon, gradually building up his strength and improving his skills so that eventually, when he comes face-to-face with death once more, he will be ready to change his fate.</p>', '2014-01-09', '2014-05-28', '0000-00-00 00:00:00'),
+(5, 'Attack on Titan', 'Isayama Hajime', 'Hundreds of years ago, horrifying creatures which resembled humans appeared. These mindless, towering giants, called \"titans,\" proved to be an existential threat, as they preyed on whatever humans they could find in order to satisfy a seemingly unending appetite. Unable to effectively combat the titans, mankind was forced to barricade themselves within large walls surrounding what may very well be humanitys last safe haven in the world.\r\n\r\nIn the present day, life within the walls has finally found peace, since the residents have not dealt with titans for many years. Eren Yeager, Mikasa Ackerman, and Armin Arlert are three young children who dream of experiencing all that the world has to offer, having grown up hearing stories of the wonders beyond the walls. But when the state of tranquility is suddenly shattered by the attack of a massive 60-meter titan, they quickly learn just how cruel the world can be. On that day, Eren makes a promise to himself that he will do whatever it takes ', '2009-09-09', '0000-00-00', '0000-00-00 00:00:00'),
+(6, 'The Promised Neverland', 'Demizu Posuka, Shirai Kaiu', '<p class=\"MsoNormal\">At Grace Field House, life couldnt be better for the orphans! Though they have no parents, together with the other kids and a kind \"Mama\" who cares for them, they form one big, happy family. No child is ever overlooked, especially since they are all adopted by the age of 12. Their daily lives involve rigorous tests, but afterwards, they are allowed to play outside.&nbsp;<br /><br />There is only one rule they must obey: do not leave the orphanage. But one day, two top-scoring orphans, Emma and Norman, venture past the gate and unearth the horrifying reality behind their entire existence: they are all livestock, and their orphanage is a farm to cultivate food for a mysterious race of demons. With only a few months left to pull off an escape plan, the children must somehow change their predetermined fate.</p>', '2016-08-01', '0000-00-00', '0000-00-00 00:00:00'),
+(7, 'Tokyo Ghoul:re', 'Ishida Sui ', '<p style=\"text-align: justify;\">Two years have passed since the CCG\'s raid on Anteiku. Although the atmosphere in Tokyo has changed drastically due to the increased influence of the CCG, ghouls continue to pose a problem as they have begun taking caution, especially the terrorist organization Aogiri Tree, who acknowledge the CCG\'s growing threat to their existence.<br /><br />The creation of a special team, known as the Quinx Squad, may provide the CCG with the push they need to exterminate Tokyo\'s unwanted residents. As humans who have undergone surgery in order to make use of the special abilities of ghouls, they participate in operations to eradicate the dangerous creatures. The leader of this group, Haise Sasaki, is a half-ghoul, half-human who has been trained by famed special class investigator, Kishou Arima. However, there\'s more to this young man than meets the eye, as unknown memories claw at his mind, slowly reminding him of the person he used to be.</p>', '2014-10-16', '0000-00-00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -203,15 +258,17 @@ CREATE TABLE `support` (
   `lastname` varchar(42) CHARACTER SET utf8 NOT NULL,
   `email` varchar(42) CHARACTER SET utf8 NOT NULL,
   `problem_title` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `problem` varchar(1000) CHARACTER SET utf8 NOT NULL
+  `problem` varchar(1000) CHARACTER SET utf8 NOT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `username` varchar(64) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `support`
 --
 
-INSERT INTO `support` (`support_id`, `firstname`, `lastname`, `email`, `problem_title`, `problem`) VALUES
-(5, 'a', 'a', 'aa@a.a', 'a', ' aaaa');
+INSERT INTO `support` (`support_id`, `firstname`, `lastname`, `email`, `problem_title`, `problem`, `date`, `username`) VALUES
+(8, 'niggetr', 'nigger', 'nigger@niggernigger', 'nigger', 'nigger nigger nigger  ', '2018-04-18 06:01:21', 'test');
 
 -- --------------------------------------------------------
 
@@ -224,16 +281,18 @@ CREATE TABLE `users` (
   `username` varchar(48) CHARACTER SET utf8 NOT NULL,
   `email` varchar(48) CHARACTER SET utf8 NOT NULL,
   `password` varchar(48) CHARACTER SET utf8 COLLATE utf8_estonian_ci NOT NULL,
-  `usertype` int(2) NOT NULL
+  `usertype` int(2) NOT NULL,
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `usertype`) VALUES
-(1, 'Admin', 'admin@admin.admin', 'admin', 1),
-(12, 'timoke', 'timoke@gmail.com', '123456', 0);
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `usertype`, `date_created`) VALUES
+(1, 'Admin', 'admin@admin.admin', 'admin', 1, '0000-00-00 00:00:00'),
+(12, 'timoke', 'timoke@gmail.com', '123456', 0, '0000-00-00 00:00:00'),
+(13, 'test', 'test@test.test', 'test', 0, '2018-04-18 05:58:31');
 
 -- --------------------------------------------------------
 
@@ -502,6 +561,19 @@ ALTER TABLE `languages_in_series`
   ADD KEY `series_id` (`series_id`);
 
 --
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reviews_in_volumes`
+--
+ALTER TABLE `reviews_in_volumes`
+  ADD KEY `review_id` (`review_id`),
+  ADD KEY `volume_id` (`volume_id`);
+
+--
 -- Indexes for table `series`
 --
 ALTER TABLE `series`
@@ -549,6 +621,12 @@ ALTER TABLE `languages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `series`
 --
 ALTER TABLE `series`
@@ -558,13 +636,13 @@ ALTER TABLE `series`
 -- AUTO_INCREMENT for table `support`
 --
 ALTER TABLE `support`
-  MODIFY `support_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `support_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `volumes`
@@ -589,6 +667,13 @@ ALTER TABLE `genres_in_series`
 ALTER TABLE `languages_in_series`
   ADD CONSTRAINT `languages_in_series_ibfk_1` FOREIGN KEY (`language_id`) REFERENCES `languages` (`id`),
   ADD CONSTRAINT `languages_in_series_ibfk_2` FOREIGN KEY (`series_id`) REFERENCES `series` (`series_id`);
+
+--
+-- Constraints for table `reviews_in_volumes`
+--
+ALTER TABLE `reviews_in_volumes`
+  ADD CONSTRAINT `reviews_in_volumes_ibfk_1` FOREIGN KEY (`review_id`) REFERENCES `review` (`id`),
+  ADD CONSTRAINT `reviews_in_volumes_ibfk_2` FOREIGN KEY (`volume_id`) REFERENCES `volumes` (`id`);
 
 --
 -- Constraints for table `volumes_in_series`

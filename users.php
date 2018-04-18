@@ -1,56 +1,131 @@
-<?php include("config/config.php"); ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>admin page</title>
-  </head>
-  <body>
-    <?php
-    session_start();
-    if($_SESSION['aaa'] === 'admin') {
-    ?>
-    <a href="admin.php"> admin page</a> <br>
-    <a href="logout.php"> emergency logout</a> <br>
-    <h3>Users</h3>
-    <table id="admintable">
-      <tr>
-        <td>Id</td>
-        <td>Username</td>
-        <td>Email</td>
-        <td>usertype</td>
-      </tr>
-      <?php
-        $user='SELECT * FROM users ORDER BY id DESC';
-        $query = mysqli_query($connection,$user);
-        while ($row = mysqli_fetch_array($query)) {
-          echo '<tr>';
-          echo '<td>'.$row['id'].'</td>';
-          echo '<td>'.$row['username'].'</td>';
-          echo '<td>'.$row['email'].'</td>';
-          echo '<td>'.$row['usertype'].'</td>';
-          echo '<td><a href="'.$_SERVER['PHP_SELF'].'?id='.$row['id'].'">Delete</a></td>';
-          echo '<td><a href="edituser.php?id='.$row['id'].'">Edit</a></td>';
-          echo '</tr>';
-        }
-        if(!empty($_GET['id'])){
-          $id = $_GET['id'];
-          $delete = "DELETE FROM users WHERE id='$id'";
-          $delete_result = mysqli_query($connection, $delete);
-          if($delete_result){
-            echo "user deleted";
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
-          } else {
-            echo "something went wrong";
-          }
-        }
-        mysqli_close($connection);
-      ?>
-    </table>
-    <?php
-    } else {
-      header('Location: index.php');
-    }
-    ?>
-  </body>
-</html>
+
+<?php
+session_start();
+if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
+  include('includes/adminheader.php');
+}
+elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
+  include('includes/userheader.php');
+} else {
+  include('includes/header.php');
+}
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 1;
+}
+
+?>
+<section class="bg-dark">
+<div class="container py-2">
+  <div class="row">
+    <div class="col-mb-6">
+      <h1>Series</h1>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="post" class="py-4 mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mr-auto">
+        <a href="admin_panel.php" class="btn btn-primary btn-block">
+          <i class="fa fa-arrow-left"></i> Back To Dashboard
+        </a>
+      </div>
+      <div class="col-md6 ml-auto">
+        <div class="input-group">
+          <input type="text" class="form-control" palceholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-primary">Search</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="posts">
+  <div class="container">
+    <div class="row">
+      <div class="col md-9">
+        <div class="card bg-dark">
+          <div class="card-header">
+            <h4>All Series</h4>
+          </div>
+          <table class="table table-striped table-dark text-primary">
+            <thead class="thead-inverse">
+              <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Date created</th>
+                <th>E-mail</th>
+                <th>User Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $no_of_records_per_page = 15;
+              $offset = ($page-1) * $no_of_records_per_page;
+              $userquery="SELECT * FROM users ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+              $query = mysqli_query($connection,$userquery);
+              $yesyesyes = "SELECT COUNT('id') FROM users";
+              $yesyesyes_result = mysqli_query($connection, $yesyesyes);
+              $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
+              $total_pages = ceil($total_rows / $no_of_records_per_page);
+               while ($row = mysqli_fetch_array($query)) {
+              echo '<tr>';
+              echo '<td scope="row">'.$row['id'].'</td>';
+              echo '<td>'.$row['username'].'</td>';
+              echo '<td>'.$row['date_created'].'</td>';
+              echo '<td>'.$row['email'].'</td>';
+              if($row['usertype'] == 1) {
+                echo '<td>Admin</td>';
+              } else {
+                echo '<td>User</td>';
+              }
+              echo '<td><a href="user_details.php?id='.$row['id'].'" class="btn btn-primary">
+                <i class="fa fa-angle-double-right"></i>Details</a></td>';
+              echo '</tr>';
+              }
+              ?>
+            </tbody>
+          </table>
+          <!-- PAGINATION SHIT THAT WORKS AAAAAAAAAAAAAAA -->
+            <nav>
+              <ul class="pagination justify-content-center">
+                  <?php if($page == 1) {} else {?>
+                  <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
+                <?php } ?>
+                  <li class="<?php if($page == 1){ echo 'disabled'; } ?> page-item">
+                      <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?> " tabindex="-1">Previous</a>
+                  </li>
+                </li>
+
+                <?php
+                if ($total_pages >= 1) {
+                   for ($i=1; $i<=$total_pages ; $i++) {
+                       if ($i==$page) {
+                            echo "<li class=\"page-item\"><b><a class=\"page-link\" href=\"?page=$i\">$i</a></b></li> ";
+                            } else {
+                                 echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?page=$i\">$i</a></li> ";
+                                 }
+
+                                }
+                              }?>
+                <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
+                    <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
+                </li>
+                <?php if($page == $total_pages) { } else {?>
+              <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
+              <?php } ?>
+              </ul>
+            </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<?php include('includes/footer.php'); ?>
