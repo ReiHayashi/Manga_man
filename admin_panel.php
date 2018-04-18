@@ -32,16 +32,19 @@ if($_SESSION['aaa'] === 'admin') {
           <i class="fa fa-plus"></i> Add series
         </a>
       </div>
+
       <div class="col-md-3">
         <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addvolume">
           <i class="fa fa-plus"></i> Add volume
         </a>
       </div>
+
       <div class="col-md-3 offset-md-3">
         <a href="logout.php" class="btn btn-primary btn-block">
           <i class="fa fa-sign-out"></i> Logout
         </a>
       </div>
+
     </div>
   </div>
 </section>
@@ -99,9 +102,8 @@ if($_SESSION['aaa'] === 'admin') {
           </table>
         </div>
       </div>
-
-
       <div class="col-md-3">
+
         <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Series</h3>
@@ -111,6 +113,7 @@ if($_SESSION['aaa'] === 'admin') {
             <a href="series.php" class="btn btn-dark btn-sm">View</a>
           </div>
         </div>
+
         <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Volumes</h3>
@@ -120,6 +123,7 @@ if($_SESSION['aaa'] === 'admin') {
             <a href="volumes.php" class="btn btn-dark btn-sm">View</a>
           </div>
         </div>
+
         <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Tickets</h3>
@@ -130,7 +134,7 @@ if($_SESSION['aaa'] === 'admin') {
           </div>
         </div>
 
-                <div class="card text-center bg-primary text-dark mb-3">
+        <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Users</h3>
             <h1 class="display-4">
@@ -140,7 +144,7 @@ if($_SESSION['aaa'] === 'admin') {
           </div>
         </div>
 
-                <div class="card text-center bg-primary text-dark mb-3">
+        <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Reviews</h3>
             <h1 class="display-4">
@@ -149,6 +153,7 @@ if($_SESSION['aaa'] === 'admin') {
             <a href="reviews.php" class="btn btn-dark btn-sm">View</a>
           </div>
         </div>
+
       </div>
     </div>
   </div>

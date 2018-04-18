@@ -20,7 +20,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       <div class="col">
         <div class="mb-2">
           <h1 class=" display-5 pb-3">
-            Why This store?
+            Why this store?
           </h1>
           <div class="plead pb-3">
             Our store is known to be the be-all and end-all store for buying manga in the manga community.
