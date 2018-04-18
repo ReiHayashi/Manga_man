@@ -24,12 +24,15 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   $userquery = mysqli_query($connection, $user);
   $row = mysqli_fetch_array($userquery);
   ?>
+  <?php
+  if($_SESSION['aaa'] === 'admin') {
+  ?>
 <section id="details_header" class="py-4 mb-4 bg-dark">
   <div class="container">
     <div class="row">
       <div class="col-md-3 mr-auto">
-        <a href="reviews.php" class="btn btn-primary btn-block">
-          <i class="fa fa-arrow-left"></i> Back to Reviews
+        <a href="admin_panel.php" class="btn btn-primary btn-block">
+          <i class="fa fa-arrow-left"></i> Back To Dashboard
         </a>
       </div>
       <div class="col-md-3">
@@ -47,7 +50,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       <div class="col my-2">
         <div class="card bg-dark">
           <div class="card-header">
-            <h4>Edit review for: <?php echo $row['PN'].' '.$row['title'].'<br> Reviewed by: '.$row['U']; ?></h4>
+            <h4>Edit review for: <?php echo $row['PN'].' '.$row['title'].'<br> Review by: '.$row['U']; ?></h4>
           </div>
           <div class="card-body">
             <form method="POST">
@@ -81,6 +84,9 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   } else {
     echo "you fucked up.";
   }
+  }
+  } else {
+    header('Location: index.php');
   }
 } else {
   echo "you forgo something important cunt";

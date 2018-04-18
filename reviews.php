@@ -17,7 +17,7 @@ if (isset($_GET['page'])) {
 }
 ?>
 <?php
-if($_SESSION['aaa'] === 'user') {
+if($_SESSION['aaa'] === 'admin') {
 ?>
 <section class="bg-dark">
 <div class="container py-2">
@@ -33,8 +33,8 @@ if($_SESSION['aaa'] === 'user') {
   <div class="container">
     <div class="row">
       <div class="col-md-3 mr-auto">
-        <a href="user.php" class="btn btn-primary btn-block">
-          <i class="fa fa-arrow-left"></i> Back To user page
+        <a href="admin_panel.php" class="btn btn-primary btn-block">
+          <i class="fa fa-arrow-left"></i> Back To Dashboard
         </a>
       </div>
       <div class="col-md6 ml-auto">
