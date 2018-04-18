@@ -32,7 +32,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
               <label class="mt-3" for="password">Password:</label>
               <input type="password" name="password"  class="form-control">
             <div class="wrapper my-3">
-              <input type="submit" name="submit" class="btn btn-primary">
+              <input type="submit" name="submit" value="Log in" class="btn btn-primary">
             </div>
           </form>
           <p class="text-center"><a href="#login">Forgot password?</a></p>

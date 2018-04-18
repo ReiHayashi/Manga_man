@@ -14,6 +14,7 @@
 </head>
 <body>
   <section class="content">
+      <section id=navbar>
     <nav class="navbar navbar-expand-sm py-0  bg-dark">
       <div class="container">
         <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="250" height="60" alt=""></a>
@@ -26,18 +27,32 @@
               <a class="nav-link" href="shop.php">Shop</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="sale.php">Sale</a>
+              <a class="nav-link mx-3" href="sale.php">Sale</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.php">About</a>
             </li>
           </ul>
         </div>
-        <ul class="navbar-nav">
+        <div class="col-sm-3">
           <input type="text" name="text" class="form-control">
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
-          <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i></li></a>
-          <li class="nav-item"><a class="nav-link" href="login.php"><i class="fa fa-user"></i></li></a>
-        </ul>
-      </div>
-    </nav>
+        </div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class=" btn btn-primary fa fa-search"></i>
+            </li>
+          </a>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.php">
+              <i class=" btn btn-primary fa fa-shopping-cart"></i>
+            </li>
+          </a>
+          <li class="nav-item"><a class="nav-link" href="login.php">
+            <i class=" btn btn-primary fa fa-user"></i>
+          </li>
+        </a>
+      </ul>
+    </div>
+  </nav>
+</section>

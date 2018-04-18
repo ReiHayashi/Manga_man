@@ -37,6 +37,11 @@ if($_SESSION['aaa'] === 'admin') {
           <i class="fa fa-plus"></i> Add volume
         </a>
       </div>
+      <div class="col-md-3 offset-md-3">
+        <a href="logout.php" class="btn btn-primary btn-block">
+          <i class="fa fa-sign-out"></i> Logout
+        </a>
+      </div>
     </div>
   </div>
 </section>

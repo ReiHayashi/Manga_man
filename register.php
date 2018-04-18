@@ -43,7 +43,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 					<input type="password" name="password"class="form-control">
 			</div>
 			<div class="wrapper py-2">
-				<input href="#" class="btn btn-primary" type="submit">
+				<input href="#" class="btn btn-primary" type="submit" value="Register">
 
 			</div>
 		</div>

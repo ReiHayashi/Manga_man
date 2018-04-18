@@ -1,6 +1,7 @@
 html{
   height: 100px;
 }
+
 body {
   font-family: 'Arvo', serif;
   font-weight: normal;
@@ -26,33 +27,8 @@ body {
 
 .fa {
   position: relative;
-  font-size: 30px;
-  color: #2d9bad;
+  font-size: 25px;
   background-size: contain;
-}
-
-#post .fa{
-  color: #343a40;
-}
-#posts .fa{
-  color: #343a40;
-}
-#details_header .fa{
-  color: #343a40;
-}
-#details_header .btn-primary:hover{
-  background-color: #000000;
-  color: #2d9bad;
-}
-#post .btn-primary:hover{
-  background-color: #000000;
-  color: #2d9bad;
-}
-
-#posts .btn-primary:hover{
-  background-color: #000000;
-  border-color: #000000;
-  color: #2d9bad;
 }
 
 .nav-link {
@@ -65,52 +41,6 @@ body {
   background: cover;
 }
 
-#shop_index button {
-  color: black;
-}
-
-#shop button {
-  color: black;
-}
-
-#sale button {
-  color: black;
-}
-
-#user .btn-primary:hover{
-  background-color: #000000;
-  color: #2d9bad;
-}
-
-#view_manga .btn-primary:hover{
-  background-color: #000000;
-  color: #2d9bad;
-}
-
-#view_manga .fa{
-  color: #343a40;
-}
-
-#cart .btn-primary:hover{
-  background-color: #000000;
-  color: #2d9bad;
-}
-
-#passwordchange .btn-primary:hover{
-  background-color: #000000;
-  color: #2d9bad;
-}
-
-#changeemail .btn-primary:hover{
-  background-color: #000000;
-  color: #2d9bad;
-}
-
-#support .btn-primary:hover{
-  background-color: #000000;
-  color: #2d9bad;
-}
-
 .form-control {
   border-radius: 10px;
 }
@@ -119,16 +49,19 @@ body {
   text-align: center;
 }
 
+#navbar a {
+  color: #2d9bad;
+}
+
+#navbar a:hover {
+  color: #000000;
+}
+
 a {
   color: #2d9bad;
 }
 
 a:hover {
-  color: #2d9bad;
-}
-
-#shop_button:hover{
-  background-color: #000000;
   color: #2d9bad;
 }
 

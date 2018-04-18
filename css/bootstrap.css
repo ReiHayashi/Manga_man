@@ -2508,9 +2508,9 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary:hover {
-  color: black;
-  background-color: #343a40;
-  border-color: #343a40;
+  color: #2d9bad;
+  background-color: #000000;
+  border-color: #2d9bad;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2525,9 +2525,9 @@ fieldset:disabled a.btn {
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
+  color: #2d9bad;
+  background-color: #000000;
+  border-color: #2d9bad;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,

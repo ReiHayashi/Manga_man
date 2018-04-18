@@ -58,7 +58,7 @@ if (isset($_GET['page'])) {
       echo '<p>'.$row['price'].'$</p>';
       echo '</div>';
       echo '<div class="card-footer">';
-      echo '<button class="btn btn-info">ADD TO CART</button>';
+      echo '<button class="btn btn-primary">ADD TO CART</button>';
       echo '</div>';
       echo '</div>';
       if($row_count==5) {
