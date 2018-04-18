@@ -20,7 +20,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       <div class="col">
         <div class="mb-2">
           <h1 class=" display-5 pb-3">
-            Why This store?
+            Why this store?
           </h1>
           <div class="plead pb-3">
             Our store is known to be the be-all and end-all store for buying manga in the manga community.
@@ -89,7 +89,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
             <img src="img/timoke.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
             <h3>Timoke</h3>
             <h5>Front-end developer</h5>
-            <p>The person who did most of the design and styling.</p>
+            <p>The person who did most of the design, styling and leading.</p>
           </div>
         </div>
 

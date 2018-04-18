@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+  <script src="tinymce/js/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
 </head>
 <body>
   <section class="content">
@@ -43,7 +45,7 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#"><i class=" btn btn-primary fa fa-search"></i></li></a>
           <li class="nav-item"><a class="nav-link" href="cart.php"><i class=" btn btn-primary fa fa-shopping-cart"></i></li></a>
-          <li class="nav-item"><a class="nav-link" href="login.php"><i class=" btn btn-primary fa fa-user"></i></li></a>
+          <li class="nav-item"><a class="nav-link" href="user.php"><i class=" btn btn-primary fa fa-user"></i></li></a>
         </ul>
       </div>
     </nav>

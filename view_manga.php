@@ -46,9 +46,9 @@ $result22 = mysqli_query($connection, $query22);
       <div class="col-md-3 bg-dark my-4 rounded-left d-inline-block parent">
         <div class="child">
         <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
-        <div class="rating-block">
+        <div class="text-center">
 					<h4>Average user rating</h4>
-					<h2 class="bold padding-bottom-7">4 <small>/ 5</small></h2>
+					<h2>4 / 5</h2>
 					<button type="button" class="btn btn-primary btn-sm" aria-label="Left Align">
 					  <span class="fa fa-star" aria-hidden="true"></span>
 					</button>

@@ -111,6 +111,7 @@ if($_SESSION['aaa'] === 'admin') {
             <a href="series.php" class="btn btn-dark btn-sm">View</a>
           </div>
         </div>
+
         <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Volumes</h3>
@@ -120,6 +121,7 @@ if($_SESSION['aaa'] === 'admin') {
             <a href="volumes.php" class="btn btn-dark btn-sm">View</a>
           </div>
         </div>
+
         <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Tickets</h3>
@@ -130,7 +132,7 @@ if($_SESSION['aaa'] === 'admin') {
           </div>
         </div>
 
-                <div class="card text-center bg-primary text-dark mb-3">
+        <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Users</h3>
             <h1 class="display-4">
@@ -140,7 +142,7 @@ if($_SESSION['aaa'] === 'admin') {
           </div>
         </div>
 
-                <div class="card text-center bg-primary text-dark mb-3">
+        <div class="card text-center bg-primary text-dark mb-3">
           <div class="card-body">
             <h3>Reviews</h3>
             <h1 class="display-4">

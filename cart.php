@@ -100,7 +100,6 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   <div class="row">
     <div class="col bg-dark text-center rounded my-3">
       <h3>Total Cost 9.98€</h3>
-      <button class="btn btn-primary btn-lg d-inline-block my-3">Checkout</button>
       <div id="paypal-button-container"></div>
     </div>
   </div>
