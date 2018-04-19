@@ -31,7 +31,6 @@ if(!empty($_GET['id'])) {
   WHERE series.series_id = '.$row['sid'];
   $resultt = mysqli_query($connection, $queryy);
 
-<<<<<<< HEAD
   //language query
   $query22 = 'SELECT series.*,
   group_concat(languages.language) as languages
@@ -87,42 +86,6 @@ if(!empty($_GET['id'])) {
           <ul class="list-inline">
             <li class="list-inline-item">Languages:</li>
             <?php
-=======
-//language query
-$query22 = 'SELECT series.*,
-group_concat(languages.language) as languages
-FROM series
-INNER JOIN languages_in_series ON languages_in_series.series_id = series.series_id
-INNER JOIN languages ON languages_in_series.language_id = languages.id
-WHERE series.series_id = '.$row['sid'];
-$result22 = mysqli_query($connection, $query22);
-?>
-<section id="view_manga">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 bg-dark my-4 rounded-left">
-        <?php echo '<a href="uploads/'.$row['image'].'"><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
-      </div>
-      <div class="col-md-7 bg-dark my-4">
-        <?php echo '<h4>'.$row['S'].' '.$row['title'].'</h4>'; ?>
-        <ul class="list-inline">
-          <li class="list-inline-item">By:</li>
-          <?php  echo '<li class="list-inline-item">'.$row['A'].'</li>'; ?>
-        </ul>
-        <ul class="list-inline">
-          <li class="list-inline-item">Published:</li>
-          <?php
-          if($row['ED'] == 00-00-0000){
-            echo '<li class="list-inline-item">'.$row['SD'].' - ?</li>';
-          } else {
-            echo '<li class="list-inline-item">'.$row['SD'].' - '.$row['ED'].'</li>';
-          }
-          ?>
-        </ul>
-        <ul class="list-inline">
-          <li class="list-inline-item">Languages:</li>
-          <?php
->>>>>>> parent of 873391c... current swag
 
             while ($row_language = mysqli_fetch_array($result22)) {
               echo '<li class="list-inline-item">'.$row_language['languages'].'</li>';
@@ -140,20 +103,12 @@ $result22 = mysqli_query($connection, $query22);
           <h5>Description</h5>
           <?php echo '<p style="font-size:14px;">'.$row['Synopsis'].'</p>'; ?>
         </div>
-<<<<<<< HEAD
         <div class="col-md-2 bg-dark my-4 text-center d-inline-block rounded-right justify-content-center parent">
           <div class="child">
             <?php echo '<h2 >$'.$row['price'].'</h2>'; ?>
             <p class="my-2">Free shipping Worldwide</p>
             <a class="btn btn-primary btn-lg d-inline-block mt-3" href="#" role="button">Add to cart</a> <br>
           </div>
-=======
-        <div class="col-md-2 bg-dark my-4 text-center rounded-right">
-          <?php echo '<h2 style="margin-top:60px;" >$'.$row['price'].'</h2>'; ?>
-          <p class="my-2">Free shipping Worldwide</p>
-          <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="#" role="button">Add to cart</a> <br>
-          <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="#" role="button">Wishlist</a> <br>
->>>>>>> parent of 873391c... current swag
         </div>
       </div>
       <div class="row">

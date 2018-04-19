@@ -10,12 +10,9 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
-<<<<<<< HEAD
   <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
   <script src="tinymce/js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
-=======
->>>>>>> parent of 873391c... current swag
 </head>
 <body>
   <section class="content">
@@ -51,15 +48,5 @@
             <li class="nav-item"><a class="nav-link" href="user.php"><i class=" btn btn-primary fa fa-user"></i></li></a>
           </ul>
         </div>
-<<<<<<< HEAD
       </nav>
     </section>
-=======
-        <ul class="navbar-nav float-left">
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
-          <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i></li></a>
-          <li class="nav-item"><a class="nav-link" href="user.php"><i class="fa fa-user"></i></li></a>
-        </ul>
-      </div>
-    </nav>
->>>>>>> parent of 873391c... current swag

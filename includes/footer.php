@@ -17,7 +17,6 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<<<<<<< HEAD
 <script src="js/checkout.js"></script>
 <script>
 paypal.Button.render({
@@ -61,7 +60,5 @@ paypal.Button.render({
 }, '#paypal-button-container');
 
 </script>
-=======
->>>>>>> parent of 873391c... current swag
 </body>
 </html>
