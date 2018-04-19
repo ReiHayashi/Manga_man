@@ -97,12 +97,21 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         <button class="btn btn-primary btn-lg  d-inline-block my-2">Delete</button>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="row">
       <div class="col bg-dark text-center rounded my-3">
         <h3>Total Cost 9.98€</h3>
         <div id="paypal-button-container"></div>
       </div>
     </div>
+=======
+  </div>
+  <div class="row">
+  <div class="col bg-dark text-center rounded my-3">
+    <h3>Total Cost 9.98€</h3>
+    <button class="btn btn-primary btn-lg btn-block d-inline-block my-3">Checkout</button>
+  </div>
+>>>>>>> parent of 873391c... current swag
   </div>
 </section>
 <?php include('includes/footer.php'); ?>

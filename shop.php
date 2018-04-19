@@ -29,6 +29,7 @@ if (isset($_GET['page'])) {
       <label for="username">Keyword</label>
       <input type="text" name="text" class="form-control">
 
+<<<<<<< HEAD
       <label class="my-2">Series</label>
       <select class="custom-select my-1 mr-sm-2">
         <?php
@@ -49,6 +50,36 @@ if (isset($_GET['page'])) {
         }
         ?>
       </select>
+=======
+          <label class="my-2">Price range</label>
+          <select class="custom-select my-1 mr-sm-2">
+            <option selected>All</option>
+            <option value="1">Under €15</option>
+            <option value="2">€15 to 30€</option>
+            <option value="3">€30 +</option>
+          </select>
+
+          <label class="my-2">Series</label>
+          <select class="custom-select my-1 mr-sm-2">
+              <?php
+              $series = 'SELECT * FROM series ORDER BY series_id ASC';
+              $query4 = mysqli_query($connection, $series);
+              while ($row3 = mysqli_fetch_array($query4)) {
+                echo '<option value = "'.$row3['series_id'].'">'.$row3['primaryname'].'</option>';
+              } ?>
+          </select>
+
+          <label class="my-2">Langauge</label>
+          <select class="custom-select my-1 mr-sm-2">
+              <?php
+              $languages = 'SELECT * FROM languages ORDER BY id ASC';
+              $query3 = mysqli_query($connection, $languages);
+              while ($row2 = mysqli_fetch_array($query3)) {
+                echo '<option name = "language" value = "'.$row2['id'].'">'.$row2['language'].'</option>';
+              } 
+              ?>
+          </select>
+>>>>>>> parent of 873391c... current swag
 
       <label class="my-2">Genre</label>
       <select class="custom-select my-1 mr-sm-2">

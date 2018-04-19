@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
   <script src="tinymce/js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
 </head>
@@ -46,6 +45,7 @@
             <input type="text" name="text" class="form-control">
           </div>
           <ul class="navbar-nav">
+<<<<<<< HEAD
             <li class="nav-item"><a class="nav-link" href="#"><i class=" btn btn-primary fa fa-search"></i></li></a>
             <li class="nav-item"><a class="nav-link" href="cart.php"><i class=" btn btn-primary fa fa-shopping-cart"></i></li></a>
             <li class="nav-item"><a class="nav-link" href="login.php"><i class=" btn btn-primary fa fa-user"></i></li></a>
@@ -53,3 +53,29 @@
         </div>
       </nav>
     </section>
+=======
+            <li class="nav-item">
+              <a class="nav-link" href="shop.php">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sale.php">Sale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.php">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="support.php">Support</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin_panel.php">Dashboard</a>
+            </li>
+        </ul>
+      </div>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-search"></i></li></a>
+          <li class="nav-item"><a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i></li></a>
+          <li class="nav-item"><a class="nav-link" href="login.php"><i class="fa fa-user"></i></li></a>
+        </ul>
+      </div>
+    </nav>
+>>>>>>> parent of 873391c... current swag
