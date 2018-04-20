@@ -45,7 +45,7 @@ if(!empty($_GET['id'])) {
       <div class="row">
         <div class="col-md-3 bg-dark my-4 rounded-left d-inline-block parent">
           <div class="child">
-            <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2"></a>'; ?>
+            <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2" style="height:400px;"></a>'; ?>
             <div class="text-center">
               <h4>Average user rating</h4>
               <h2 class="bold padding-bottom-7">4 / 5</h2>
