@@ -39,7 +39,7 @@ if(isset($_POST['submit2'])) {
       }
     }
   } else {
-    echo "you're a faggot";
+    echo "You made a mistake.";
   }
 
   $title = $_POST['Title'];

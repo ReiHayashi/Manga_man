@@ -35,5 +35,5 @@ if($result_manga && $result_genre && $language_result) {
   echo "series have been added, you will be redirected to admin panel in 5 seconds";
   header( "refresh:5;url=admin_panel.php" );
 } else {
-  echo "you fucked up btw";
+  echo "You missed something or forgot to delete a upper comma";
 }
