@@ -1,4 +1,4 @@
-<?php include("config/config.php"); ?>
+
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
@@ -206,7 +206,7 @@ if($_SESSION['aaa'] === 'admin') {
               INNER JOIN review ON RIS.review_id = review.id
               INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
               INNER JOIN series ON VIS.series_id = series.series_id
-              
+
               WHERE review.username = '$usergay'
               LIMIT $offset, $no_of_records_per_page";
               $resultt22 = mysqli_query($connection, $reviewsinvolumes);
@@ -255,7 +255,7 @@ if($_SESSION['aaa'] === 'admin') {
             <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
               <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
             </li>
-            <?php if($page == $total_pages) { } else {?>
+            <?php if($page == $total_pages || $total_pages == 0) { } else {?>
               <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
             <?php } ?>
           </ul>

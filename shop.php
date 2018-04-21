@@ -1,4 +1,4 @@
-<?php include("config/config.php"); ?>
+
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
@@ -131,7 +131,7 @@ if (isset($_GET['page'])) {
       <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
         <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
       </li>
-      <?php if($page == $total_pages) { } else {?>
+      <?php if($page == $total_pages || $total_pages == 0) { } else {?>
         <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
       <?php } ?>
     </ul>

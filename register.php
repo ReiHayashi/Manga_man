@@ -1,4 +1,4 @@
-<?php include("config/config.php"); ?>
+
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
@@ -54,11 +54,22 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 
   <?php
 
-  if(isset($_POST['username']) && isset($_POST['password'])) {
+  if(empty($_POST) === false){
+  if (empty($errors) === true) {
 
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    }
+  if (strlen($_POST['password']) < 8) {
+        $errors[] ='Password has to be at least 8 characters long!';
+    }
+      if (preg_match("/^[0-9A-Za-z_]+$/", $_POST['username']) == 0) {
+        $errors[] ='Username contains non-allowed characters.';
+  }
+}
+  if (empty($errors) === true) {
+  if(isset($_POST['username']) && isset($_POST['password'])) {
+    $username = htmlspecialchars(trim($_POST['username']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $password = htmlspecialchars(trim($_POST['password']));
     $usertype = 0;
     $uname_check = "SELECT * FROM users WHERE username='$username' OR email='$email'";
     $rs = mysqli_query($connection,$uname_check);
@@ -77,6 +88,10 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
       }
     }
   }
+} else {
+  echo 'Registration failed';
+  echo output_errors($errors);
+}
 
 }?>
 <?php include('includes/footer.php'); ?>

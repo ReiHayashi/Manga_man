@@ -1,4 +1,4 @@
-<?php include("config/config.php"); ?>
+
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {

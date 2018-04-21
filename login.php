@@ -1,4 +1,4 @@
-<?php include("config/config.php"); ?>
+
 <?php
 session_start();
 if (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='admin') {
@@ -44,12 +44,13 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 
 
   <?php
+  if (empty($errors) === true) {
   if(isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['password'])) {
     $query = "SELECT * FROM users WHERE username='".$_POST['username']."'";
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_array($result);
 
-    if($_POST['password'] === $row['password']) {
+    if($_POST['username'] === $row['username'] && $_POST['password'] === $row['password']) {
       if($_POST['username'] == $row['username'] && $row['usertype']==1) {
         session_start();
         $_SESSION['aaa']='admin';
@@ -64,11 +65,13 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
         header('Location: index.php');
         exit();
       }
-      else{echo "Incorrect password";}
-    }
-    else {
-      echo "please fill in necessary info";
+    } else {
+      $errors[] ='Username or password doesn\'t match';
     }
   }
+} else {
+  echo 'Registration failed';
+  echo output_errors($errors);
+}
 }?>
 <?php include('includes/footer.php'); ?>
