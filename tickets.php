@@ -37,14 +37,7 @@ if($_SESSION['aaa'] === 'admin') {
             <i class="fa fa-arrow-left"></i> Back To Dashboard
           </a>
         </div>
-        <div class="col-md6 ml-auto">
-          <div class="input-group">
-            <input type="text" class="form-control" palceholder="Search">
-            <span class="input-group-btn">
-              <button class="btn btn-primary">Search</button>
-            </span>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>

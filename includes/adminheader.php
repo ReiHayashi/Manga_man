@@ -43,10 +43,13 @@
             </ul>
           </div>
           <div class="col-sm-2">
-            <input type="text" name="text" class="form-control">
+            <form action="search.php" method="POST">
+            <input type="text" name="search" class="form-control">
           </div>
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#"><i class=" btn btn-primary fa fa-search"></i></li></a>
+            <li class="nav-item">
+              <button class="nav-link" type="submit" name="submit-search"><i class=" btn btn-primary fa fa-search"></i></button></li>
+          </form>
             <li class="nav-item"><a class="nav-link" href="cart.php"><i class=" btn btn-primary fa fa-shopping-cart"></i></li></a>
             <li class="nav-item"><a class="nav-link" href="login.php"><i class=" btn btn-primary fa fa-user"></i></li></a>
           </ul>

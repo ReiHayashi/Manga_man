@@ -85,6 +85,30 @@ if(!empty($_GET['id'])){
                       } ?>
                     </select>
                   </div>
+                  <div class="form-group">
+                    <label for="discount">Discount</label>
+                    <select name = "discount">
+                      <?php
+                      $series = 'SELECT * FROM discounts ORDER BY id ASC';
+                      $query4 = mysqli_query($connection, $series);
+                      $seriesinvolumes = 'SELECT volumes.*,
+                      discounts.discount as discount
+                      FROM volumes
+                      INNER JOIN volumes_in_discounts ON volumes_in_discounts.volume_id = volumes.id
+                      INNER JOIN discount ON volumes_in_discounts.discount_id = discounts.id
+                      WHERE volume_id='.$id;
+                      $resultt = mysqli_query($connection, $seriesinvolumes);
+                      $row4 = mysqli_fetch_array($query4);
+                      if($row4['volume_id'] === $id) {
+                        echo '<option selected value = "">'.$row4['discount'].'</option>';
+                      } else {
+                      echo '<option selected value = "">Leave as it is</option>';
+                      }
+                      while ($row3 = mysqli_fetch_array($query4)) {
+                        echo '<option value = "'.$row3['id'].'">'.$row3['discount'].'%</option>';
+                      } ?>
+                    </select>
+                  </div>
                   <div class="wrapper my-3">
                     <input class="btn btn-success btn-block" type="submit" name="submit" value="Save Changes" required>
                   </div>
@@ -101,6 +125,7 @@ if(!empty($_GET['id'])){
       $title = mysqli_real_escape_string($connection, $_POST['title']);
       $price = $_POST['price'];
       $series = $_POST['series'];
+      $discount = $_POST['discount'];
 
       $volumeupdate = "UPDATE volumes SET title='$title',price='$price' WHERE id='$id'";
       $result_volumeupdate = mysqli_query($connection, $volumeupdate);
@@ -109,9 +134,22 @@ if(!empty($_GET['id'])){
       $seriesquery = "UPDATE volumes_in_series SET series_id=replace(series_id, '$selectseriesid', '$series') WHERE volume_id=".$id;
       $result_volume2 = mysqli_query($connection, $seriesquery);
 
+      $discountcheck = "SELECT * FROM volumes_in_discounts WHERE volume_id='$id'";
+      $result_discountcheck = mysqli_query($connection, $discountcheck);
+      $row5 = mysqli_fetch_array($result_discountcheck);
+      $selectdiscountid = $row5['discount_id'];
+      if($result_discountcheck) {
+        $discountupdate = "UPDATE volumes_in_discounts SET discount_id=replace(discount_id, '$selectdiscountid', '$discount') WHERE volume_id=".$id;
+        $result_discountupdate = mysqli_query($connection, $discountupdate);
+      }
+      if(isset($_POST['discount'])) {
+          $discountquery = "INSERT INTO volumes_in_discounts (discount_id, volume_id) VALUES ('$discount', '$id')";
+          $result_discount = mysqli_query($connection, $discountquery);
+      }
+
       if($result_volumeupdate) {
         echo "volume has been updated.";
-        echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
+        // echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
       } else {
         echo "you fucked up.";
       }

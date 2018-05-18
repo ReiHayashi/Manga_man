@@ -10,11 +10,6 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   include('includes/header.php');
 }
 
-if (isset($_GET['page'])) {
-  $page = $_GET['page'];
-} else {
-  $page = 1;
-}
 
 ?>
 <?php
@@ -40,7 +35,7 @@ if($_SESSION['aaa'] === 'admin') {
       </div>
       <div class="col-md6 ml-auto">
         <div class="input-group">
-          <form action="volumesearch.php" method="POST">
+          <form action="" method="POST">
           <input type="text" name="search" class="form-control" palceholder="Search for series name">
           <span class="input-group-btn">
             <button class="btn btn-primary" type="submit" name='volume-search'>Search</button>
@@ -71,8 +66,8 @@ if($_SESSION['aaa'] === 'admin') {
             </thead>
             <tbody>
               <?php
-              $no_of_records_per_page = 10;
-              $offset = ($page-1) * $no_of_records_per_page;
+              if(isset($_POST['volume-search'])) {
+                $search = mysqli_real_escape_string($connection, $_POST['search']);
               $volume='SELECT * FROM volumes ORDER BY id DESC';
               $query = mysqli_query($connection,$volume);
               $seriesinvolumes = "SELECT V.*,
@@ -80,15 +75,12 @@ if($_SESSION['aaa'] === 'admin') {
               FROM volumes AS V
               INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
               INNER JOIN series ON VIS.series_id = series.series_id
-              ORDER BY V.id DESC
-              LIMIT $offset, $no_of_records_per_page";
+              WHERE series.primaryname = '$search' OR V.title = '$search'
+              ORDER BY V.id DESC";
               $resultt = mysqli_query($connection, $seriesinvolumes);
-              //pagination
-              $yesyesyes = "SELECT COUNT('id') FROM volumes";
-              $yesyesyes_result = mysqli_query($connection, $yesyesyes);
-              $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
-              $total_pages = ceil($total_rows / $no_of_records_per_page);
-
+              $rowrr = mysqli_num_rows($resultt);
+              if($rowrr > 0 ) {
+                echo "<p>There are ".$rowrr." results matching this search!</p><br>   ";
               while ($row = mysqli_fetch_array($resultt)) {
                 echo '<tr>';
                 echo '<td scope="row">'.$row['id'].'</td>';
@@ -99,48 +91,25 @@ if($_SESSION['aaa'] === 'admin') {
                 <i class="fa fa-angle-double-right"></i>Details</a></td>';
                 echo '</tr>';
               }
+            } else {
+              echo "<p>there are no results matching your search</p>";
+            }
+          } else {
+            echo "search isnt submitted.";
+          }
               ?>
             </tbody>
           </table>
-          <!-- PAGINATION SHIT THAT WORKS AAAAAAAAAAAAAAA -->
-          <nav>
-            <ul class="pagination justify-content-center">
-              <?php if($page == 1) {} else {?>
-                <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
-              <?php } ?>
-              <li class="<?php if($page == 1){ echo 'disabled'; } ?> page-item">
-                <a class="page-link" href="<?php if($page <= 1){ echo '#'; } else { echo "?page=".($page - 1); } ?> " tabindex="-1">Previous</a>
-              </li>
-            </li>
 
-            <?php
-            if ($total_pages >= 1) {
-              for ($i=1; $i<=$total_pages ; $i++) {
-                if ($i==$page) {
-                  echo "<li class=\"page-item\"><b><a class=\"page-link\" href=\"?page=$i\">$i</a></b></li> ";
-                } else {
-                  echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?page=$i\">$i</a></li> ";
-                }
-
-              }
-            }?>
-            <li class="<?php if($page >= $total_pages){ echo 'disabled'; } ?> page-item">
-              <a class="page-link" href="<?php if($page >= $total_pages){ echo '#'; } else { echo "?page=".($page + 1); } ?>">Next</a>
-            </li>
-            <?php if($page == $total_pages || $total_pages == 0) { } else {?>
-              <li class="page-item"><a class="page-link"  href="?page=<?php echo $total_pages; ?>">Last</a></li>
-            <?php } ?>
-          </ul>
-        </nav>
       </div>
     </div>
   </div>
 </div>
 </section>
-
 <?php
 } else {
 header('Location: index.php');
 }
 ?>
+
 <?php include('includes/footer.php'); ?>

@@ -39,8 +39,8 @@ if($_SESSION['aaa'] === 'admin') {
         </div>
         <div class="col-md6 ml-auto">
           <div class="input-group">
-            <form action="reviewsearch.php" method="POST">
-            <input type="text" name="search" class="form-control" palceholder="Search for username">
+            <form action="" method="POST">
+            <input type="text" name="search" class="form-control" palceholder="Search">
             <span class="input-group-btn">
               <button class="btn btn-primary" type="submit" name='review-search'>Search</button>
             </span>
@@ -72,6 +72,8 @@ if($_SESSION['aaa'] === 'admin') {
               </thead>
               <tbody>
                 <?php
+                if(isset($_POST['review-search'])) {
+                  $search = mysqli_real_escape_string($connection, $_POST['search']);
                 $no_of_records_per_page = 10;
                 $offset = ($page-1) * $no_of_records_per_page;
                 $user="SELECT * FROM review ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
@@ -83,14 +85,18 @@ if($_SESSION['aaa'] === 'admin') {
                 INNER JOIN review ON RIS.review_id = review.id
                 INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
                 INNER JOIN series ON VIS.series_id = series.series_id
+                WHERE review.username LIKE '%$search%'
                 ORDER BY reviewid DESC
                 LIMIT $offset, $no_of_records_per_page";
                 $resultt22 = mysqli_query($connection, $reviewsinvolumes);
+                $rowrr = mysqli_num_rows($resultt22);
                 //pagination
-                $yesyesyes = "SELECT COUNT('id') FROM review";
+                $yesyesyes = "SELECT COUNT('id') FROM review WHERE username LIKE '%$search%'";
                 $yesyesyes_result = mysqli_query($connection, $yesyesyes);
                 $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
                 $total_pages = ceil($total_rows / $no_of_records_per_page);
+                if($rowrr > 0 ) {
+                  echo "<p>There are ".$rowrr." users matching this search!</p><br>   ";
                 while ($row = mysqli_fetch_array($resultt22)) {
                   echo '<tr>';
                   echo '<td scope="row">'.$row['reviewid'].'</td>';
@@ -101,7 +107,12 @@ if($_SESSION['aaa'] === 'admin') {
                   <i class="fa fa-angle-double-right"></i> View</a></td>';
                   echo '</tr>';
                 }
-
+              } else {
+                echo "<p>there are no results matching your search</p>";
+              }
+            } else {
+              echo "search isnt submitted.";
+            }
                 ?>
 
               </tbody>

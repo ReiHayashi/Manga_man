@@ -34,15 +34,14 @@
               </li>
             </ul>
           </div>
-          <div class="col-sm-3">
-            <input type="text" name="text" class="form-control">
+          <div class="col-sm-2">
+            <form action="search.php" method="POST">
+            <input type="text" name="search" class="form-control">
           </div>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class=" btn btn-primary fa fa-search"></i>
-              </li>
-            </a>
+              <button class="nav-link" type="submit" name="submit-search"><i class=" btn btn-primary fa fa-search"></i></button></li>
+          </form>
             <li class="nav-item">
               <a class="nav-link" href="cart.php">
                 <i class=" btn btn-primary fa fa-shopping-cart"></i>
