@@ -86,8 +86,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
       <div class="card-deck" style="height:300; width:600;">
         <div class="card bg-dark">
           <div class="card-body">
-            <img src="img/timoke.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
-            <h3>Timoke</h3>
+            <img src="img/Timo.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
+            <h3>Timo</h3>
             <h5>Front-end developer</h5>
             <p>The person who did most of the design and styling.</p>
           </div>
@@ -95,8 +95,8 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
         <div class="card bg-dark">
           <div class="card-body">
-            <img src="img/sun.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
-            <h3>Misha</h3>
+            <img src="img/Mihhail.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
+            <h3>Mihhail</h3>
             <h5>Back-end developer</h5>
             <p>The person who did most of the database and PHP.</p>
           </div>

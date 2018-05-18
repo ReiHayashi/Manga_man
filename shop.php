@@ -95,7 +95,7 @@ if (isset($_GET['page'])) {
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
-        echo '<button class="btn btn-primary">ADD TO CART</button>';
+        echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
         echo '</div>';
         echo '</div>';
         if($row_count==4) {
@@ -138,4 +138,49 @@ if (isset($_GET['page'])) {
   </div>
 </div>
 </section>
+<div class="modal fade" id="buy">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title">Checkout</h5>
+        <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+      </div>
+      <div class="modal-body bg-dark">
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label>Full name*</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Address line 1*</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Address line 2</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Town/City*</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Country*</label>
+            <select class="form-control" name="">
+            <option value="">lol</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Postcode/Zip*</label>
+            <input type="number" class="form-control">
+          </div>
+
+          <div class="modal-footer bg-dark">
+            <button class="btn btn-primary" data-dismiss="modal">Close</button>
+            <input class="btn btn-primary" type="submit" name="submit2">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <?php include('includes/footer.php'); ?>

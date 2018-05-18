@@ -39,17 +39,19 @@
               </li>
             </ul>
           </div>
-          <div class="col-sm-2">
+          <div class="col-sm-3">
             <form action="search.php" method="POST">
             <input type="text" name="search" class="form-control">
           </div>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <button class="nav-link" type="submit" name="submit-search"><i class=" btn btn-primary fa fa-search"></i></button></li>
+              <button class="nav-link btn btn-primary fa fa-search mx-4" type="submit" name="submit-search"></button>
+            </li>
           </form>
-            <li class="nav-item"><a class="nav-link" href="cart.php"><i class=" btn btn-primary fa fa-shopping-cart"></i></li></a>
-            <li class="nav-item"><a class="nav-link" href="user.php"><i class=" btn btn-primary fa fa-user"></i></li></a>
-          </ul>
+            <li class="nav-item">
+              <a href="login.php"><button class="nav-link btn btn-primary fa fa-user"></button></a>
+            </li>
+        </ul>
         </div>
       </nav>
     </section>

@@ -46,25 +46,6 @@ if(!empty($_GET['id'])) {
         <div class="col-md-3 bg-dark my-4 rounded-left d-inline-block parent">
           <div class="child">
             <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2" style="height:400px;"></a>'; ?>
-            <div class="text-center">
-              <h4>Average user rating</h4>
-              <h2 class="bold padding-bottom-7">4 / 5</h2>
-              <button type="button" class="btn btn-primary btn-sm" aria-label="Left Align">
-                <span class="fa fa-star" aria-hidden="true"></span>
-              </button>
-              <button type="button" class="btn btn-primary btn-sm" aria-label="Left Align">
-                <span class="fa fa-star" aria-hidden="true"></span>
-              </button>
-              <button type="button" class="btn btn-primary btn-sm" aria-label="Left Align">
-                <span class="fa fa-star" aria-hidden="true"></span>
-              </button>
-              <button type="button" class="btn btn-primary btn-grey btn-sm" aria-label="Left Align">
-                <span class="fa fa-star" aria-hidden="true"></span>
-              </button>
-              <button type="button" class="btn btn-primary btn-grey btn-sm" aria-label="Left Align">
-                <span class="fa fa-star" aria-hidden="true"></span>
-              </button>
-            </div>
           </div>
         </div>
         <div class="col-md-7 bg-dark my-4">
@@ -107,7 +88,7 @@ if(!empty($_GET['id'])) {
           <div class="child">
             <?php echo '<h2 >$'.$row['price'].'</h2>'; ?>
             <p class="my-2">Free shipping Worldwide</p>
-            <a class="btn btn-primary btn-lg d-inline-block mt-3" href="#" role="button">Add to cart</a> <br>
+            <a class="btn btn-primary btn-lg d-inline-block mt-3" href="#" role="button" data-toggle="modal" data-target="#buy">Buy now</a> <br>
           </div>
         </div>
       </div>
@@ -146,6 +127,51 @@ if(!empty($_GET['id'])) {
     </div>
   </div>
 </section>
+<div class="modal fade" id="buy">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title">Checkout</h5>
+        <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+      </div>
+      <div class="modal-body bg-dark">
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label>Full name*</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Address line 1*</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Address line 2</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Town/City*</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Country*</label>
+            <select class="form-control" name="">
+            <option value="">lol</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Postcode/Zip*</label>
+            <input type="number" class="form-control">
+          </div>
+
+          <div class="modal-footer bg-dark">
+            <button class="btn btn-primary" data-dismiss="modal">Close</button>
+            <input class="btn btn-primary" type="submit" name="submit2">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="addPostModal">
   <div class="modal-dialog modal-lg">
