@@ -85,30 +85,6 @@ if(!empty($_GET['id'])){
                       } ?>
                     </select>
                   </div>
-                  <div class="form-group">
-                    <label for="discount">Discount</label>
-                    <select name = "discount">
-                      <?php
-                      $series = 'SELECT * FROM discounts ORDER BY id ASC';
-                      $query4 = mysqli_query($connection, $series);
-                      $seriesinvolumes = 'SELECT volumes.*,
-                      discounts.discount as discount
-                      FROM volumes
-                      INNER JOIN volumes_in_discounts ON volumes_in_discounts.volume_id = volumes.id
-                      INNER JOIN discount ON volumes_in_discounts.discount_id = discounts.id
-                      WHERE volume_id='.$id;
-                      $resultt = mysqli_query($connection, $seriesinvolumes);
-                      $row4 = mysqli_fetch_array($query4);
-                      if($row4['volume_id'] === $id) {
-                        echo '<option selected value = "">'.$row4['discount'].'</option>';
-                      } else {
-                      echo '<option selected value = "">Leave as it is</option>';
-                      }
-                      while ($row3 = mysqli_fetch_array($query4)) {
-                        echo '<option value = "'.$row3['id'].'">'.$row3['discount'].'%</option>';
-                      } ?>
-                    </select>
-                  </div>
                   <div class="wrapper my-3">
                     <input class="btn btn-success btn-block" type="submit" name="submit" value="Save Changes" required>
                   </div>
