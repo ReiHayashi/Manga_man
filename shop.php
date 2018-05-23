@@ -25,9 +25,6 @@ if (isset($_GET['page'])) {
 
     <nav class="d-inline-block col-lg-3 bg-dark my-3 rounded d-none collapse">
       <form action='' method='post'>
-      <label for="username">Keyword</label>
-      <input type="text" name="search-keyword" class="form-control">
-
       <label class="my-2">Series</label>
       <select class="custom-select my-1 mr-sm-2" name="series">
         <option selected="selected">Default</option>
@@ -40,44 +37,52 @@ if (isset($_GET['page'])) {
       </select>
 
       <label class="my-2">Langauge</label>
-      <select class="custom-select my-1 mr-sm-2">
+      <select class="custom-select my-1 mr-sm-2" name="language">
         <option selected="selected">Default</option>
         <?php
         $languages = 'SELECT * FROM languages ORDER BY id ASC';
         $query3 = mysqli_query($connection, $languages);
         while ($row2 = mysqli_fetch_array($query3)) {
-          echo '<option name = "language" value = "'.$row2['id'].'">'.$row2['language'].'</option>';
+          echo '<option value = "'.$row2['id'].'">'.$row2['language'].'</option>';
         }
         ?>
       </select>
 
       <label class="my-2">Genre</label>
-      <select class="custom-select my-1 mr-sm-2">
+      <select class="custom-select my-1 mr-sm-2" name="genre">
         <option selected="selected">Default</option>
         <?php
         $genres = 'SELECT * FROM genres ORDER BY id ASC';
         $query2 = mysqli_query($connection, $genres);
         while ($row1 = mysqli_fetch_array($query2)) {
-          echo '<option name = "genre" value = "'.$row1['id'].'">'.$row1['name'].'</option>';
+          echo '<option value = "'.$row1['id'].'">'.$row1['name'].'</option>';
         }
         ?>
       </select>
+      <label class="my-2">Price</label>
+      <select class="custom-select my-1 mr-sm-2" name="price">
+        <option selected="selected">Default</option>
+        <option value="19.99">lower than $20</option>
+        <option value="14.99">lower than $15</option>
+        <option value="9.99">lower than $10</option>
+        <option value="7.99">lower than $8</option>
+      </select>
       <div class="wrapper py-2">
-        <input href="#" class="btn btn-primary" id="shop_button" type="submit" name="search-shop" value="Search">
+        <input class="btn btn-primary" id="shop_button" type="submit" name="search-shop" value="Search">
       </div>
     </form>
     </nav>
     <?php
-    if(isset($_POST['search-shop'])) {
-      if(isset($_POST['search-keyword'])) {
-      $search = mysqli_real_escape_string($connection, $_POST['search-keyword']);
+    $seriesid = $_POST['series'];
+    if(isset($_POST['search-shop'])){
+    if(is_numeric($seriesid)) {
       $seriesinvolumes = "SELECT V.*,
       series.primaryname as S, series.author as A
       FROM volumes AS V
       INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
       INNER JOIN series ON VIS.series_id = series.series_id
-      WHERE series.primaryname = '$search' OR series.author LIKE '%$search%' OR V.title = '$search'
-      ORDER BY V.id DESC";
+      WHERE VIS.series_id = '$seriesid'
+      ORDER BY V.id ASC";
       $resultt = mysqli_query($connection, $seriesinvolumes);
       $row_count = 0;
       while ($row = mysqli_fetch_array($resultt)) {
@@ -99,37 +104,104 @@ if (isset($_GET['page'])) {
           $row_count=0;
         }
       }
-    } elseif(isset($_POST['series'])) {
-       echo "nigger";
-      // $seriesid = $_POST['series'];
-      // $seriesinvolumes = "SELECT V.*,
-      // series.primaryname as S, series.author as A
-      // FROM volumes AS V
-      // INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
-      // INNER JOIN series ON VIS.series_id = '$seriesid'
-      //
-      // ORDER BY V.id DESC";
-      // $resultt = mysqli_query($connection, $seriesinvolumes);
-      // $row_count = 0;
-      // while ($row = mysqli_fetch_array($resultt)) {
-      //   $row_count++;
-      //   if($row_count==1) echo '<div class="card-deck">';
-      //   echo '<div class="card text-center" style="background-color:black">';
-      //   echo '<div class="card-body text-center">';
-      //   echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
-      //   echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
-      //   echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
-      //   echo '<p>'.$row['price'].'$</p>';
-      //   echo '</div>';
-      //   echo '<div class="card-footer">';
-      //   echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
-      //   echo '</div>';
-      //   echo '</div>';
-      //   if($row_count==4) {
-      //     echo "</div>";
-      //     $row_count=0;
-      //   }
-      // }
+    }
+    if(is_numeric($_POST['language'])) {
+     $languageid = $_POST['language'];
+     $seriesinvolumes = "SELECT V.*,
+     series.primaryname as S, series.author as A
+     FROM volumes AS V
+     INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
+     INNER JOIN series ON VIS.series_id = series.series_id
+     INNER JOIN languages_in_series ON languages_in_series.series_id = series.series_id
+     INNER JOIN languages ON languages_in_series.language_id = languages.id
+     WHERE languages_in_series.language_id = '$languageid'
+     ORDER BY V.id ASC";
+     $resultt = mysqli_query($connection, $seriesinvolumes);
+     $row_count = 0;
+     while ($row = mysqli_fetch_array($resultt)) {
+       $row_count++;
+       if($row_count==1) echo '<div class="card-deck">';
+       echo '<div class="card text-center" style="background-color:black">';
+       echo '<div class="card-body text-center">';
+       echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
+       echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
+       echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
+       echo '<p>'.$row['price'].'$</p>';
+       echo '</div>';
+       echo '<div class="card-footer">';
+       echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
+       echo '</div>';
+       echo '</div>';
+       if($row_count==4) {
+         echo "</div>";
+         $row_count=0;
+       }
+     }
+    }
+    if(is_numeric($_POST['genre'])) {
+      $genreid = $_POST['genre'];
+      $seriesinvolumes = "SELECT V.*,
+      series.primaryname as S, series.author as A
+      FROM volumes AS V
+      INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
+      INNER JOIN series ON VIS.series_id = series.series_id
+      INNER JOIN genres_in_series ON genres_in_series.series_id = series.series_id
+      INNER JOIN genres ON genres_in_series.genre_id = genres.id
+      WHERE genres_in_series.genre_id = '$genreid'
+      ORDER BY V.id ASC";
+      $resultt = mysqli_query($connection, $seriesinvolumes);
+      $row_count = 0;
+      while ($row = mysqli_fetch_array($resultt)) {
+        $row_count++;
+        if($row_count==1) echo '<div class="card-deck">';
+        echo '<div class="card text-center" style="background-color:black">';
+        echo '<div class="card-body text-center">';
+        echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
+        echo '<p>'.$row['price'].'$</p>';
+        echo '</div>';
+        echo '<div class="card-footer">';
+        echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
+        echo '</div>';
+        echo '</div>';
+        if($row_count==4) {
+          echo "</div>";
+          $row_count=0;
+        }
+      }
+
+    }
+    if(is_numeric($_POST['price'])) {
+      $pricevalue = $_POST['price'];
+      $seriesinvolumes = "SELECT V.*,
+      series.primaryname as S, series.author as A
+      FROM volumes AS V
+      INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
+      INNER JOIN series ON VIS.series_id = series.series_id
+      WHERE V.price < '$pricevalue'
+      ORDER BY V.id ASC";
+      $resultt = mysqli_query($connection, $seriesinvolumes);
+      $row_count = 0;
+      while ($row = mysqli_fetch_array($resultt)) {
+        $row_count++;
+        if($row_count==1) echo '<div class="card-deck">';
+        echo '<div class="card text-center" style="background-color:black">';
+        echo '<div class="card-body text-center">';
+        echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
+        echo '<p>'.$row['price'].'$</p>';
+        echo '</div>';
+        echo '<div class="card-footer">';
+        echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
+        echo '</div>';
+        echo '</div>';
+        if($row_count==4) {
+          echo "</div>";
+          $row_count=0;
+        }
+      }
     }
     } else {
      ?>
@@ -206,6 +278,7 @@ if (isset($_GET['page'])) {
     </ul>
   </div>
 <?php } ?>
+
 </div>
 </section>
 <div class="modal fade" id="buy">
