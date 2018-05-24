@@ -23,7 +23,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         <h4 class="my-5">• MULTIPLE LANGAUGES</h4>
       </div>
       <div class="col-lg-6">
-        <img src="img/manga1.png" alt="" class="img-fluid d-none d-lg-block">
+        <img src="img/manga.png" alt="" class="img-fluid d-none d-lg-block">
       </div>
     </div>
   </div>

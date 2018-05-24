@@ -79,32 +79,37 @@ if(!empty($_GET['id'])){
         </div>
       </div>
     </section>
-    <?php
-    if(isset($_POST['submit'])) {
-
-      $title = $_POST['primaryname'];
-      $author = $_POST['Author'];
-      $startdate = $_POST['startdate'];
-      $enddate = $_POST['enddate'];
-      $synopsis = $_POST['Synopsis'];
-
-      $seriesupdate = "UPDATE series SET primaryname='$title',author='$author',start_date='$startdate',end_date='$enddate',synopsis='$synopsis' WHERE series_id='$id'";
-      $result_seriesupdate = mysqli_query($connection, $seriesupdate);
-
-
-      if($result_seriesupdate) {
-        echo "serie has been updated.";
-        echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
-
-      } else {
-        echo "you fucked up.";
-      }
+<?php
+if(isset($_POST['submit'])) {
+    //muutujad
+    $title = mysqli_real_escape_string($connection, $_POST['primaryname']);
+    $author = mysqli_real_escape_string($connection, $_POST['Author']);
+    $startdate = $_POST['startdate'];
+    $enddate = $_POST['enddate'];
+    $synopsis = $connection, $_POST['Synopsis'];
+    //andmebaasi päring
+    $seriesupdate = "UPDATE series
+                     SET primaryname='$title', author='$author', start_date='$startdate',
+                         end_date='$enddate', synopsis='$synopsis'
+                     WHERE series_id='$id'";
+    $result_seriesupdate = mysqli_query($connection, $seriesupdate);
+    //kui andmebaasi päring on läinud edukalt siis
+    if($result_seriesupdate) {
+      echo "serie has been updated.";
+      echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
     }
-  } else {
-    header('Location: index.php');
+    //kui andmebaasi päring ebaõnnestus
+    else {
+      echo "<h1>Error 500</h1> <br>";
+      echo "<p>Internal server error, please try again later.</p>"
+    }
   }
 } else {
-  echo "you forgo something important cunt";
+  header('Location: index.php');
+}
+} else {
+  echo "Error 404: <br>";
+  echo "Series not found.";
 }
 ?>
 <?php include('includes/footer.php'); ?>

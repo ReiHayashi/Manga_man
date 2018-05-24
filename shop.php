@@ -73,9 +73,9 @@ if (isset($_GET['page'])) {
     </form>
     </nav>
     <?php
-    $seriesid = $_POST['series'];
     if(isset($_POST['search-shop'])){
     if(is_numeric($seriesid)) {
+      $seriesid = $_POST['series'];
       $seriesinvolumes = "SELECT V.*,
       series.primaryname as S, series.author as A
       FROM volumes AS V

@@ -26,7 +26,7 @@ if($_SESSION['aaa'] === 'user') {
             <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="passwordchange.php" role="button">Change password</a> <br>
             <a class="btn btn-primary btn-lg btn-block d-inline-block" href="changeemail.php" role="button">Change E-mail</a> <br>
             <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="reviews.php" role="button">Reviews</a> <br>
-            <a class="btn btn-primary btn-lg btn-block d-inline-block mb-3" href="#" role="button">Purchase history</a>
+            <a class="btn btn-primary btn-lg btn-block d-inline-block mb-3" href="#" role="button">Add/Change Address</a>
           </div>
         </div>
       </div>

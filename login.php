@@ -15,7 +15,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
   header('Location: admin_panel.php');
 } elseif(isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'user') {
-  header('Location: index.php');
+  header('Location: user.php');
 } else {?>
 
 
