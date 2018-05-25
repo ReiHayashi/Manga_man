@@ -49,21 +49,29 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 </section>
 
 <?php
-
-if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['email'])
-&& isset($_POST['problem']) && isset($_POST['problemtitle'])) {
-  $problemtitle = $_POST['problemtitle'];
-  $firstname = $_POST['firstname'];
-  $lastname = $_POST['lastname'];
-  $email = $_POST['email'];
-  $problem = $_POST['problem'];
-  $username = $_SESSION['username'];
+// kui kõik andmed on sisestatud siis jookse läbi järgmist koodi
+if(isset($_POST['firstname']) && isset($_POST['lastname']) &&
+  isset($_POST['email']) && isset($_POST['problem']) &&
+  isset($_POST['problemtitle'])) {
+  //muutujad
+  $problemtitle = mysqli_real_escape_string($connection, $_POST['problemtitle']);
+  $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+  $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+  $email = mysqli_real_escape_string($connection, $_POST['email']);
+  $problem = mysqli_real_escape_string($connection, $_POST['problem']);
+  $username = mysqli_real_escape_string($connection, $_SESSION['username']);
+  //päring
   $query="INSERT INTO support (firstname, lastname, email, problem_title, problem, username)
   VALUES ('$firstname', '$lastname', '$email', '$problemtitle', '$problem', '$username')";
   $result = mysqli_query($connection, $query);
+  //kui päring õnnestus siis näita järgmist
   if($result) {
-    echo "sent a support ticket successfully. Wait for an E-mail from our support team. Process can take up to 24 hours";
-  } else {
+    echo "sent a support ticket successfully.
+          Wait for an E-mail from our support team.
+          Process can take up to 24 hours";
+  }
+  //kui päring ebaõnnestus
+  else {
     echo "something went wrong, try again later.";
   }
 }

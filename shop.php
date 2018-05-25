@@ -74,7 +74,7 @@ if (isset($_GET['page'])) {
     </nav>
     <?php
     if(isset($_POST['search-shop'])){
-    if(is_numeric($seriesid)) {
+    if(is_numeric($_POST['series'])) {
       $seriesid = $_POST['series'];
       $seriesinvolumes = "SELECT V.*,
       series.primaryname as S, series.author as A
@@ -90,9 +90,12 @@ if (isset($_GET['page'])) {
         if($row_count==1) echo '<div class="card-deck">';
         echo '<div class="card text-center" style="background-color:black">';
         echo '<div class="card-body text-center">';
-        echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
-        echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
-        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'">
+              <img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" >
+              <h4>'.$row['S'].' '.$row['title'].'</h4></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info">
+              <p>'.$row['A'].'</p></a>';
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
@@ -123,9 +126,12 @@ if (isset($_GET['page'])) {
        if($row_count==1) echo '<div class="card-deck">';
        echo '<div class="card text-center" style="background-color:black">';
        echo '<div class="card-body text-center">';
-       echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
-       echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
-       echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
+       echo '<a href="view_manga.php?id='.$row['id'].'">
+            <img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
+       echo '<a href="view_manga.php?id='.$row['id'].'" >
+            <h4>'.$row['S'].' '.$row['title'].'</h4></a>';
+       echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info">
+            <p>'.$row['A'].'</p></a>';
        echo '<p>'.$row['price'].'$</p>';
        echo '</div>';
        echo '<div class="card-footer">';
@@ -156,9 +162,12 @@ if (isset($_GET['page'])) {
         if($row_count==1) echo '<div class="card-deck">';
         echo '<div class="card text-center" style="background-color:black">';
         echo '<div class="card-body text-center">';
-        echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
-        echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
-        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'">
+              <img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" >
+              <h4>'.$row['S'].' '.$row['title'].'</h4></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info">
+              <p>'.$row['A'].'</p></a>';
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
@@ -188,9 +197,12 @@ if (isset($_GET['page'])) {
         if($row_count==1) echo '<div class="card-deck">';
         echo '<div class="card text-center" style="background-color:black">';
         echo '<div class="card-body text-center">';
-        echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
-        echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
-        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'">
+              <img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" >
+              <h4>'.$row['S'].' '.$row['title'].'</h4></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info">
+              <p>'.$row['A'].'</p></a>';
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
@@ -207,9 +219,10 @@ if (isset($_GET['page'])) {
      ?>
     <div class="col-lg-9 my-3 float-right">
       <?php
+      //lehek
       $no_of_records_per_page = 16;
       $offset = ($page-1) * $no_of_records_per_page;
-      //manga query
+      //manga päring
       $seriesinvolumes = "SELECT V.*,
       series.primaryname as S, series.author as A
       FROM volumes AS V
@@ -223,28 +236,33 @@ if (isset($_GET['page'])) {
       $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
       $total_pages = ceil($total_rows / $no_of_records_per_page);
       $resultt = mysqli_query($connection, $seriesinvolumes);
+      //muutuja
       $row_count = 0;
+      //tsükkel mis sülitab välja päringust andmed
       while ($row = mysqli_fetch_array($resultt)) {
         $row_count++;
         if($row_count==1) echo '<div class="card-deck">';
         echo '<div class="card text-center" style="background-color:black">';
         echo '<div class="card-body text-center">';
-        echo '<a href="view_manga.php?id='.$row['id'].'"><img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
-        echo '<a href="view_manga.php?id='.$row['id'].'" ><h4>'.$row['S'].' '.$row['title'].'</h4></a>';
-        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info"><p>'.$row['A'].'</p></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'">
+              <img src="uploads/'.$row['image'].'" alt="" class="img-fluid mb-3"></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" >
+              <h4>'.$row['S'].' '.$row['title'].'</h4></a>';
+        echo '<a href="view_manga.php?id='.$row['id'].'" class="text-info">
+              <p>'.$row['A'].'</p></a>';
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
         echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
         echo '</div>';
         echo '</div>';
+        //iga nelja tulemuse järel lõppetab card-deck'i
         if($row_count==4) {
           echo "</div>";
           $row_count=0;
         }
       }
       ?>
-
     </div>
     <!-- PAGINATION SHIT THAT WORKS AAAAAAAAAAAAAAA -->
     <div class="col d-inline-block">
