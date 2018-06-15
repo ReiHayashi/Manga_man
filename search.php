@@ -17,9 +17,9 @@ if (isset($_GET['page'])) {
 }
 ?>
 
-<!-- SALE -->
+<!-- SEARCH -->
 
-<section id="sale">
+<section id="search">
   <div class="container">
     <div class="row text-center">
       <div class="col">
@@ -31,7 +31,7 @@ if (isset($_GET['page'])) {
       if(isset($_POST['submit-search'])) {
       $search = mysqli_real_escape_string($connection, $_POST['search']);
 
-      $no_of_records_per_page = 15;
+      $no_of_records_per_page = 12;
       $offset = ($page-1) * $no_of_records_per_page;
       //manga query
       $seriesinvolumes = "SELECT V.*,
@@ -61,7 +61,7 @@ if (isset($_GET['page'])) {
         echo '<button class="btn btn-primary">ADD TO CART</button>';
         echo '</div>';
         echo '</div>';
-        if($row_count==5) {
+        if($row_count==4) {
           echo "</div>";
           $row_count=0;
         }

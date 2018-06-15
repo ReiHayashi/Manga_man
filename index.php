@@ -15,7 +15,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <section id="header">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <h4 class="my-5">• LARGE SELECTION OF MANGA TO CHOOSE FROM</h4>
         <h4 class="my-5">• DIGITAL AND PHYSICAL COPIES AVAILABLE</h4>
         <h4 class="my-5">• 24/7 HELPFUL CUSTOMER SUPPORT</h4>
@@ -43,6 +43,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
     <div class="row">
       <div class="card-deck">
+        
         <?php
         //manga query
         $seriesinvolumes = 'SELECT V.*,

@@ -21,9 +21,12 @@ if (isset($_GET['page'])) {
 
 <section id="shop">
   <div class="container">
-
-
-    <nav class="d-inline-block col-lg-3 bg-dark my-3 rounded d-none collapse">
+    <nav class="d-inline-block navbar-expand-lg col-sm-12 col-md-12 col-lg-3 bg-dark my-3 rounded d-none navbar-toggleable-md navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsecontroller" aria-controls="collapsecontroller" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa fa-align-justify"></span>
+    </button>
+      <h2 class="text-center d-inline" >Search form</h2>
+    <div class="collapse navbar-collapse" id="collapsecontroller">
       <form action='' method='post'>
       <label class="my-2">Series</label>
       <select class="custom-select my-1 mr-sm-2" name="series">
@@ -70,8 +73,10 @@ if (isset($_GET['page'])) {
       <div class="wrapper py-2">
         <input class="btn btn-primary" id="shop_button" type="submit" name="search-shop" value="Search">
       </div>
+      </div>
     </form>
     </nav>
+    <div class="col-lg-9 my-3 float-right">
     <?php
     if(isset($_POST['search-shop'])){
     if(is_numeric($_POST['series'])) {
@@ -217,7 +222,6 @@ if (isset($_GET['page'])) {
     }
     } else {
      ?>
-    <div class="col-lg-9 my-3 float-right">
       <?php
       //lehek
       $no_of_records_per_page = 16;

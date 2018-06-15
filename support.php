@@ -17,7 +17,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   <form action="" method="post">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-sm-8 bg-dark rounded mt-4">
+        <div class="col-sm-12 col-md-10 col-lg-8 bg-dark rounded mt-4">
           <h1 class="display-5 text-center">Support ticket</h1>
           <div class="form-group">
             <label for="username">Problem Title</label>

@@ -22,9 +22,10 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
 
   <section id="login">
     <form action="" method="post">
+      <div class="vertical-center">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-sm-4 bg-dark rounded" style="margin-top: 100px;">
+          <div class="col-lg-6 col-md-8 col-sm-8 col-8 bg-dark rounded">
             <h1 class="display-5 text-center">Register</h1>
             <div class="form-group">
               <label for="username">Username:</label>
@@ -49,6 +50,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
           </div>
         </div>
       </div>
+    </div>
     </form>
   </section>
 

@@ -28,7 +28,7 @@ if (isset($_GET['page'])) {
     </div>
     <div class="row">
       <?php
-      $no_of_records_per_page = 15;
+      $no_of_records_per_page = 18;
       $offset = ($page-1) * $no_of_records_per_page;
       //manga query
       $seriesinvolumes = "SELECT V.*,
@@ -61,7 +61,7 @@ if (isset($_GET['page'])) {
         echo '<a class="btn btn-primary" href="checkout.php">Buy now</a>';
         echo '</div>';
         echo '</div>';
-        if($row_count==5) {
+        if($row_count==6) {
           echo "</div>";
           $row_count=0;
         }

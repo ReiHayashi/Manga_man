@@ -4562,7 +4562,7 @@ tbody.collapse.show {
   margin-bottom: 15px;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 0px) {
   .card-deck {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

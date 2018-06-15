@@ -16,42 +16,39 @@
 </head>
 <body>
   <section class="content">
-    <section id="navbar">
-      <nav class="navbar navbar-expand-sm py-0  bg-dark">
+    <section id=navbar>
+      <nav class="navbar navbar-expand-lg py-0 bg-dark navbar-toggleable-md navbar-inverse bg-inverse">
         <div class="container">
-          <a class="navbar-brand" href="index.php"><img src="img/logo.svg" alt=""></a>
-          <button class="navbar-toggler d-md-block d-lg-none" type="button" name="button" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsenavbar" aria-controls="collapsenavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="fa fa-align-justify"></span>
+        </button>
+          <a class="navbar-brand" href="index.php"><img src="img/logo.svg"width="250" height="60" alt=""></a>
+          <div class="collapse navbar-collapse" id="collapsenavbar">
+            <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <a class="nav-link" href="shop.php">Shop</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2" href="sale.php">Sale</a>
+                <a class="nav-link" href="sale.php">Sale</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mr-2" href="about.php">About</a>
+                <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="support.php">Support</a>
               </li>
             </ul>
-          </div>
-          <div class="col-sm-3">
-            <form action="search.php" method="POST">
-            <input type="text" name="search" class="form-control">
-          </div>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <button class="nav-link btn btn-primary fa fa-search mx-4" type="submit" name="submit-search"></button>
-            </li>
-          </form>
-            <li class="nav-item">
-              <a href="login.php"><button class="nav-link btn btn-primary fa fa-user"></button></a>
-            </li>
-        </ul>
         </div>
-      </nav>
-    </section>
+        <form action="search.php" method="POST">
+      <div class="input-group mt-3">
+        <input type="text" name="search" class="form-control" placeholder="Search manga">
+        <div class="input-group-append">
+        <button class="btn btn-sm btn-primary fa fa-search" type="submit" name="submit-search"></button>
+        </div>
+      </div>
+      </form>
+          <div class="mx-3">
+          <a href="login.php"><button class="btn btn-sm btn-primary fa fa-user"></button></a>
+        </div>
+    </nav>
+  </section>

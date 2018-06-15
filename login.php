@@ -22,9 +22,10 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
   <!-- LOGIN -->
 
   <section id="login">
+    <div class="vertical-center">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-sm-4 bg-dark rounded" style="margin-top: 200px;">
+        <div class="col-sm-4 bg-dark rounded">
           <h1 class="display-5 text-center">Sign in</h1>
           <form class="form-group" action="" method="POST">
             <label for="username">Username:</label>
@@ -35,10 +36,10 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
               <input type="submit" name="submit" value="Log in" class="btn btn-primary">
             </div>
           </form>
-          <p class="text-center"><a href="#login">Forgot password?</a></p>
           <p class="text-center"><a href="register.php">Need an account?</a></p>
         </div>
       </div>
+    </div>
     </div>
   </section>
 

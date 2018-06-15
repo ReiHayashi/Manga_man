@@ -17,10 +17,11 @@ if($_SESSION['aaa'] === 'user') {
 
   <!-- USER -->
   <section id="user">
+    <div class="vertical-center">
     <div class="container">
-      <div class="row rounded">
-        <div class="col text-center" style="margin-top: 175;">
-          <div class="col-lg-6 offset-lg-3 bg-dark rounded">
+      <div class="row rounded justify-content-center">
+        <div class="col text-center">
+          <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-8 offset-2 bg-dark rounded">
             <h3 class="text-center my-2">User page</h3>
             <a class="btn btn-primary btn-lg btn-block d-inline-block" href="logout.php" role="button">Logout</a> <br>
             <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="passwordchange.php" role="button">Change password</a> <br>
@@ -30,6 +31,7 @@ if($_SESSION['aaa'] === 'user') {
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
   <?php

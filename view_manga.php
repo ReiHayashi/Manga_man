@@ -43,12 +43,12 @@ if(!empty($_GET['id'])) {
   <section id="view_manga">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 bg-dark my-4 rounded-left d-inline-block parent">
+        <div class="col-lg-3 col-md-4 bg-dark my-4 rounded-left d-inline-block parent">
           <div class="child">
             <?php echo '<a href=""><img src="uploads/'.$row['image'].'" class="img-fluid py-2" style="height:400px;"></a>'; ?>
           </div>
         </div>
-        <div class="col-md-7 bg-dark my-4">
+        <div class="col-lg-7 col-md-6   bg-dark my-4">
           <?php echo '<h4>'.$row['S'].' '.$row['title'].'</h4>'; ?>
           <ul class="list-inline">
             <li class="list-inline-item">By:</li>
@@ -84,7 +84,7 @@ if(!empty($_GET['id'])) {
           <h5>Description</h5>
           <?php echo '<p style="font-size:14px;">'.$row['Synopsis'].'</p>'; ?>
         </div>
-        <div class="col-md-2 bg-dark my-4 text-center d-inline-block rounded-right justify-content-center parent">
+        <div class="col-lg-2 col-md-2 col-sm-2 bg-dark my-4 text-center d-inline-block rounded-right justify-content-center parent">
           <div class="child">
             <?php echo '<h2 >$'.$row['price'].'</h2>'; ?>
             <p class="my-2">Free shipping Worldwide</p>
