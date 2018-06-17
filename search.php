@@ -29,6 +29,7 @@ if (isset($_GET['page'])) {
     <div class="row">
       <?php
       if(isset($_POST['submit-search'])) {
+        if(!empty($_POST['search'])){
       $search = mysqli_real_escape_string($connection, $_POST['search']);
 
       $no_of_records_per_page = 12;
@@ -39,7 +40,7 @@ if (isset($_GET['page'])) {
       FROM volumes AS V
       INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
       INNER JOIN series ON VIS.series_id = series.series_id
-      WHERE series.primaryname = '$search' OR series.author LIKE '%$search%' OR series.synopsis LIKE '%$search%' OR V.title = '$search'
+      WHERE series.primaryname = '$search' OR V.title = '$search'
       ORDER BY V.id ASC";
       $resultt = mysqli_query($connection, $seriesinvolumes);
       $rowrr = mysqli_num_rows($resultt);
@@ -72,6 +73,9 @@ if (isset($_GET['page'])) {
   } else {
     echo "search isnt submitted.";
   }
+} else {
+
+}
       ?>
 
       <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
