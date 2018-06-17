@@ -30,7 +30,7 @@ if(!empty($_GET['id'])){
   // juhul kui midagi läks valesti kuvatakse järgmine sõnum
   else {
     echo "<h1>Error 500</h1> <br>";
-    echo "<p>Internal server error, please try again later.</p>"
+    echo "<p>Internal server error, please try again later.</p>";
   }
 } else {
   echo "<h1> Error 404</h1>";

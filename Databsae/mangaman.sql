@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2018 at 02:41 PM
+-- Generation Time: Jun 17, 2018 at 11:56 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -44,7 +44,7 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id`, `firstname`, `lastname`, `address1`, `address2`, `city`, `country`, `postcode`) VALUES
-(1, 'asd123123', 'asd123', 'asd12354', 'asd', 'asd1235', 'Estonia', 54233);
+(1, 'That', 'Guy', 'there like over there', '', 'yes', 'Aruba', 423857);
 
 -- --------------------------------------------------------
 
@@ -56,13 +56,6 @@ CREATE TABLE `address_in_users` (
   `address_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `address_in_users`
---
-
-INSERT INTO `address_in_users` (`address_id`, `user_id`) VALUES
-(1, 16);
 
 -- --------------------------------------------------------
 
@@ -476,7 +469,6 @@ INSERT INTO `languages_in_series` (`language_id`, `series_id`) VALUES
 
 CREATE TABLE `purchases` (
   `manga_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
   `purchase_id` int(11) NOT NULL,
   `purchase_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `username` varchar(22) NOT NULL
@@ -486,20 +478,8 @@ CREATE TABLE `purchases` (
 -- Dumping data for table `purchases`
 --
 
-INSERT INTO `purchases` (`manga_id`, `user_id`, `purchase_id`, `purchase_time`, `username`) VALUES
-(110, 1, 7, '2018-06-17 09:40:27', 'Admin'),
-(110, 1, 8, '2018-06-17 09:40:37', 'Admin'),
-(105, 1, 9, '2018-06-17 09:40:42', 'Admin'),
-(14, 1, 10, '2018-06-17 09:40:48', 'Admin'),
-(109, 14, 11, '2018-06-17 09:53:19', 'testt'),
-(111, 14, 12, '2018-06-17 09:53:25', 'testt'),
-(110, 14, 13, '2018-06-17 09:54:10', 'testt'),
-(18, 14, 14, '2018-06-17 09:54:14', 'testt'),
-(111, 16, 15, '2018-06-17 11:29:04', 'test3'),
-(110, 16, 16, '2018-06-17 11:41:19', 'test3'),
-(110, 16, 17, '2018-06-17 12:09:53', 'test3'),
-(110, 16, 18, '2018-06-17 12:21:25', 'test3'),
-(110, 16, 19, '2018-06-17 12:38:51', 'test3');
+INSERT INTO `purchases` (`manga_id`, `purchase_id`, `purchase_time`, `username`) VALUES
+(111, 22, '2018-06-17 18:41:08', 'test3');
 
 -- --------------------------------------------------------
 
@@ -514,21 +494,6 @@ CREATE TABLE `review` (
   `datesubmitted` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`id`, `username`, `content`, `datesubmitted`) VALUES
-(8, 'Admin', '<p>NIGGERS</p>', '2018-04-18 06:44:45'),
-(9, 'Admin', '<p>NIGGER123</p>', '2018-04-18 06:48:00'),
-(10, 'Admin', '<p>nigger</p>', '2018-04-18 06:50:54'),
-(11, 'Admin', '<p>niggerasd</p>', '2018-04-18 06:51:00'),
-(13, 'Admin', '<p>suck it</p>', '2018-04-18 13:36:25'),
-(16, 'testt', '<p>adsasd sick dudee</p>', '2018-04-20 20:59:12'),
-(17, 'testing', '<p>asdf</p>', '2018-05-18 11:11:05'),
-(19, 'test3', '<p>Testing test test edgy manga btw</p>', '2018-06-17 12:11:34'),
-(20, 'test3', '<p>tyes</p>', '2018-06-17 12:11:50');
-
 -- --------------------------------------------------------
 
 --
@@ -539,21 +504,6 @@ CREATE TABLE `reviews_in_volumes` (
   `review_id` int(11) NOT NULL,
   `volume_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `reviews_in_volumes`
---
-
-INSERT INTO `reviews_in_volumes` (`review_id`, `volume_id`) VALUES
-(8, 110),
-(9, 105),
-(10, 105),
-(11, 105),
-(13, 97),
-(16, 110),
-(17, 110),
-(19, 109),
-(20, 111);
 
 -- --------------------------------------------------------
 
@@ -601,13 +551,6 @@ CREATE TABLE `support` (
   `username` varchar(64) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `support`
---
-
-INSERT INTO `support` (`support_id`, `firstname`, `lastname`, `email`, `problem_title`, `problem`, `date`, `username`) VALUES
-(8, 'niggetr', 'nigger', 'nigger@niggernigger', 'nigger', 'nigger nigger nigger  ', '2018-04-18 06:01:21', 'test');
-
 -- --------------------------------------------------------
 
 --
@@ -628,12 +571,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `usertype`, `date_created`) VALUES
-(1, 'Admin', 'admin@admin.admin', 'admin', 1, '0000-00-00 00:00:00'),
-(12, 'timokes', 'timoke@gmail.com', '', 0, '0000-00-00 00:00:00'),
-(13, 'test', 'test2@test.test', 'test', 0, '2018-04-18 05:58:31'),
-(14, 'testt', 'testt@test.test', 'test', 0, '2018-04-20 09:09:58'),
-(15, 'testing', 'testing@testing.testing', 'testingtesting', 0, '2018-05-18 11:10:19'),
-(16, 'test3', 'test@test.test', 'testing123', 0, '2018-06-17 10:02:37');
+(18, 'Admin', 'Admin@manga.man', 'aadcfeac877de6849f80e460cac9b5f1ecb6b1d6', 1, '2018-06-17 19:41:53'),
+(19, 'testing', 'testing1@testing.testing', 'b0212be2cc6081fba3e0b6f3dc6e0109d6f7b4cb', 0, '2018-06-17 19:58:33'),
+(20, 'timoke', 'timoke@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d', 0, '2018-06-17 21:52:24');
 
 -- --------------------------------------------------------
 
@@ -925,8 +865,7 @@ ALTER TABLE `languages_in_series`
 --
 ALTER TABLE `purchases`
   ADD PRIMARY KEY (`purchase_id`),
-  ADD KEY `manga_id` (`manga_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `manga_id` (`manga_id`);
 
 --
 -- Indexes for table `review`
@@ -1004,19 +943,19 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `series`
 --
 ALTER TABLE `series`
-  MODIFY `series_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `series_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `support`
@@ -1028,13 +967,13 @@ ALTER TABLE `support`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `volumes`
 --
 ALTER TABLE `volumes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- Constraints for dumped tables
@@ -1065,8 +1004,7 @@ ALTER TABLE `languages_in_series`
 -- Constraints for table `purchases`
 --
 ALTER TABLE `purchases`
-  ADD CONSTRAINT `purchases_ibfk_1` FOREIGN KEY (`manga_id`) REFERENCES `volumes` (`id`),
-  ADD CONSTRAINT `purchases_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `purchases_ibfk_1` FOREIGN KEY (`manga_id`) REFERENCES `volumes` (`id`);
 
 --
 -- Constraints for table `reviews_in_volumes`

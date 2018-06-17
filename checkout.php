@@ -123,7 +123,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     $result4 = mysqli_query($connection, $purchases);
     //kui päring õnnestus siis teha järgmine päring
     if($result && $result2 && $result4) {
-      echo "<p class='display-5 text-center' >order successfully placed, there is supposed to be a button with bank pay option now somewhere haha</p>";
+      echo "<p class='text-center' >order successfully placed</p>";
     }
     //kui päring ebaõnnestus
     else {

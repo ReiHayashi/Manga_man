@@ -33,8 +33,8 @@ if($_SESSION['aaa'] === 'admin') {
     <div class="container">
       <div class="row">
         <div class="col-md-3 mr-auto">
-          <a href="user.php" class="btn btn-primary btn-block">
-            <i class="fa fa-arrow-left"></i> Back To User page
+          <a href="admin_panel.php" class="btn btn-primary btn-block">
+            <i class="fa fa-arrow-left"></i> Back To Dashboard
           </a>
         </div>
         <div class="col-md6 ml-auto">

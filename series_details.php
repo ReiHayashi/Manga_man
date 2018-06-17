@@ -86,7 +86,7 @@ if(isset($_POST['submit'])) {
     $author = mysqli_real_escape_string($connection, $_POST['Author']);
     $startdate = $_POST['startdate'];
     $enddate = $_POST['enddate'];
-    $synopsis = $connection, $_POST['Synopsis'];
+    $synopsis =  $_POST['Synopsis'];
     //andmebaasi päring
     $seriesupdate = "UPDATE series
                      SET primaryname='$title', author='$author', start_date='$startdate',
@@ -101,7 +101,7 @@ if(isset($_POST['submit'])) {
     //kui andmebaasi päring ebaõnnestus
     else {
       echo '<h1 class="display-5 text-center">Error 500</h1> <br>';
-      echo '<p class="display-5 text-center">Internal server error, please try again later.</p>'
+      echo '<p class="display-5 text-center">Internal server error, please try again later.</p>';
     }
   }
 } else {
