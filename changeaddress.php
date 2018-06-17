@@ -27,6 +27,36 @@ $row4 = mysqli_fetch_array($resultforaddress);
 
 if(mysqli_num_rows($resulttt) == 1) {
 ?>
+<?php
+// kui kõik andmed on sisestatud siis jookse läbi järgmist koodi
+if(isset($_POST['firstname']) && isset($_POST['lastname']) &&
+isset($_POST['address1']) && isset($_POST['city']) &&
+isset($_POST['country']) && isset($_POST['postcode'])) {
+  //järgmine kontroll
+  if(isset($_POST['submit'])){
+    //muutujad vormist
+    $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+    $address1 = mysqli_real_escape_string($connection, $_POST['address1']);
+    $address2 = mysqli_real_escape_string($connection, $_POST['address2']);
+    $city = mysqli_real_escape_string($connection, $_POST['city']);
+    $country = mysqli_real_escape_string($connection, $_POST['country']);
+    $postcode = mysqli_real_escape_string($connection, $_POST['postcode']);
+    //päring
+    $addressupdate = "UPDATE address SET firstname='$firstname', lastname='$lastname',
+    address1='$address1', address2='$address2',
+    city='$city', country='$country', postcode='$postcode'
+    WHERE id='$addressid'";
+    $result_addressupdate = mysqli_query($connection, $addressupdate);
+    if($result_addressupdate) {
+      echo '<p class="display-5 text-center">Address successfully updated<p>';
+      echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
+    } else {
+      echo '<p class="display-5 text-center">Something went wrong.<p>';
+    }
+  }
+}
+?>
 <!-- CHANGE ADDRESS -->
 
 <section id="checkout">
@@ -83,39 +113,9 @@ if(mysqli_num_rows($resulttt) == 1) {
 
 </section>
 
-
-
 <?php
-// kui kõik andmed on sisestatud siis jookse läbi järgmist koodi
-if(isset($_POST['firstname']) && isset($_POST['lastname']) &&
-  isset($_POST['address1']) && isset($_POST['city']) &&
-  isset($_POST['country']) && isset($_POST['postcode'])) {
-    //järgmine kontroll
-  if(isset($_POST['submit'])){
-    //muutujad vormist
-  $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
-  $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
-  $address1 = mysqli_real_escape_string($connection, $_POST['address1']);
-  $address2 = mysqli_real_escape_string($connection, $_POST['address2']);
-  $city = mysqli_real_escape_string($connection, $_POST['city']);
-  $country = mysqli_real_escape_string($connection, $_POST['country']);
-  $postcode = mysqli_real_escape_string($connection, $_POST['postcode']);
-  //päring
-  $addressupdate = "UPDATE address SET firstname='$firstname', lastname='$lastname',
-                                       address1='$address1', address2='$address2',
-                                       city='$city', country='$country', postcode='$postcode'
-                    WHERE id='$addressid'";
-  $result_addressupdate = mysqli_query($connection, $addressupdate);
-  if($result_addressupdate) {
-    echo '<p class="display-5 text-center">Address successfully updated<p>';
-    echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'">';
-  } else {
-    echo '<p class="display-5 text-center">Something went wrong.<p>';
-  }
-}
-}
 } else {
   header('Location: index.php');
-}
-?>
+} ?>
+
 <?php include('includes/footer.php'); ?>

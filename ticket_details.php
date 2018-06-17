@@ -9,7 +9,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 } else {
   include('includes/header.php');
 }
-
+if($_SESSION['aaa'] === 'admin') {
 ?>
 <?php
 $id = $_GET['id']; ?>
@@ -71,4 +71,8 @@ $row = mysqli_fetch_array($query)
     </div>
   </div>
 </section>
+<?php
+} else {
+  header('Location: index.php');
+} ?>
 <?php include('includes/footer.php'); ?>

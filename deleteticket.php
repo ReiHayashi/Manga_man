@@ -1,5 +1,7 @@
-<?php include("config/config.php"); ?>
 <?php
+session_start();
+include("config/config.php");
+if($_SESSION['aaa'] === 'admin') {
 if(!empty($_GET['id'])){
   $id = $_GET['id'];
   $delete = "DELETE FROM support WHERE support_id='$id'";
@@ -11,4 +13,6 @@ if(!empty($_GET['id'])){
     echo "something went wrong";
   }
 }
-?>
+} else {
+  header('Location: index.php');
+}

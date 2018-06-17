@@ -75,7 +75,7 @@ if(!empty($_GET['id'])){
       $username = $_POST['username'];
       $email = $_POST['email'];
       $password = $_POST['password'];
-      if(isset($password) === '') {
+      if(isset($password) === false) {
       $userupdate = "UPDATE users SET username='$username',email='$email' WHERE id='$id'";
       $result_userupdate = mysqli_query($connection, $userupdate);
       } else {

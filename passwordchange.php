@@ -11,7 +11,36 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 ?>
+<?php
+if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
+  header('Location: admin.php');
+} elseif(isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'user') {?>
 
+  <?php
+  if(isset($_POST['submit']) && !empty($_POST['password']) && !empty($_POST['newpassword']) && isset($_SESSION['username'])) {
+    $password = $_POST['password'];
+    $encrypted_password = sha1($password);
+    $newpassword = $_POST['newpassword'];
+    $new_encrypted_password = sha1($newpassword);
+    $username = $_SESSION['username'];
+    $query = "SELECT * FROM users WHERE username='".$_SESSION['username']."'";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_array($result);
+
+    if($encrypted_password === $row['password']) {
+      $updatequery = "UPDATE users SET password='$new_encrypted_password' WHERE username='$username'";
+      $resultt = mysqli_query($connection, $updatequery);
+      if($resultt) {
+        echo "password has been changed";
+      } else {
+        echo "something went wrong try again later, or i have fucked up again";
+      }
+    }
+    else {
+      echo "incorrect password";
+    }
+  }
+  ?>
 <!-- PASSWORD CHANGE -->
 
 <section id="passwordchange">
@@ -36,27 +65,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 </section>
 
 
-<?php
-if(isset($_POST['submit']) && !empty($_POST['password']) && !empty($_POST['newpassword']) && isset($_SESSION['username'])) {
-  $password = $_POST['password'];
-  $newpassword = $_POST['newpassword'];
-  $username = $_SESSION['username'];
-  $query = "SELECT * FROM users WHERE username='".$_SESSION['username']."'";
-  $result = mysqli_query($connection, $query);
-  $row = mysqli_fetch_array($result);
-
-  if($_POST['password'] === $row['password']) {
-    $updatequery = "UPDATE users SET password='$newpassword' WHERE username='$username'";
-    $resultt = mysqli_query($connection, $updatequery);
-    if($resultt) {
-      echo "password has been changed";
-    } else {
-      echo "something went wrong try again later, or i have fucked up again";
-    }
-  }
-  else {
-    echo "incorrect password";
-  }
-}
-?>
+<?php }else {
+  header('Location: index.php');
+} ?>
 <?php include('includes/footer.php'); ?>

@@ -211,7 +211,7 @@ if($_SESSION['aaa'] === 'admin') {
               LIMIT $offset, $no_of_records_per_page";
               $resultt22 = mysqli_query($connection, $purchasequery);
               //pagination
-              $yesyesyes = "SELECT COUNT('purchase_id') FROM purchases";
+              $yesyesyes = "SELECT COUNT('purchase_id') FROM purchases WHERE purchases.username = '$username'";
               $yesyesyes_result = mysqli_query($connection, $yesyesyes);
               $total_rows = mysqli_fetch_array($yesyesyes_result)[0];
               $total_pages = ceil($total_rows / $no_of_records_per_page);

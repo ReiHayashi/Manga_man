@@ -1,5 +1,7 @@
 <?php
+session_start();
 include("config/config.php");
+if($_SESSION['aaa'] === 'admin') {
 if(isset($_POST['submit2'])) {
   if(!empty($_FILES['fileToUpload'])) {
     $target_dir = "uploads/";
@@ -66,4 +68,7 @@ if(isset($_POST['submit2'])) {
   } else {
     echo "you fucked up.";
   }
+}
+} else {
+  header('Location: index.php');
 }

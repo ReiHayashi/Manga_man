@@ -1,4 +1,7 @@
-<?php include("config/config.php"); ?>
+<?php
+session_start();
+include("config/config.php");
+if($_SESSION['aaa'] === 'admin') {?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -32,5 +35,8 @@ if(!empty($_GET['id'])){
 } else {
   echo "<h1> Error 404</h1>";
   echo "<p> Series not found </p>";
+}
+} else {
+  header('Location: index.php');
 }
 ?>

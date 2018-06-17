@@ -83,7 +83,7 @@ if($_SESSION['aaa'] === 'admin') {
                 INNER JOIN review ON RIS.review_id = review.id
                 INNER JOIN volumes_in_series AS VIS ON VIS.volume_id = V.id
                 INNER JOIN series ON VIS.series_id = series.series_id
-                ORDER BY reviewid DESC
+                ORDER BY reviewid ASC
                 LIMIT $offset, $no_of_records_per_page";
                 $resultt22 = mysqli_query($connection, $reviewsinvolumes);
                 //pagination
@@ -210,6 +210,7 @@ if($_SESSION['aaa'] === 'admin') {
               INNER JOIN series ON VIS.series_id = series.series_id
 
               WHERE review.username = '$usergay'
+              ORDER BY reviewid DESC
               LIMIT $offset, $no_of_records_per_page";
               $resultt22 = mysqli_query($connection, $reviewsinvolumes);
               //pagination

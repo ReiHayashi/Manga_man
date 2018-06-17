@@ -119,7 +119,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     $result = mysqli_query($connection, $query);
     $addresstouser = "INSERT INTO address_in_users (address_id, user_id) VALUES ('$addressid', '$userid')";
     $result2 = mysqli_query($connection, $addresstouser);
-    $purchases = "INSERT INTO purchases (manga_id, user_id, username) VALUES ('$id', '$userid', '$username')";
+    $purchases = "INSERT INTO purchases (manga_id, username) VALUES ('$id', '$username')";
     $result4 = mysqli_query($connection, $purchases);
     //kui päring õnnestus siis teha järgmine päring
     if($result && $result2 && $result4) {
@@ -202,7 +202,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 // kui kõik andmed on sisestatud siis jookse läbi järgmist koodi
 if(isset($_POST['submit'])) {
   //päring
-  $purchases = "INSERT INTO purchases (manga_id, user_id, username) VALUES ('$id', '$userid', '$username')";
+  $purchases = "INSERT INTO purchases (manga_id, username) VALUES ('$id', '$username')";
   $result4 = mysqli_query($connection, $purchases);
   //kui päring õnnestus siis teha järgmine päring
   if($result4) {

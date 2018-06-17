@@ -1,6 +1,7 @@
 <?php
+session_start();
 include("config/config.php");
-
+if($_SESSION['aaa'] === 'admin') {
 $title = mysqli_real_escape_string($connection, $_POST['Primaryname']);
 $author = mysqli_real_escape_string($connection, $_POST['Author']);
 $startdate = $_POST['start_date'];
@@ -35,5 +36,8 @@ if($result_manga && $result_genre && $language_result) {
   echo "series have been added, you will be redirected to admin panel in 5 seconds";
   header( "refresh:5;url=admin_panel.php" );
 } else {
-  echo "You missed something or forgot to delete a upper comma";
+  echo "You missed something or forgot to delete a upper comma, you can avoid it by placing a \ infront of the upper comma.";
+}
+} else {
+  header('Location: index.php');
 }

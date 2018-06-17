@@ -9,7 +9,32 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 } else {
   include('includes/header.php');
 }
+?>
+<?php
+if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
+  header('Location: admin.php');
+} elseif(isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'user') {?>
+<?php
+if(isset($_POST['submit']) && !empty($_POST['newemail']) && !empty($_POST['email']) && isset($_SESSION['username'])) {
+  $email = $_POST['email'];
+  $newemail = $_POST['newemail'];
+  $username = $_SESSION['username'];
+  $query = "SELECT * FROM users WHERE username='".$_SESSION['username']."'";
+  $result = mysqli_query($connection, $query);
+  $row = mysqli_fetch_array($result);
 
+  if($_POST['email'] === $row['email']) {
+    $updatequery = "UPDATE users SET email='$newemail' WHERE username='$username'";
+    $resultt = mysqli_query($connection, $updatequery);
+    if($resultt) {
+      echo "Your email has been changed";
+    } else {
+      echo "something went wrong try again later, or i have fucked up again";
+    }
+  } else {
+    echo "Your current email is not correct";
+  }
+}
 ?>
 
 <!-- CHANGE EMAIL -->
@@ -35,27 +60,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   </div>
 </section>
 
-
-<?php
-if(isset($_POST['submit']) && !empty($_POST['newemail']) && !empty($_POST['email']) && isset($_SESSION['username'])) {
-  $email = $_POST['email'];
-  $newemail = $_POST['newemail'];
-  $username = $_SESSION['username'];
-  $query = "SELECT * FROM users WHERE username='".$_SESSION['username']."'";
-  $result = mysqli_query($connection, $query);
-  $row = mysqli_fetch_array($result);
-
-  if($_POST['email'] === $row['email']) {
-    $updatequery = "UPDATE users SET email='$newemail' WHERE username='$username'";
-    $resultt = mysqli_query($connection, $updatequery);
-    if($resultt) {
-      echo "Your email has been changed";
-    } else {
-      echo "something went wrong try again later, or i have fucked up again";
-    }
-  } else {
-    echo "Your current email is not correct";
-  }
-}
-?>
+<?php }else {
+  header('Location: index.php');
+} ?>
 <?php include('includes/footer.php'); ?>

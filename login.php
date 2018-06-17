@@ -18,7 +18,38 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
   header('Location: user.php');
 } else {?>
 
-
+  <?php
+  if (empty($errors) === true) {
+    if(isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['password'])) {
+      $query = "SELECT * FROM users WHERE username='".$_POST['username']."'";
+      $result = mysqli_query($connection, $query);
+      $row = mysqli_fetch_array($result);
+      $encrypted_password = sha1($_POST['password']);
+      if($_POST['username'] === $row['username'] && $encrypted_password === $row['password']) {
+        if($_POST['username'] == $row['username'] && $row['usertype']==1) {
+          session_start();
+          $_SESSION['aaa']='admin';
+          $_SESSION['username'] = $row['username'];
+          header('Location: admin_panel.php');
+          exit();
+        }
+        elseif($_POST['username'] == $row['username'] && $row['usertype']==0){
+          session_start();
+          $_SESSION['aaa']='user';
+          $_SESSION['username'] = $row['username'];
+          header('Location: index.php');
+          exit();
+        }
+      } else {
+        $errors[] ='Username or password doesn\'t match';
+        echo output_errors($errors);
+      }
+    }
+  } else {
+    echo 'Registration failed';
+    echo output_errors($errors);
+  }
+?>
   <!-- LOGIN -->
 
   <section id="login">
@@ -43,37 +74,6 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
     </div>
   </section>
 
+<?php } ?>
 
-  <?php
-  if (empty($errors) === true) {
-  if(isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-    $query = "SELECT * FROM users WHERE username='".$_POST['username']."'";
-    $result = mysqli_query($connection, $query);
-    $row = mysqli_fetch_array($result);
-
-    if($_POST['username'] === $row['username'] && $_POST['password'] === $row['password']) {
-      if($_POST['username'] == $row['username'] && $row['usertype']==1) {
-        session_start();
-        $_SESSION['aaa']='admin';
-        $_SESSION['username'] = $row['username'];
-        header('Location: admin_panel.php');
-        exit();
-      }
-      elseif($_POST['username'] == $row['username'] && $row['usertype']==0){
-        session_start();
-        $_SESSION['aaa']='user';
-        $_SESSION['username'] = $row['username'];
-        header('Location: index.php');
-        exit();
-      }
-    } else {
-      $errors[] ='Username or password doesn\'t match';
-      echo output_errors($errors);
-    }
-  }
-} else {
-  echo 'Registration failed';
-  echo output_errors($errors);
-}
-}?>
 <?php include('includes/footer.php'); ?>

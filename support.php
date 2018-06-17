@@ -11,6 +11,35 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 }
 
 ?>
+<?php
+// kui kõik andmed on sisestatud siis jookse läbi järgmist koodi
+if(isset($_POST['firstname']) && isset($_POST['lastname']) &&
+isset($_POST['email']) && isset($_POST['problem']) &&
+isset($_POST['problemtitle'])) {
+  //muutujad
+  $problemtitle = mysqli_real_escape_string($connection, $_POST['problemtitle']);
+  $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+  $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+  $email = mysqli_real_escape_string($connection, $_POST['email']);
+  $problem = mysqli_real_escape_string($connection, $_POST['problem']);
+  $username = mysqli_real_escape_string($connection, $_SESSION['username']);
+  //päring
+  $query="INSERT INTO support (firstname, lastname, email, problem_title, problem, username)
+  VALUES ('$firstname', '$lastname', '$email', '$problemtitle', '$problem', '$username')";
+  $result = mysqli_query($connection, $query);
+  //kui päring õnnestus siis näita järgmist
+  if($result) {
+    echo "support ticket was sent successfully.
+    Wait for an E-mail from our support team.
+    Process can take up to 24 hours";
+  }
+  //kui päring ebaõnnestus
+  else {
+    echo "something went wrong, try again later.";
+  }
+}
+
+?>
 
 <!-- SUPPORT -->
 <section id="support">
@@ -50,33 +79,4 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
   </form>
 </section>
 
-<?php
-// kui kõik andmed on sisestatud siis jookse läbi järgmist koodi
-if(isset($_POST['firstname']) && isset($_POST['lastname']) &&
-  isset($_POST['email']) && isset($_POST['problem']) &&
-  isset($_POST['problemtitle'])) {
-  //muutujad
-  $problemtitle = mysqli_real_escape_string($connection, $_POST['problemtitle']);
-  $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
-  $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
-  $email = mysqli_real_escape_string($connection, $_POST['email']);
-  $problem = mysqli_real_escape_string($connection, $_POST['problem']);
-  $username = mysqli_real_escape_string($connection, $_SESSION['username']);
-  //päring
-  $query="INSERT INTO support (firstname, lastname, email, problem_title, problem, username)
-  VALUES ('$firstname', '$lastname', '$email', '$problemtitle', '$problem', '$username')";
-  $result = mysqli_query($connection, $query);
-  //kui päring õnnestus siis näita järgmist
-  if($result) {
-    echo "support ticket was sent successfully.
-          Wait for an E-mail from our support team.
-          Process can take up to 24 hours";
-  }
-  //kui päring ebaõnnestus
-  else {
-    echo "something went wrong, try again later.";
-  }
-}
-
-?>
 <?php include('includes/footer.php'); ?>

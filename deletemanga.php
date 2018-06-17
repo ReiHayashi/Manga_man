@@ -1,5 +1,7 @@
-<?php include("config/config.php"); ?>
 <?php
+session_start();
+include("config/config.php");
+if($_SESSION['aaa'] === 'admin') {
 if(!empty($_GET['id'])){
   $id = $_GET['id'];
   $deletegenres = "DELETE FROM genres_in_mangas WHERE manga_id='$id'";
@@ -15,6 +17,8 @@ if(!empty($_GET['id'])){
     echo "something went wrong";
   }
 } else {
-  echo "nigger you forgot to add that thing to get the id hahahahaha";
+  echo "Error 404: This manga doesnt exist.";
 }
-?>
+} else {
+  header('Location: index.php');
+}
