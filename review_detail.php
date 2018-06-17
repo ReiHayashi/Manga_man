@@ -31,7 +31,7 @@ if(!empty($_GET['id'])){
       <div class="container">
         <div class="row">
           <div class="col-md-3 mr-auto">
-            <a href="admin_panel.php" class="btn btn-primary btn-block">
+            <a href="reviews.php" class="btn btn-primary btn-block">
               <i class="fa fa-arrow-left"></i> Back To Dashboard
             </a>
           </div>
@@ -105,7 +105,7 @@ if(!empty($_GET['id'])){
     <div class="container">
       <div class="row">
         <div class="col-md-3 mr-auto">
-          <a href="admin_panel.php" class="btn btn-primary btn-block">
+          <a href="reviews.php" class="btn btn-primary btn-block">
             <i class="fa fa-arrow-left"></i> Back To Dashboard
           </a>
         </div>

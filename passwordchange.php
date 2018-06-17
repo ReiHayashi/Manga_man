@@ -15,9 +15,10 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <!-- PASSWORD CHANGE -->
 
 <section id="passwordchange">
+  <div class="vertical-center">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-sm-4 bg-dark rounded" style="margin-top: 200px;">
+      <div class="col-sm-4 bg-dark rounded">
         <h3 class="display-5 text-center my-3">Change password</h1>
           <form class="form-group" action="" method="POST">
             <label class="mt-3" for="password">Current password:</label>

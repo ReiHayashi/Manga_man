@@ -26,7 +26,7 @@ if($_SESSION['aaa'] === 'user') {
             <a class="btn btn-primary btn-lg btn-block d-inline-block" href="logout.php" role="button">Logout</a> <br>
             <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="passwordchange.php" role="button">Change password</a> <br>
             <a class="btn btn-primary btn-lg btn-block d-inline-block" href="changeemail.php" role="button">Change E-mail</a> <br>
-            <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="reviews.php" role="button">Reviews</a> <br>
+            <a class="btn btn-primary btn-lg btn-block d-inline-block mt-3" href="reviews.php" role="button">Reviews</a> <br>
             <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="purchases.php" role="button">Purchases</a> <br>
             <?php
             $username = $_SESSION['username'];

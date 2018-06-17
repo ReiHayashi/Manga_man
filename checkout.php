@@ -49,7 +49,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
     <form action="" method="post">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-sm-4 bg-dark rounded" style="margin-top: 100px;">
+          <div class="col-sm-12 col-md-10 col-lg-8 bg-dark rounded mt-4">
             <h1 class="display-5 text-center">Checkout</h1>
             <div class="form-group">
               <label>First name*</label>
@@ -158,7 +158,7 @@ if(isset($_POST['submit'])) {
   $result4 = mysqli_query($connection, $purchases);
   //kui päring õnnestus siis teha järgmine päring
   if($result4) {
-    echo "<p class='display-5 text-center' >order successfully placed, there is supposed to be a button with bank pay option now somewhere haha</p>";
+    echo "<p class='display-5 text-center' >Your order is on the way.</p>";
   }
   //kui päring ebaõnnestus
   else {

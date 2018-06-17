@@ -15,9 +15,10 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <!-- CHANGE EMAIL -->
 
 <section id="changeemail">
+  <div class="vertical-center">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-sm-4 bg-dark rounded" style="margin-top: 200px;">
+      <div class="col-sm-4 bg-dark rounded">
         <h3 class="display-5 text-center my-3">Change E-mail</h1>
           <form class="form-group" action="" method="POST">
             <label class="mt-3" for="password">Current E-mail:</label>
@@ -48,12 +49,12 @@ if(isset($_POST['submit']) && !empty($_POST['newemail']) && !empty($_POST['email
     $updatequery = "UPDATE users SET email='$newemail' WHERE username='$username'";
     $resultt = mysqli_query($connection, $updatequery);
     if($resultt) {
-      echo "email has been changed";
+      echo "Your email has been changed";
     } else {
       echo "something went wrong try again later, or i have fucked up again";
     }
   } else {
-    echo "suck a benis";
+    echo "Your current email is not correct";
   }
 }
 ?>

@@ -15,21 +15,22 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 <!-- SUPPORT -->
 <section id="support">
   <form action="" method="post">
+    <div class="vertical-center">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm-12 col-md-10 col-lg-8 bg-dark rounded mt-4">
           <h1 class="display-5 text-center">Support ticket</h1>
           <div class="form-group">
             <label for="username">Problem Title</label>
-            <input type="text" name="problemtitle" class="form-control">
+            <input type="text" name="problemtitle" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="username">First Name:</label>
-            <input type="text" name="firstname" class="form-control">
+            <input type="text" name="firstname" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="username">Last Name:</label>
-            <input type="text" name="lastname" class="form-control">
+            <input type="text" name="lastname" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="username">E-mail:</label>
@@ -45,6 +46,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
         </div>
       </div>
     </div>
+  </div>
   </form>
 </section>
 
