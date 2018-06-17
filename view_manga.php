@@ -88,7 +88,7 @@ if(!empty($_GET['id'])) {
           <div class="child">
             <?php echo '<h2 >$'.$row['price'].'</h2>'; ?>
             <p class="my-2">Free shipping Worldwide</p>
-            <a class="btn btn-primary btn-lg d-inline-block mt-3" href="checkout.php" role="button">Buy now</a> <br>
+            <?php echo '<a class="btn btn-primary btn-lg d-inline-block mt-3" href="checkout.php?id='.$id.'" role="button">Buy now</a> <br>' ?>
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@ if(!empty($_GET['id'])) {
         echo 'review posted successfully';
         echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
       } else {
-        echo 'FUCKING SHITTY QUERY I HATE THIS AAAAAAAA';
+        echo 'Something went horribly wrong';
       }
     } else {
       echo 'something went horribly wrong again and again';
@@ -179,9 +179,7 @@ if(!empty($_GET['id'])) {
 
 
   ?>
-  <?php
-} else {
-  echo "you forgo something important cunt";
-}
-?>
+  <?php } else {
+    echo '<h1 class="display-5 text-center">ERROR 404: You shouldn\'t be seeing this, make sure you didn\'t click somewhere you weren\'t supposed to!</h1> <br> <p class="display-5 text-center">if this keeps happening contact us!</p>';
+  }  ?>
 <?php include('includes/footer.php'); ?>

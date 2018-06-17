@@ -104,7 +104,7 @@ if (isset($_GET['page'])) {
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
-        echo '<a class="btn btn-primary" href="checkout.php">Buy now</a>';
+        echo '<a class="btn btn-primary" href="checkout.php?id='.$row['id'].'">Buy now</a>';
         echo '</div>';
         echo '</div>';
         if($row_count==4) {
@@ -140,7 +140,7 @@ if (isset($_GET['page'])) {
        echo '<p>'.$row['price'].'$</p>';
        echo '</div>';
        echo '<div class="card-footer">';
-       echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
+      echo '<a class="btn btn-primary" href="checkout.php?id='.$row['id'].'">Buy now</a>';
        echo '</div>';
        echo '</div>';
        if($row_count==4) {
@@ -176,7 +176,7 @@ if (isset($_GET['page'])) {
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
-        echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
+        echo '<a class="btn btn-primary" href="checkout.php?id='.$row['id'].'">Buy now</a>';
         echo '</div>';
         echo '</div>';
         if($row_count==4) {
@@ -211,7 +211,7 @@ if (isset($_GET['page'])) {
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
-        echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
+        echo '<a class="btn btn-primary" href="checkout.php?id='.$row['id'].'">Buy now</a>';
         echo '</div>';
         echo '</div>';
         if($row_count==4) {
@@ -257,7 +257,7 @@ if (isset($_GET['page'])) {
         echo '<p>'.$row['price'].'$</p>';
         echo '</div>';
         echo '<div class="card-footer">';
-        echo '<button class="btn btn-primary"  data-toggle="modal" data-target="#buy">Buy now</button>';
+      echo '<a class="btn btn-primary" href="checkout.php?id='.$row['id'].'">Buy now</a>';
         echo '</div>';
         echo '</div>';
         //iga nelja tulemuse järel lõppetab card-deck'i

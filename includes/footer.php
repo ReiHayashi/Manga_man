@@ -7,7 +7,7 @@
         <div class="col text-center">
           <div>
             <h4>Manga Man</h4>
-            <p>Copyright &copy; 2017</p>
+            <p>Copyright &copy; 2018</p>
           </div>
         </div>
       </div>

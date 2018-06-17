@@ -43,7 +43,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
 
     <div class="row">
       <div class="card-deck">
-        
+
         <?php
         //manga query
         $seriesinvolumes = 'SELECT V.*,
@@ -63,7 +63,7 @@ elseif (isset($_SESSION['aaa'])&& $_SESSION['aaa']=='user'){
           echo '<p>'.$row['price'].'$</p>';
           echo '</div>';
           echo '<div class="card-footer">';
-          echo '<a class="btn btn-primary" href="checkout.php">Buy now</a>';
+        echo '<a class="btn btn-primary" href="checkout.php?id='.$row['id'].'">Buy now</a>';
           echo '</div>';
           echo '</div>';
         }

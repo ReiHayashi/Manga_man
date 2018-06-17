@@ -27,7 +27,18 @@ if($_SESSION['aaa'] === 'user') {
             <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="passwordchange.php" role="button">Change password</a> <br>
             <a class="btn btn-primary btn-lg btn-block d-inline-block" href="changeemail.php" role="button">Change E-mail</a> <br>
             <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="reviews.php" role="button">Reviews</a> <br>
-            <a class="btn btn-primary btn-lg btn-block d-inline-block mb-3" href="#" role="button">Add/Change Address</a>
+            <a class="btn btn-primary btn-lg btn-block d-inline-block my-3" href="purchases.php" role="button">Purchases</a> <br>
+            <?php
+            $username = $_SESSION['username'];
+            $selectuserid = "SELECT * FROM users WHERE username='$username'";
+            $result3 = mysqli_query($connection, $selectuserid);
+            $row2 = mysqli_fetch_array($result3);
+            $userid = $row2['id'];
+            $queryyy = 'SELECT * FROM address_in_users WHERE user_id = '.$userid;
+            $resulttt = mysqli_query($connection, $queryyy);
+            if(mysqli_num_rows($resulttt) == 1) {
+              echo '<a class="btn btn-primary btn-lg btn-block d-inline-block mb-3" href="changeaddress.php" role="button">Change Address</a><br>';
+            }?>
           </div>
         </div>
       </div>

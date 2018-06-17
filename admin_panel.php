@@ -83,6 +83,9 @@ if($_SESSION['aaa'] === 'admin') {
                 $tickets = 'SELECT * FROM support';
                 $query1 = mysqli_query($connection,$tickets);
                 $num_rows1 = mysqli_num_rows($query1);
+                $purchases = 'SELECT * FROM purchases';
+                $query3 = mysqli_query($connection, $purchases);
+                $num_rows3 = mysqli_num_rows($query3);
                 while ($row = mysqli_fetch_array($userquery)) {
                   echo '<tr>';
                   echo '<td scope="row">'.$row['id'].'</td>';
@@ -151,6 +154,16 @@ if($_SESSION['aaa'] === 'admin') {
                 <i class="fa fa-pencil"></i> <?php echo $num_rows34; ?>
               </h1>
               <a href="reviews.php" class="btn btn-dark btn-sm">View</a>
+            </div>
+          </div>
+
+          <div class="card text-center bg-primary text-dark mb-3">
+            <div class="card-body">
+              <h3>Purchases</h3>
+              <h1 class="display-4">
+                <i class="fa fa-shopping-cart"></i> <?php echo $num_rows3; ?>
+              </h1>
+              <a href="purchases.php" class="btn btn-dark btn-sm">View</a>
             </div>
           </div>
 

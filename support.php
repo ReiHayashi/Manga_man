@@ -66,7 +66,7 @@ if(isset($_POST['firstname']) && isset($_POST['lastname']) &&
   $result = mysqli_query($connection, $query);
   //kui päring õnnestus siis näita järgmist
   if($result) {
-    echo "sent a support ticket successfully.
+    echo "support ticket was sent successfully.
           Wait for an E-mail from our support team.
           Process can take up to 24 hours";
   }

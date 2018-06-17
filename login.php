@@ -68,6 +68,7 @@ if (isset($_SESSION['aaa']) && $_SESSION['aaa'] === 'admin') {
       }
     } else {
       $errors[] ='Username or password doesn\'t match';
+      echo output_errors($errors);
     }
   }
 } else {

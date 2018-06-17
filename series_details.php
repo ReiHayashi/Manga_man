@@ -95,13 +95,13 @@ if(isset($_POST['submit'])) {
     $result_seriesupdate = mysqli_query($connection, $seriesupdate);
     //kui andmebaasi päring on läinud edukalt siis
     if($result_seriesupdate) {
-      echo "serie has been updated.";
+      echo '<p class="display-5 text-center">serie has been updated.</p>';
       echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$_SERVER['PHP_SELF'].'?id='.$_GET['id'].'">';
     }
     //kui andmebaasi päring ebaõnnestus
     else {
-      echo "<h1>Error 500</h1> <br>";
-      echo "<p>Internal server error, please try again later.</p>"
+      echo '<h1 class="display-5 text-center">Error 500</h1> <br>';
+      echo '<p class="display-5 text-center">Internal server error, please try again later.</p>'
     }
   }
 } else {
