@@ -92,6 +92,7 @@ if(!empty($_GET['id'])) {
           </div>
         </div>
       </div>
+      <?php if(isset($_SESSION['aaa'])) {?>
       <div class="row">
         <div class="col my-2 rounded text-center">
           <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addPostModal">
@@ -99,6 +100,7 @@ if(!empty($_GET['id'])) {
           </a>
         </div>
       </div>
+    <?php }  ?>
       <div class="row">
         <?php
         //genre query
